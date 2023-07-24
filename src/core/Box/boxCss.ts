@@ -11,7 +11,7 @@ export const boxCss = (props: BoxProps, breakpoint: `${Breakpoints}-` | '' = '')
     min-width: ${props[`${breakpoint}minWidth`]};
     max-width: ${props[`${breakpoint}maxWidth`]};
 
-    min-height: ${props[`${breakpoint}minHeight`]};
+    min-height: ${props[`${breakpoint}minHeight`] === 'fill' ? '100svh' : props[`${breakpoint}minHeight`]};
 
     margin: ${props[`${breakpoint}margin`]};
     padding: ${props[`${breakpoint}padding`]};

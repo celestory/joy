@@ -8,7 +8,7 @@ const Page = styled(Flex)`
 
 export const Landing = () => {
     return (
-        <Page el="main" direction="y" gap="1.2rem" minHeight="100svh">
+        <Page el="main" direction="y" gap="1.2rem" minHeight="fill">
             <Flex el="nav" width="100%" gap="1rem" align="center">
                 <Flex margin="0 auto 0 0" align="center" gap="6rem">
                     <img width="32px" src="/logo.svg" alt="Logo" />

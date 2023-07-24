@@ -1,78 +1,43 @@
 import styled from '@emotion/styled';
+import {Flex, Grid} from '../joy';
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: #121212;
-    height: 100svh;
-    margin: 0;
-    padding: 2rem;
+const Wrapper = styled(Flex)`
+    background-color: var(--theme-background);
 `;
 
 const Heading = styled.h1`
-    color: #eeeeee;
+    color: var(--theme-foreground);
     font-size: 3em;
 `;
 
-const Grid = styled.div`
-    display: grid;
-    gap: 1rem;
-    grid-template-areas:
-        'one'
-        'two'
-        'three'
-        'four'
-        'five';
-    @media (min-width: 600px) {
-        grid-template-areas:
-            'one   one  two  five'
-            'three four four five';
-    }
-`;
-
-const GridItem = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    //
-    color: #aaaaaa;
-    padding: 3rem;
-    border-radius: 1rem;
+const GridItem = styled(Flex)`
+    color: var(--theme-subForeground);
     font-size: 3rem;
     font-weight: bold;
-    background-color: #333333;
-`;
-
-const One = styled(GridItem)`
-    grid-area: one;
-`;
-
-const Two = styled(GridItem)`
-    grid-area: two;
-`;
-
-const Three = styled(GridItem)`
-    grid-area: three;
-`;
-
-const Four = styled(GridItem)`
-    grid-area: four;
-`;
-
-const Five = styled(GridItem)`
-    grid-area: five;
+    border-radius: 1rem;
+    background-color: var(--theme-subBackground);
 `;
 
 export const FancyGrid = () => {
     return (
-        <Wrapper>
+        <Wrapper direction="y" minHeight="fill" margin="0" padding="2rem">
             <Heading>Fancy grid.</Heading>
-            <Grid>
-                <One>1</One>
-                <Two>2</Two>
-                <Three>3</Three>
-                <Four>4</Four>
-                <Five>5</Five>
+            <Grid areas={`'one' 'two' 'three' 'four' 'five'`} md-areas={`'one one two five' 'three four four five'`} gap="1rem">
+                <GridItem item="grid" area="one" align="center" distribute="center" padding="3rem">
+                    1
+                </GridItem>
+                <GridItem item="grid" area="two" align="center" distribute="center" padding="3rem">
+                    2
+                </GridItem>
+                <GridItem item="grid" area="three" align="center" distribute="center" padding="3rem">
+                    3
+                </GridItem>
+                <GridItem item="grid" area="four" align="center" distribute="center" padding="3rem">
+                    4
+                </GridItem>
+                <GridItem item="grid" area="five" align="center" distribute="center" padding="3rem">
+                    5
+                </GridItem>
             </Grid>
         </Wrapper>
     );
