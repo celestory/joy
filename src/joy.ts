@@ -1,2 +1,2 @@
-export {Box} from './core/Box';
-export {ThemeProvider} from './core/Theme';
+export {Box} from './core/Box/Box';
+export {ThemeProvider} from './core/Theme/Theme';

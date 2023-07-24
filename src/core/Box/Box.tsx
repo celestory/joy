@@ -4,39 +4,15 @@ import {useMemo} from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
 
-import {breakpoints} from './types/break';
-import type {PropsWithStyle} from './types/utilities';
-import type {CSSSize, CSSMargin, CSSPadding, CSSOverflow} from './types/theme';
-import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from './types/break';
-
-type CSSAlign = keyof typeof alignToCss;
-type CSSDirection = keyof typeof directionToCss;
-type CSSDistribute = keyof typeof distributeToCss;
-
-const alignToCss = {
-    end: 'flex-end',
-    start: 'flex-start',
-    center: 'center',
-    stretch: 'stretch',
-    default: undefined,
-};
-const directionToCss = {
-    x: 'row',
-    y: 'column',
-    default: undefined,
-};
-const distributeToCss = {
-    end: 'flex-end',
-    start: 'flex-start',
-    center: 'center',
-    around: 'space-around',
-    evenly: 'space-evenly',
-    between: 'space-between',
-    default: undefined,
-};
+import {boxCss} from './boxCss';
+import {breakpoints} from '../types/break';
+import type {PropsWithStyle} from '../types/utilities';
+import type {CSSSize, CSSMargin, CSSPadding, CSSOverflow} from '../types/theme';
+import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../types/break';
 
 type BaseProps = {
     el?: keyof JSX.IntrinsicElements;
+    display?: 'initial' | 'none';
     overflow?: CSSOverflow;
     //
     width?: WithBreakpoint<CSSSize>;
@@ -48,34 +24,47 @@ type BaseProps = {
     margin?: WithBreakpoint<CSSMargin>;
     padding?: WithBreakpoint<CSSPadding>;
 };
-type ItemProps = FlexItemProps | GridItemProps;
 
 type FlexItemProps = {
     item?: 'flex';
     //
-    gap?: WithBreakpoint<CSSPadding>;
-    align?: WithBreakpoint<CSSAlign>;
-    direction?: WithBreakpoint<CSSDirection>;
-    distribute?: WithBreakpoint<CSSDistribute>;
+    grow?: WithBreakpoint<boolean>;
+    basis?: WithBreakpoint<'0' | `${number}rem` | `${number}%`>;
+    shrink?: WithBreakpoint<boolean>;
 };
 
 type GridItemProps = {
     item?: 'grid';
     //
-    area?: string;
+    area?: WithBreakpoint<string>;
 };
 
-type BoxProps = MakeBreakpoints<BaseProps> & MakeBreakpoints<ItemProps>;
+export type BoxFlexItemProps = MakeBreakpoints<FlexItemProps>;
+export type BoxGridItemProps = MakeBreakpoints<GridItemProps>;
+export type BoxProps = MakeBreakpoints<BaseProps> & (BoxFlexItemProps | BoxGridItemProps);
 
 const styledBoxOptions: StyledOptions<BoxProps> = {
     shouldForwardProp: prop =>
-        isPropValid(prop) && !['el', 'hidden', 'overflow', 'width', 'minWidth', 'maxWidth', 'height', 'minHeight', 'maxHeight'].includes(prop),
+        isPropValid(prop) &&
+        ![
+            'el',
+            'hidden',
+            'overflow',
+            'width',
+            'minWidth',
+            'maxWidth',
+            'height',
+            'minHeight',
+            'maxHeight',
+            'item',
+            'gap',
+            'align',
+            'direction',
+            'distribute',
+            'area',
+        ].includes(prop),
 };
 const styledBox = styled('div', styledBoxOptions)<BoxProps>``;
-
-const boxCss = (props: BoxProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
-    width: ${props[`${breakpoint}width`]};
-`;
 
 export const Box = ({el, style, className, children, ...props}: PropsWithStyle<BoxProps>) => {
     const boxClassName = useMemo(() => {

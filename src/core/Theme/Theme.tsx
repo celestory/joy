@@ -2,7 +2,7 @@ import {css} from '@emotion/react';
 import {Global} from '@emotion/react';
 import type {PropsWithChildren} from 'react';
 
-import type {Theme} from './types/theme';
+import type {Theme} from '../types/theme';
 
 type Props = {
     theme: Theme;
