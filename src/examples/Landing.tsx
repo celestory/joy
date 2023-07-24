@@ -2,9 +2,9 @@ import {Box} from '../core/Box';
 
 export const Landing = () => {
     return (
-        <Box el="main" direction="y" gap="20px" background="theme.red" sm-background="theme.green">
+        <Box el="main" direction="y" gap="20px">
             <Box el="nav" width="100%" gap="10px" align="center">
-                <Box margin="0 auto 0 0" align="center" gap="10px">
+                <Box margin="0" align="center" gap="10px">
                     <img width="32px" src="/logo.svg" alt="Logo" />
                     <div style={{fontWeight: 'bold', fontSize: '1.2rem'}}>Joy</div>
                 </Box>
@@ -30,15 +30,15 @@ export const Landing = () => {
             <Box el="section" direction="y" width="100%">
                 <Box el="h2">Features</Box>
                 <Box gap="20px" direction="y" md-direction="x">
-                    <Box el="picture" direction="y" grow>
+                    <Box el="picture" direction="y">
                         <img style={{width: '100%'}} src="https://picsum.photos/id/9/367/267" alt="Macbook on desk" />
                         <Box el="legend">Feature 1</Box>
                     </Box>
-                    <Box el="picture" direction="y" grow>
+                    <Box el="picture" direction="y">
                         <img style={{width: '100%'}} src="https://picsum.photos/id/9/367/267" alt="Macbook on desk" />
                         <Box el="legend">Feature 2</Box>
                     </Box>
-                    <Box el="picture" direction="y" grow>
+                    <Box el="picture" direction="y">
                         <img style={{width: '100%'}} src="https://picsum.photos/id/9/367/267" alt="Macbook on desk" />
                         <Box el="legend">Feature 3</Box>
                     </Box>

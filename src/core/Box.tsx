@@ -1,15 +1,13 @@
-// @ts-nocheck
-
 import {css} from '@emotion/css';
 import styled from '@emotion/styled';
 import {useMemo} from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
-import type {ReactNode, CSSProperties} from 'react';
 
-import {prefixes} from './types/prefixes';
-import type {CSSSize, CSSColor, CSSPadding, CSSOverflow, ThemeProp, CSSMargin} from './types/theme';
-import type {Prefixes, WithPrefix, FlattenPrefixes} from './types/prefixes';
+import {breakpoints} from './types/break';
+import type {PropsWithStyle} from './types/utilities';
+import type {CSSSize, CSSMargin, CSSPadding, CSSOverflow} from './types/theme';
+import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from './types/break';
 
 type CSSAlign = keyof typeof alignToCss;
 type CSSDirection = keyof typeof directionToCss;
@@ -22,13 +20,11 @@ const alignToCss = {
     stretch: 'stretch',
     default: undefined,
 };
-
 const directionToCss = {
     x: 'row',
     y: 'column',
     default: undefined,
 };
-
 const distributeToCss = {
     end: 'flex-end',
     start: 'flex-start',
@@ -39,51 +35,28 @@ const distributeToCss = {
     default: undefined,
 };
 
-type AllProps = {
+type BaseProps = {
     el?: keyof JSX.IntrinsicElements;
-    hidden?: WithPrefix<boolean>;
     overflow?: CSSOverflow;
     //
-    width?: WithPrefix<CSSSize>;
-    minWidth?: WithPrefix<CSSSize>;
-    maxWidth?: WithPrefix<CSSSize>;
+    width?: WithBreakpoint<CSSSize>;
+    minWidth?: WithBreakpoint<CSSSize>;
+    maxWidth?: WithBreakpoint<CSSSize>;
     //
-    height?: WithPrefix<CSSSize>;
-    minHeight?: WithPrefix<CSSSize>;
-    maxHeight?: WithPrefix<CSSSize>;
+    minHeight?: WithBreakpoint<CSSSize>;
     //
-    margin?: WithPrefix<ThemeProp<CSSMargin>> | WithPrefix<`${CSSMargin} ${CSSMargin}`> | WithPrefix<`${CSSMargin} ${CSSMargin} ${CSSMargin} ${CSSMargin}`>;
-    padding?:
-        | WithPrefix<ThemeProp<CSSPadding>>
-        | WithPrefix<`${CSSPadding} ${CSSPadding}`>
-        | WithPrefix<`${CSSPadding} ${CSSPadding} ${CSSPadding} ${CSSPadding}`>;
-    //
-    background?: WithPrefix<ThemeProp<CSSColor>>;
+    margin?: WithBreakpoint<CSSMargin>;
+    padding?: WithBreakpoint<CSSPadding>;
 };
 type ItemProps = FlexItemProps | GridItemProps;
-type StyleProps = {style?: CSSProperties; className?: string; children?: ReactNode};
-type DisplayProps = FlexProps | GridProps | AutoGridProps;
-
-type FlexProps = {
-    display?: 'flex';
-    //
-    grow?: WithPrefix<boolean>;
-    shrink?: WithPrefix<boolean>;
-};
 
 type FlexItemProps = {
     item?: 'flex';
     //
-    gap?: WithPrefix<CSSPadding>;
-    align?: WithPrefix<CSSAlign>;
-    direction?: WithPrefix<CSSDirection>;
-    distribute?: WithPrefix<CSSDistribute>;
-};
-
-type GridProps = {
-    display?: 'grid';
-    //
-    areas?: string[];
+    gap?: WithBreakpoint<CSSPadding>;
+    align?: WithBreakpoint<CSSAlign>;
+    direction?: WithBreakpoint<CSSDirection>;
+    distribute?: WithBreakpoint<CSSDistribute>;
 };
 
 type GridItemProps = {
@@ -92,11 +65,7 @@ type GridItemProps = {
     area?: string;
 };
 
-type AutoGridProps = {
-    display: 'auto-grid';
-};
-
-type BoxProps = StyleProps & FlattenPrefixes<AllProps> & FlattenPrefixes<ItemProps> & FlattenPrefixes<DisplayProps>;
+type BoxProps = MakeBreakpoints<BaseProps> & MakeBreakpoints<ItemProps>;
 
 const styledBoxOptions: StyledOptions<BoxProps> = {
     shouldForwardProp: prop =>
@@ -104,41 +73,18 @@ const styledBoxOptions: StyledOptions<BoxProps> = {
 };
 const styledBox = styled('div', styledBoxOptions)<BoxProps>``;
 
-const boxCss = (props: BoxProps, prefix: `${Prefixes}-` | '' = '') => css`
-    display: ${props[`${prefix}hidden`] ? 'none' : 'flex'};
-    box-sizing: border-box;
-
-    width: ${props[`${prefix}width`]};
-    max-width: ${props[`${prefix}maxWidth`]};
-    min-width: ${props[`${prefix}minWidth`]};
-
-    height: ${props[`${prefix}height`]};
-    max-height: ${props[`${prefix}maxHeight`]};
-    min-height: ${props[`${prefix}minHeight`]};
-
-    flex-grow: ${props[`${prefix}grow`] ? 1 : undefined};
-    ${props[`${prefix}grow`] && `flex-basis: 0;`}
-    flex-shrink: ${props[`${prefix}shrink`] ? 1 : 0};
-
-    flex-direction: ${directionToCss[props[`${prefix}direction`] || 'default']};
-    gap: ${props[`${prefix}gap`]};
-    align-items: ${alignToCss[props[`${prefix}align`] || 'default']};
-    justify-content: ${distributeToCss[props[`${prefix}distribute`] || 'default']};
-
-    margin: ${props[`${prefix}margin`]};
-    padding: ${props[`${prefix}padding`]};
-
-    background: ${props[`${prefix}background`]};
+const boxCss = (props: BoxProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
+    width: ${props[`${breakpoint}width`]};
 `;
 
-export const Box = ({el, style, className, children, ...props}: BoxProps) => {
+export const Box = ({el, style, className, children, ...props}: PropsWithStyle<BoxProps>) => {
     const boxClassName = useMemo(() => {
         return css`
             ${boxCss(props)}
-            ${Object.entries(prefixes).map(([prefix, width]) => {
+            ${Object.entries(breakpoints).map(([prefix, width]) => {
                 return css`
                     @media (min-width: ${width}) {
-                        ${boxCss(props, `${prefix as Prefixes}-`)}
+                        ${boxCss(props, `${prefix as Breakpoints}-`)}
                     }
                 `;
             })};
