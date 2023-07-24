@@ -1,8 +1,14 @@
+import styled from '@emotion/styled';
 import {Box, Flex} from '../joy';
+
+const Page = styled(Flex)`
+    color: var(--theme-foreground);
+    background-color: var(--theme-background);
+`;
 
 export const Landing = () => {
     return (
-        <Flex el="main" direction="y" gap="1.2rem">
+        <Page el="main" direction="y" gap="1.2rem" minHeight="100svh">
             <Flex el="nav" width="100%" gap="1rem" align="center">
                 <Flex margin="0 auto 0 0" align="center" gap="6rem">
                     <img width="32px" src="/logo.svg" alt="Logo" />
@@ -16,7 +22,9 @@ export const Landing = () => {
             </Flex>
             <Flex el="section" gap="1.2rem" align="center">
                 <Flex direction="y" width="60%">
-                    <Box el="h1">My product</Box>
+                    <Box el="h1" margin="0">
+                        My product
+                    </Box>
                     <Box el="p">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus ipsum. Aenean facilisis, justo nec venenatis pellentesque, dui
                         metus porttitor orci, a euismod lorem magna eu nisl. Vivamus ut laoreet magna. Aliquam varius quam accumsan, feugiat mauris ut, porta
@@ -44,6 +52,6 @@ export const Landing = () => {
                     </Flex>
                 </Flex>
             </Flex>
-        </Flex>
+        </Page>
     );
 };

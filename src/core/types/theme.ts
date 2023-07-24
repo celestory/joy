@@ -1,5 +1,6 @@
-export type CSSFont = 'Arial' | 'Lucida';
-export type CSSSize = '0' | `${number}rem` | `${number}%` | 'fit-content';
+export type CSSFont = 'serif' | 'sans-serif' | 'monospace';
+export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
+export type CSSHeight = '0' | '100svh';
 export type CSSColor = `#${string}` | `hsla(${number}, ${number}%, ${number}%, ${number})`;
 export type CSSMargin = '0' | `${number}rem` | `${number}%` | 'auto';
 export type CSSPadding = '0' | `${number}rem` | `${number}em`;
@@ -8,19 +9,35 @@ export type CSSPosition = 'absolute' | 'relative';
 export type CSSFontSize = `${number}rem`;
 
 export interface Theme {
-    font: CSSFont;
-    fontSize: CSSFontSize;
-    //
-    margin: CSSMargin;
-    padding: CSSPadding;
-    //
-    red: CSSColor;
-    green: CSSColor;
+    // typography
+    mainFont: CSSFont;
+    textFont: CSSFont;
+    titleFont: CSSFont;
+    monoFont?: CSSFont;
 
-    subStuff: {
-        red: CSSColor;
-        green: CSSColor;
-    };
+    // monochrome
+    foreground: CSSColor;
+    subForeground: CSSColor;
+    disabledForeground: CSSColor;
+    background: CSSColor;
+    subBackground: CSSColor;
+    disabledBackground: CSSColor;
+
+    // colors
+    red: CSSColor;
+    blue: CSSColor;
+    lime: CSSColor;
+    gray: CSSColor;
+    pink: CSSColor;
+    white: CSSColor;
+    black: CSSColor;
+    green: CSSColor;
+    indigo: CSSColor;
+    orange: CSSColor;
+    purple: CSSColor;
+    yellow: CSSColor;
+    magenta: CSSColor;
+    turquoise: CSSColor;
 }
 
 export type ThemeProp<PropType> = PropType | `theme.${keyof PathSelector<Theme, PropType> & string}`;

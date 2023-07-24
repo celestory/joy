@@ -6,7 +6,7 @@ import type {StyledOptions} from '@emotion/styled';
 import {boxCss} from './boxCss';
 import {breakpoints} from '../types/break';
 import type {PropsWithStyle} from '../types/utilities';
-import type {CSSSize, CSSMargin, CSSPadding, CSSOverflow} from '../types/theme';
+import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../types/theme';
 import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../types/break';
 
 type BaseProps = {
@@ -14,11 +14,11 @@ type BaseProps = {
     display?: WithBreakpoint<'initial' | 'none'>;
     overflow?: CSSOverflow;
     //
-    width?: WithBreakpoint<CSSSize>;
-    minWidth?: WithBreakpoint<CSSSize>;
-    maxWidth?: WithBreakpoint<CSSSize>;
+    width?: WithBreakpoint<CSSWidth>;
+    minWidth?: WithBreakpoint<CSSWidth>;
+    maxWidth?: WithBreakpoint<CSSWidth>;
     //
-    minHeight?: WithBreakpoint<CSSSize>;
+    minHeight?: WithBreakpoint<CSSHeight>;
     //
     margin?: WithBreakpoint<CSSMargin | `${CSSMargin} ${CSSMargin}` | `${CSSMargin} ${CSSMargin} ${CSSMargin} ${CSSMargin}`>;
     padding?: WithBreakpoint<CSSPadding | `${CSSPadding} ${CSSPadding}` | `${CSSPadding} ${CSSPadding} ${CSSPadding} ${CSSPadding}`>;

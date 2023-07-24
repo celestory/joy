@@ -8,7 +8,7 @@ type Props = {
     theme: Theme;
 };
 
-const createThemeVariables = (theme: object, parent: string = 'theme'): string[] => {
+const createThemeVariables = (theme: object, parent = 'theme'): string[] => {
     return Object.entries(theme).reduce((cssVariables, [key, value]) => {
         if (typeof value !== 'string') {
             return [...cssVariables, ...createThemeVariables(value, `${parent}-${key}`)];
