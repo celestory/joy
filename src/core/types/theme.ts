@@ -1,8 +1,8 @@
 export type CSSFont = 'Arial' | 'Lucida';
-export type CSSSize = '0' | `${number}px` | `${number}%` | 'fit-content';
+export type CSSSize = '0' | `${number}rem` | `${number}%` | 'fit-content';
 export type CSSColor = `#${string}` | `hsla(${number}, ${number}%, ${number}%, ${number})`;
-export type CSSMargin = '0' | `${number}px` | `${number}%` | 'auto';
-export type CSSPadding = '0' | `${number}px` | `${number}%`;
+export type CSSMargin = '0' | `${number}rem` | `${number}%` | 'auto';
+export type CSSPadding = '0' | `${number}rem` | `${number}em`;
 export type CSSOverflow = 'auto' | 'hidden' | 'visible';
 export type CSSPosition = 'absolute' | 'relative';
 export type CSSFontSize = `${number}rem`;
