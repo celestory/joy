@@ -7,6 +7,7 @@ import {Hero} from './Hero';
 import {Tags} from './Tags';
 import {Login} from './Login';
 import {Landing} from './Landing';
+import {Pricing} from './Pricing';
 import {Gallery} from './Gallery';
 import {FancyGrid} from './FancyGrid';
 import {ScrollingSidebar} from './ScrollingSidebar';
@@ -16,6 +17,7 @@ const examples = {
     hero: <Hero />,
     tags: <Tags />,
     login: <Login />,
+    pricing: <Pricing />,
     gallery: <Gallery />,
     landing: <Landing />,
     fancyGrid: <FancyGrid />,
@@ -39,7 +41,7 @@ export const App = () => {
                 textFont: 'serif',
 
                 foreground: '#eeeeee',
-                subForeground: '#cccccc',
+                subForeground: '#bbbbbb',
                 disabledForeground: '#888888',
                 background: '#161616',
                 subBackground: '#252525',

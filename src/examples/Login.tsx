@@ -23,27 +23,25 @@ const Label = styled.label`
 
 const Input = styled(Flex)`
     color: #eeeeee;
-    border: 3px solid transparent;
+    border: none;
+    outline: 2px solid transparent;
     border-radius: 0.5em;
-    outline-width: 0;
     background-color: #444444;
-    &:focus {
-        border: 3px solid var(--joy-blue);
+    :focus {
+        outline: 2px solid var(--joy-blue);
     }
 `;
 
 const Button = styled(Flex)`
     cursor: pointer;
     border: none;
+    outline: 2px solid transparent;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 0.5rem;
     background-color: var(--joy-blue);
-    border: 3px solid transparent;
-    outline-width: 0;
-    border: 3px solid transparent;
     &:focus-visible {
-        border: 3px solid var(--joy-foreground);
+        outline: 2px solid var(--joy-foreground);
     }
 `;
 

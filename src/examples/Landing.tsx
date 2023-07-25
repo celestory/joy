@@ -10,9 +10,9 @@ const Button = styled(Box)`
     color: var(--joy-background);
     border: none;
     cursor: pointer;
-    border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
+    border-radius: 0.5rem;
     background-color: var(--joy-purple);
 `;
 

@@ -7,7 +7,8 @@ Simple UI library built on top of emotion.
 - handle missing attributs for specific elements `<Box el="a" href="#truc" />`
 - cursor pointer?
 - Icons
-- ImageBox, TextBox
+- ImageBox
+- TextSpan
 - Card
 - Forms
 - Lightbox
@@ -17,5 +18,5 @@ Simple UI library built on top of emotion.
 - should forward parent props + breakpoints
 - ajouter un systeme de css a rajouter a box (scrollbar, box-sizing, etc.)
 - ajouter des hooks de UI, useTabState, useOpenState, useInputState, etc.
-
+- Add grid-auto-column to grid ?
 /* text-overflow: nowrap; */

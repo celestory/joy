@@ -35,7 +35,7 @@ export const Gallery = () => {
     return (
         <Flex direction="y" padding="2rem" maxWidth="70rem" margin="0 auto">
             <TextBox el="h1" font="theme:titleFont" size="3rem">
-                Gallery.
+                Gallery
             </TextBox>
             <Flex gap="1rem" padding="0 0 1rem 0" width="100%">
                 <Input el="input" width="15rem" minHeight="2.5rem" padding="0.8em 1em" grow={true} />
