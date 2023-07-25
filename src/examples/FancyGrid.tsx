@@ -1,12 +1,7 @@
 import styled from '@emotion/styled';
 import {Flex, Grid} from '../joy';
 
-const Wrapper = styled(Flex)`
-    background-color: var(--theme-background);
-`;
-
 const Heading = styled.h1`
-    color: var(--theme-foreground);
     font-size: 3em;
 `;
 
@@ -20,7 +15,7 @@ const GridItem = styled(Flex)`
 
 export const FancyGrid = () => {
     return (
-        <Wrapper direction="y" minHeight="fill" margin="0" padding="2rem">
+        <Flex direction="y" minHeight="fill" margin="0 auto" maxWidth="50rem" padding="2rem">
             <Heading>Fancy grid.</Heading>
             <Grid areas={`'one' 'two' 'three' 'four' 'five'`} md-areas={`'one one two five' 'three four four five'`} gap="1rem">
                 <GridItem item="grid" area="one" align="center" distribute="center" padding="3rem">
@@ -39,6 +34,6 @@ export const FancyGrid = () => {
                     5
                 </GridItem>
             </Grid>
-        </Wrapper>
+        </Flex>
     );
 };

@@ -1,6 +1,6 @@
 export type CSSFont = 'serif' | 'sans-serif' | 'monospace';
 export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
-export type CSSHeight = '0' | 'fill';
+export type CSSHeight = '0' | `${number}rem` | 'fill';
 export type CSSColor = `#${string}` | `hsla(${number}, ${number}%, ${number}%, ${number})`;
 export type CSSMargin = '0' | `${number}rem` | `${number}%` | 'auto';
 export type CSSPadding = '0' | `${number}rem` | `${number}em`;

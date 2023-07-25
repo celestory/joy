@@ -1,5 +1,5 @@
 import {ThemeProvider} from '../joy';
-import {FancyGrid} from './FancyGrid';
+import {Landing} from './Landing';
 
 export const App = () => {
     return (
@@ -32,7 +32,7 @@ export const App = () => {
                 turquoise: '#00E5D8',
             }}
         >
-            <FancyGrid />
+            <Landing />
         </ThemeProvider>
     );
 };
