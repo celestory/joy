@@ -15,3 +15,7 @@ Simple UI library built on top of emotion.
 - Errors
 - complete examples
 - should forward parent props + breakpoints
+- ajouter un systeme de css a rajouter a box (scrollbar, box-sizing, etc.)
+- ajouter des hooks de UI, useTabState, useOpenState, useInputState, etc.
+
+/* text-overflow: nowrap; */

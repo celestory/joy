@@ -36,6 +36,7 @@ export const flexCss = (props: FlexProps, breakpoint: `${Breakpoints}-` | '' = '
 
     display: ${props[`${breakpoint}display`] === 'none' ? 'none' : 'flex'};
     flex-direction: ${directionToCss[props[`${breakpoint}direction`] || 'default']};
+    flex-wrap: ${props.wrap ? 'wrap' : undefined};
     gap: ${props[`${breakpoint}gap`]};
     align-items: ${alignToCss[props[`${breakpoint}align`] || 'default']};
     justify-content: ${distributeToCss[props[`${breakpoint}distribute`] || 'default']};

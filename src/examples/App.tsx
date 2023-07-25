@@ -4,6 +4,7 @@ import {ThemeProvider} from '../joy';
 
 // examples
 import {Hero} from './Hero';
+import {Tags} from './Tags';
 import {Login} from './Login';
 import {Landing} from './Landing';
 import {Gallery} from './Gallery';
@@ -13,6 +14,7 @@ import {useLocationState} from '../core/hooks/useLocationState';
 
 const examples = {
     hero: <Hero />,
+    tags: <Tags />,
     login: <Login />,
     gallery: <Gallery />,
     landing: <Landing />,
