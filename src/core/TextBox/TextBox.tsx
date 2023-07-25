@@ -30,7 +30,7 @@ const styledDiv = styled('div', options)<TextBoxProps>`
                 }
             `;
         })}
-`;
+` as any;
 
 export const TextBox = ({el, style, className, children, ...props}: PropsWithStyle<TextBoxProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;

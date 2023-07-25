@@ -59,7 +59,7 @@ const styledDiv = styled('div', options)<BoxProps>`
                 }
             `;
         })}
-`;
+` as any;
 
 export const Box = ({el, style, className, children, ...props}: PropsWithStyle<BoxProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;

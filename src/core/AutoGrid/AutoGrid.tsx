@@ -30,7 +30,7 @@ const styledDiv = styled('div', options)<AutoGridProps>`
                 }
             `;
         })}
-`;
+` as any;
 
 export const AutoGrid = ({el, style, className, children, ...props}: PropsWithStyle<AutoGridProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;

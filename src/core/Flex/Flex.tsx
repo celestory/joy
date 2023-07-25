@@ -33,7 +33,7 @@ const styledDiv = styled('div', options)<FlexProps>`
                 }
             `;
         })}
-`;
+` as any;
 
 export const Flex = ({el, style, className, children, ...props}: PropsWithStyle<FlexProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;

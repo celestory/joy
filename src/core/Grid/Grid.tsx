@@ -29,7 +29,7 @@ const styledDiv = styled('div', options)<GridProps>`
                 }
             `;
         })}
-`;
+` as any;
 
 export const Grid = ({el, style, className, children, ...props}: PropsWithStyle<GridProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
