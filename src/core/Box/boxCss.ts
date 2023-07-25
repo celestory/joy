@@ -16,8 +16,8 @@ export const boxCss = (props: BoxProps, breakpoint: `${Breakpoints}-` | '' = '')
     margin: ${props[`${breakpoint}margin`]};
     padding: ${props[`${breakpoint}padding`]};
 
-    ${props.item == 'flex' ? boxFlexItemCss(props) : ''}
-    ${props.item == 'grid' ? boxGridItemCss(props) : ''}
+    ${boxFlexItemCss(props as BoxFlexItemProps)}
+    ${boxGridItemCss(props as BoxGridItemProps)}
 `;
 
 const boxFlexItemCss = (props: BoxFlexItemProps, breakpoint: `${Breakpoints}-` | '' = '') => css`

@@ -11,7 +11,6 @@ import type {FlexAlign, FlexDirection, FlexDistribute} from './flexCss';
 import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../types/break';
 
 type BaseProps = {
-    el?: keyof JSX.IntrinsicElements;
     gap?: WithBreakpoint<`${number}rem`>;
     wrap?: WithBreakpoint<boolean>;
     direction?: WithBreakpoint<FlexDirection>;

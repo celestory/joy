@@ -1,15 +1,5 @@
 import styled from '@emotion/styled';
-
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    color: #eeeeee;
-    height: 100svh;
-    align-items: center;
-    justify-content: center;
-    background-color: #121212;
-    gap: 1rem;
-`;
+import {Flex} from '../joy';
 
 const Logo = styled.img`
     width: 3rem;
@@ -31,52 +21,48 @@ const Label = styled.label`
     }
 `;
 
-const Input = styled.input`
+const Input = styled(Flex)`
     color: #eeeeee;
-    border: none;
-    width: 15rem;
-    height: 2.5rem;
-    padding: 0.8em 1em;
+    border: 3px solid transparent;
     border-radius: 0.5em;
     outline-width: 0;
     background-color: #444444;
-    border: 3px solid transparent;
     &:focus {
-        border: 3px solid #7596de;
+        border: 3px solid var(--joy-blue);
     }
 `;
 
-const Button = styled.button`
+const Button = styled(Flex)`
     cursor: pointer;
     border: none;
-    width: 15rem;
-    height: 2.5rem;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 0.5rem;
-    background-color: #eeeeee;
+    background-color: var(--joy-blue);
     border: 3px solid transparent;
     outline-width: 0;
     border: 3px solid transparent;
-    &:focus {
-        border: 3px solid #7596de;
+    &:focus-visible {
+        border: 3px solid var(--joy-foreground);
     }
 `;
 
 export const Login = () => {
     return (
-        <Wrapper>
+        <Flex direction="y" minHeight="fill" align="center" distribute="center" gap="1rem">
             <Logo src="/logo.svg" alt="logo" />
             <LogoType>Your app</LogoType>
             <Label htmlFor="email">
                 Email
-                <Input id="email" name="email" type="email" />
+                <Input el="input" width="15rem" minHeight="2.5rem" padding="0.8em 1em" />
             </Label>
             <Label htmlFor="password">
                 Password
-                <Input id="password" name="password" type="password" />
+                <Input el="input" width="15rem" minHeight="2.5rem" padding="0.8em 1em" />
             </Label>
-            <Button>Login</Button>
-        </Wrapper>
+            <Button el="button" width="15rem" minHeight="2.5rem" align="center" distribute="center">
+                Login
+            </Button>
+        </Flex>
     );
 };

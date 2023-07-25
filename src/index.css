@@ -6,6 +6,6 @@
 }
 body {
     margin: 0;
-    color: var(--theme-foreground);
-    background-color: var(--theme-background);
+    color: var(--joy-foreground);
+    background-color: var(--joy-background);
 }

@@ -1,5 +1,5 @@
+import {Login} from './Login';
 import {ThemeProvider} from '../joy';
-import {Landing} from './Landing';
 
 export const App = () => {
     return (
@@ -32,7 +32,7 @@ export const App = () => {
                 turquoise: '#00E5D8',
             }}
         >
-            <Landing />
+            <Login />
         </ThemeProvider>
     );
 };

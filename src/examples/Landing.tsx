@@ -7,13 +7,13 @@ const Logo = styled(Box)`
 `;
 
 const Button = styled(Box)`
-    color: var(--theme-background);
+    color: var(--joy-background);
     border: none;
     cursor: pointer;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
-    background-color: var(--theme-purple);
+    background-color: var(--joy-purple);
 `;
 
 export const Landing = () => {
