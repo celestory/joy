@@ -15,7 +15,7 @@ type BaseProps = {
     size?: WithBreakpoint<CSSFontSize>;
     color?: WithTheme<CSSColor>;
     weight?: WithTheme<CSSFontWeight>;
-    lineHeight?: WithBreakpoint<number>;
+    lineHeight?: number;
 };
 
 export type TextBoxProps = BoxProps & MakeBreakpoints<BaseProps>;

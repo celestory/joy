@@ -18,6 +18,7 @@ type BaseProps = {
     minWidth?: WithBreakpoint<CSSWidth>;
     maxWidth?: WithBreakpoint<CSSWidth>;
     //
+    height?: WithBreakpoint<CSSHeight>;
     minHeight?: WithBreakpoint<CSSHeight>;
     //
     margin?: WithBreakpoint<CSSMargin | `${CSSMargin} ${CSSMargin}` | `${CSSMargin} ${CSSMargin} ${CSSMargin} ${CSSMargin}`>;
@@ -45,9 +46,7 @@ export type BoxProps = MakeBreakpoints<BaseProps> & (BoxFlexItemProps | BoxGridI
 const options: StyledOptions<BoxProps> = {
     shouldForwardProp: prop =>
         isPropValid(prop) &&
-        !['el', 'hidden', 'overflow', 'width', 'minWidth', 'maxWidth', 'height', 'minHeight', 'maxHeight', 'item', 'grow', 'basis', 'shrink', 'area'].includes(
-            prop,
-        ),
+        !['el', 'hidden', 'overflow', 'width', 'minWidth', 'maxWidth', 'height', 'minHeight', 'item', 'grow', 'basis', 'shrink', 'area'].includes(prop),
 };
 const styledDiv = styled('div', options)<BoxProps>`
     ${props => boxCss(props)}

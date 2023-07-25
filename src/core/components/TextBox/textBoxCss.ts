@@ -12,4 +12,6 @@ export const textBoxCss = (props: TextBoxProps, breakpoint: `${Breakpoints}-` | 
     font-size: ${props[`${breakpoint}size`]};
     font-family: ${props.font};
     font-weight: ${fontWeightToCss[props.weight || 'default']};
+
+    line-height: ${props.lineHeight};
 `;
