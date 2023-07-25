@@ -8,12 +8,12 @@ import {breakpoints} from '../types/break';
 import type {BoxProps} from '../Box/Box';
 import type {PropsWithStyle} from '../types/utilities';
 import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../types/break';
-import type {CSSFont, CSSColor, CSSFontSize, CSSFontWeight} from '../types/theme';
+import type {CSSFont, CSSColor, CSSFontSize, CSSFontWeight, WithTheme} from '../types/theme';
 
 type BaseProps = {
     font?: CSSFont;
     size?: WithBreakpoint<CSSFontSize>;
-    color?: CSSColor;
+    color?: WithBreakpoint<WithTheme<CSSColor>>;
     weight?: CSSFontWeight;
     lineHeight?: WithBreakpoint<number>;
 };

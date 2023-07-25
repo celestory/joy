@@ -9,17 +9,13 @@ export type CSSPosition = 'absolute' | 'relative';
 export type CSSFontSize = `${number}rem`;
 export type CSSFontWeight = keyof typeof fontWeightToCss;
 
-export const fontWeightToCss = {
-    thin: '100',
-    extraLight: '200',
-    light: '300',
-    regular: '400',
-    medium: '500',
-    semiBold: '600',
-    bold: '700',
-    extraBold: '800',
-    black: '900',
-    default: undefined,
+export type WithTheme<PropType> = PropType | `${typeof themePrefix}${keyof PathSelector<Theme, PropType> & string}`;
+export type PathSelector<T, PropType = string> = {
+    [K in keyof T as T[K] extends object
+        ? `${K & string}.${keyof PathSelector<T[K], PropType> & string}`
+        : T[K] extends PropType
+        ? `${K & string}`
+        : never]: unknown;
 };
 
 export interface Theme {
@@ -54,11 +50,24 @@ export interface Theme {
     turquoise: CSSColor;
 }
 
-export type ThemeProp<PropType> = PropType | `theme.${keyof PathSelector<Theme, PropType> & string}`;
-export type PathSelector<T, PropType = string> = {
-    [K in keyof T as T[K] extends object
-        ? `${K & string}.${keyof PathSelector<T[K], PropType> & string}`
-        : T[K] extends PropType
-        ? `${K & string}`
-        : never]: unknown;
+const themePrefix = 'theme:';
+export const themeProp = <T extends WithTheme<any>>(prop: T) => {
+    if (typeof prop === 'string' && prop.startsWith(themePrefix)) {
+        const propsWithoutPrefix = prop.replace(themePrefix, '--joy-').replaceAll('.', '-');
+        return `var(${propsWithoutPrefix})`;
+    }
+    return prop;
+};
+
+export const fontWeightToCss = {
+    thin: '100',
+    extraLight: '200',
+    light: '300',
+    regular: '400',
+    medium: '500',
+    semiBold: '600',
+    bold: '700',
+    extraBold: '800',
+    black: '900',
+    default: undefined,
 };
