@@ -7,18 +7,21 @@ import {textBoxCss} from './textBoxCss';
 import {breakpoints} from '../types/break';
 import type {BoxProps} from '../Box/Box';
 import type {PropsWithStyle} from '../types/utilities';
-import type {CSSColor, CSSFontSize} from '../types/theme';
 import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../types/break';
+import type {CSSFont, CSSColor, CSSFontSize, CSSFontWeight} from '../types/theme';
 
 type BaseProps = {
+    font?: CSSFont;
     size?: WithBreakpoint<CSSFontSize>;
     color?: CSSColor;
+    weight?: CSSFontWeight;
+    lineHeight?: WithBreakpoint<number>;
 };
 
 export type TextBoxProps = BoxProps & MakeBreakpoints<BaseProps>;
 
 const options: StyledOptions<BoxProps> = {
-    shouldForwardProp: prop => isPropValid(prop) && !['size', 'color'].includes(prop),
+    shouldForwardProp: prop => isPropValid(prop) && !['font', 'size', 'color', 'lineHeight'].includes(prop),
 };
 const styledDiv = styled('div', options)<TextBoxProps>`
     ${props => textBoxCss(props)}

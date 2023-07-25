@@ -32,7 +32,6 @@ export const App = () => {
                 turquoise: '#00E5D8',
             }}
         >
-            {/* <Login /> */}
             <FancyGrid />
         </ThemeProvider>
     );

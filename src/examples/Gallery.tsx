@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
+
 import {Flex} from '../joy';
+import {TextBox} from '../core/TextBox/TextBox';
 import {AutoGrid} from '../core/AutoGrid/AutoGrid';
 
 const Heading = styled.h1`
@@ -49,7 +51,9 @@ export const Gallery = () => {
                 {images.map(({title, url}, i) => (
                     <GridItem key={i} direction="y" gap="1rem">
                         <img src={url} alt={title} />
-                        <div>{title}</div>
+                        <TextBox font="monospace" size="1.2rem" md-size="1rem" weight="bold">
+                            {title}
+                        </TextBox>
                     </GridItem>
                 ))}
             </AutoGrid>
