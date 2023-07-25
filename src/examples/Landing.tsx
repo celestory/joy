@@ -46,16 +46,16 @@ export const Landing = () => {
             </Flex>
             <Flex el="section" direction="y" width="100%">
                 <Box el="h2">Features</Box>
-                <Flex gap="1.2rem" direction="y" md-direction="x">
-                    <Flex el="picture" direction="y" grow>
+                <Flex gap="1.2rem" direction="y" md-direction="x" width="100%">
+                    <Flex el="picture" direction="y" gap="1rem" grow shrink>
                         <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
                         <Box el="legend">Feature 1</Box>
                     </Flex>
-                    <Flex el="picture" direction="y" grow>
+                    <Flex el="picture" direction="y" gap="1rem" grow shrink>
                         <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
                         <Box el="legend">Feature 2</Box>
                     </Flex>
-                    <Flex el="picture" direction="y" grow>
+                    <Flex el="picture" direction="y" gap="1rem" grow shrink>
                         <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
                         <Box el="legend">Feature 3</Box>
                     </Flex>
