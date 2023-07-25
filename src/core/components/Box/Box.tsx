@@ -4,10 +4,10 @@ import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
 
 import {boxCss} from './boxCss';
-import {breakpoints} from '../types/break';
-import type {PropsWithStyle} from '../types/utilities';
-import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../types/theme';
-import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../types/break';
+import {breakpoints} from '../../types/break';
+import type {PropsWithStyle} from '../../types/utilities';
+import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../types/theme';
+import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../../types/break';
 
 type BaseProps = {
     el?: keyof JSX.IntrinsicElements;

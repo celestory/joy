@@ -2,7 +2,7 @@ import {css} from '@emotion/react';
 
 import {boxCss} from '../Box/boxCss';
 import type {GridProps} from './Grid';
-import type {Breakpoints} from '../types/break';
+import type {Breakpoints} from '../../types/break';
 
 export const gridCss = (props: GridProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
     ${boxCss(props, breakpoint)}

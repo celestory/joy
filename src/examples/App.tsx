@@ -1,7 +1,34 @@
+import styled from '@emotion/styled';
+
 import {ThemeProvider} from '../joy';
+
+// examples
+import {Hero} from './Hero';
+import {Login} from './Login';
+import {Landing} from './Landing';
+import {Gallery} from './Gallery';
 import {FancyGrid} from './FancyGrid';
+import {ScrollingSidebar} from './ScrollingSidebar';
+import {useLocationState} from '../core/hooks/useLocationState';
+
+const examples = {
+    hero: <Hero />,
+    login: <Login />,
+    gallery: <Gallery />,
+    landing: <Landing />,
+    fancyGrid: <FancyGrid />,
+    scrollingSidebar: <ScrollingSidebar />,
+};
+type Example = keyof typeof examples;
+
+const Select = styled.select`
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+`;
 
 export const App = () => {
+    const [example, changeExample] = useLocationState<Example>('landing');
     return (
         <ThemeProvider
             theme={{
@@ -32,7 +59,12 @@ export const App = () => {
                 turquoise: '#00E5D8',
             }}
         >
-            <FancyGrid />
+            {examples[example]}
+            <Select value={example} onChange={changeExample}>
+                {Object.keys(examples).map(example => (
+                    <option key={example}>{example}</option>
+                ))}
+            </Select>
         </ThemeProvider>
     );
 };

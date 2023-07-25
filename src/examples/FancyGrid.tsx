@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import {Flex, Grid} from '../joy';
-import {TextBox} from '../core/TextBox/TextBox';
+import {Flex, Grid, TextBox} from '../joy';
 
 const GridItem = styled(Flex)`
     color: var(--joy-subForeground);
@@ -13,7 +12,7 @@ const GridItem = styled(Flex)`
 export const FancyGrid = () => {
     return (
         <Flex direction="y" minHeight="fill" margin="0 auto" maxWidth="50rem" padding="2rem">
-            <TextBox el="h1" size="3rem" color="theme:green" md-color="theme:purple">
+            <TextBox el="h1" size="3rem">
                 Fancy grid.
             </TextBox>
             <Grid areas="'a' 'b' 'c' 'd' 'e'" md-areas="'a a b e' 'c d d e'" gap="1rem">

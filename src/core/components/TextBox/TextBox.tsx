@@ -4,17 +4,17 @@ import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
 
 import {textBoxCss} from './textBoxCss';
-import {breakpoints} from '../types/break';
+import {breakpoints} from '../../types/break';
 import type {BoxProps} from '../Box/Box';
-import type {PropsWithStyle} from '../types/utilities';
-import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../types/break';
-import type {CSSFont, CSSColor, CSSFontSize, CSSFontWeight, WithTheme} from '../types/theme';
+import type {PropsWithStyle} from '../../types/utilities';
+import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../../types/break';
+import type {CSSFont, CSSColor, CSSFontSize, CSSFontWeight, WithTheme} from '../../types/theme';
 
 type BaseProps = {
-    font?: CSSFont;
+    font?: WithTheme<CSSFont>;
     size?: WithBreakpoint<CSSFontSize>;
-    color?: WithBreakpoint<WithTheme<CSSColor>>;
-    weight?: CSSFontWeight;
+    color?: WithTheme<CSSColor>;
+    weight?: WithTheme<CSSFontWeight>;
     lineHeight?: WithBreakpoint<number>;
 };
 

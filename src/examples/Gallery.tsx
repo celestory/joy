@@ -1,12 +1,8 @@
 import styled from '@emotion/styled';
 
 import {Flex} from '../joy';
-import {TextBox} from '../core/TextBox/TextBox';
-import {AutoGrid} from '../core/AutoGrid/AutoGrid';
-
-const Heading = styled.h1`
-    font-size: 3em;
-`;
+import {TextBox} from '../core/components/TextBox/TextBox';
+import {AutoGrid} from '../core/components/AutoGrid/AutoGrid';
 
 const Input = styled(Flex)`
     color: #eeeeee;
@@ -38,7 +34,9 @@ export const Gallery = () => {
     const images = new Array(20).fill({url: '/default-image.png', title: 'Product name'});
     return (
         <Flex direction="y" padding="2rem" maxWidth="70rem" margin="0 auto">
-            <Heading>Gallery.</Heading>
+            <TextBox el="h1" font="theme:titleFont" size="3rem">
+                Gallery.
+            </TextBox>
             <Flex gap="1rem" padding="0 0 1rem 0" width="100%">
                 <Input el="input" width="15rem" minHeight="2.5rem" padding="0.8em 1em" grow={true} />
                 <Select el="select" minWidth="10rem" minHeight="2.5rem" padding="0 0.5rem">
@@ -51,7 +49,7 @@ export const Gallery = () => {
                 {images.map(({title, url}, i) => (
                     <GridItem key={i} direction="y" gap="1rem">
                         <img src={url} alt={title} />
-                        <TextBox font="monospace" size="1.2rem" md-size="1rem" weight="bold">
+                        <TextBox font="theme:textFont" size="1.2rem" md-size="1rem" weight="bold">
                             {title}
                         </TextBox>
                     </GridItem>

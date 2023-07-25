@@ -4,11 +4,11 @@ import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
 
 import {flexCss} from './flexCss';
-import {breakpoints} from '../types/break';
+import {breakpoints} from '../../types/break';
 import type {BoxProps} from '../Box/Box';
-import type {PropsWithStyle} from '../types/utilities';
+import type {PropsWithStyle} from '../../types/utilities';
 import type {FlexAlign, FlexDirection, FlexDistribute} from './flexCss';
-import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../types/break';
+import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../../types/break';
 
 type BaseProps = {
     gap?: WithBreakpoint<`${number}rem`>;
