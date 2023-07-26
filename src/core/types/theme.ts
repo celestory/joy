@@ -2,6 +2,7 @@ export type CSSGap = '0' | `${number}rem`;
 export type CSSFont = 'serif' | 'sans-serif' | 'monospace';
 export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
 export type CSSHeight = '0' | `${number}rem` | 'fill';
+export type CSSRadius = '0' | `${number}rem` | `${number}%`;
 export type CSSColor = `#${string}` | `hsla(${number}, ${number}%, ${number}%, ${number})`;
 export type CSSMargin = '0' | `${number}rem` | `${number}%` | 'auto';
 export type CSSPadding = '0' | `${number}rem` | `${number}em`;
@@ -25,6 +26,9 @@ export interface Theme {
     textFont: CSSFont;
     titleFont: CSSFont;
     monoFont?: CSSFont;
+
+    // effects
+    radius?: CSSRadius;
 
     // monochrome
     foreground: CSSColor;

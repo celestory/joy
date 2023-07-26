@@ -1,15 +1,9 @@
 import styled from '@emotion/styled';
-import {Flex, Grid, TextBox} from '../joy';
+import {Flex, Grid, ImageBox, TextBox} from '../joy';
 
 const Card = styled(Flex)`
     border-radius: 0.5rem;
     background-color: var(--joy-subBackground);
-`;
-
-const ImageBox = styled.img`
-    grid-area: avatar;
-    width: 3rem;
-    border-radius: 50%;
 `;
 
 const data = [
@@ -64,7 +58,7 @@ export const Testimonials = () => {
                             "{message}"
                         </TextBox>
                         <Grid fit={true} areas="'avatar name' 'avatar job'" el="footer" gap="0rem 0.8rem">
-                            <ImageBox src="/default-avatar.png" alt={user} />
+                            <ImageBox style={{gridArea: 'avatar'}} width="3rem" radius="50%" src="/default-avatar.png" alt={user} />
                             <TextBox style={{whiteSpace: 'nowrap'}} weight="bold">
                                 {user}
                             </TextBox>

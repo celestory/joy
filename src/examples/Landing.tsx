@@ -1,17 +1,5 @@
 import styled from '@emotion/styled';
-import {Box, Flex, TextBox} from '../joy';
-
-const Logo = styled.img`
-    width: 2rem;
-`;
-
-const LogoType = styled.div`
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 0.3rem;
-    text-transform: uppercase;
-    margin-right: auto;
-`;
+import {Box, Flex, ImageBox, TextBox} from '../joy';
 
 const Button = styled.button`
     cursor: pointer;
@@ -45,9 +33,11 @@ const TextSpan = styled.span`
 export const Landing = () => {
     return (
         <Flex el="main" direction="y" minHeight="fill">
-            <Flex el="header" padding="1rem" align="center" gap="1rem">
-                <Logo src="/logo.svg" />
-                <LogoType>Joy</LogoType>
+            <Flex el="header" padding="1rem" align="center" gap="0.5rem">
+                <ImageBox width="2rem" src="/logo.svg" />
+                <TextBox weight="bold" size="1.2rem" margin="0 auto 0 0">
+                    Joy
+                </TextBox>
                 <Flex el="nav" display="none" gap="1.5rem" align="center" padding="0 1rem">
                     <TextBox>Blog</TextBox>
                     <TextBox>About</TextBox>
@@ -63,7 +53,7 @@ export const Landing = () => {
             </Flex>
             <Flex el="section" gap="1.2rem" align="center" direction="y" lg-direction="x" maxWidth="70rem" margin="3rem auto">
                 <Flex direction="y" lg-width="50%" shrink={false} align="start" padding="2rem">
-                    <TextBox el="h1" margin="0" size="2.5rem" xl-size="3rem">
+                    <TextBox el="h1" weight="extraBold" margin="0" size="2.5rem" xl-size="3rem">
                         An impactful message about <TextSpan>your product</TextSpan>.
                     </TextBox>
                     <TextBox el="h2" size="1.2rem" weight="light" color="theme:subForeground">

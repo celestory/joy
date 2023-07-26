@@ -41,6 +41,8 @@ export const App = () => {
                 titleFont: 'sans-serif',
                 textFont: 'serif',
 
+                radius: '0.6rem',
+
                 foreground: '#eeeeee',
                 subForeground: '#bbbbbb',
                 disabledForeground: '#888888',

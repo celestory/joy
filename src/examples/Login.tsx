@@ -1,19 +1,8 @@
 import styled from '@emotion/styled';
-import {Flex, TextBox} from '../joy';
-
-const Logo = styled.img`
-    width: 2rem;
-`;
+import {Flex, ImageBox, TextBox} from '../joy';
 
 const TextLink = styled.a`
     color: var(--joy-blue);
-`;
-
-const LogoType = styled.div`
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 0.3rem;
-    text-transform: uppercase;
 `;
 
 const Label = styled.label`
@@ -52,9 +41,11 @@ const Button = styled(Flex)<{primary?: boolean}>`
 export const Login = () => {
     return (
         <Flex direction="y" minHeight="fill" padding="1.5rem">
-            <Flex align="center" gap="1rem">
-                <Logo src="/logo.svg" alt="logo" />
-                <LogoType>Joy</LogoType>
+            <Flex align="center" gap="0.5rem">
+                <ImageBox width="2rem" src="/logo.svg" alt="logo" />
+                <TextBox weight="bold" size="1.2rem">
+                    Joy
+                </TextBox>
             </Flex>
             <Flex grow direction="y" align="center" distribute="center" gap="1rem">
                 <TextBox el="h1" margin="0">

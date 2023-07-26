@@ -1,23 +1,8 @@
 import styled from '@emotion/styled';
-import {Flex, TextBox} from '../joy';
+import {Flex, ImageBox, TextBox} from '../joy';
 
-const Heading = styled.h1`
-    margin: 0;
-    margin-top: 3rem;
+const Heading = styled(TextBox)`
     font-size: clamp(2rem, 8vw, 4rem);
-    text-align: center;
-    font-weight: bolder;
-`;
-
-const Logo = styled.img`
-    width: 2rem;
-`;
-
-const LogoType = styled(Flex)`
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    text-transform: uppercase;
 `;
 
 const Input = styled(Flex)`
@@ -44,17 +29,23 @@ const Button = styled.button`
 export const Hero = () => {
     return (
         <Flex el="main" direction="y" minHeight="fill">
-            <Flex el="nav" gap="1rem" padding="1rem 2rem 1rem 1rem" align="center">
-                <Logo src="/logo.svg" />
-                <LogoType margin="0 auto 0 0">Joy</LogoType>
-                <TextBox>Blog</TextBox>
-                <TextBox>About</TextBox>
-                <TextBox>Pricing</TextBox>
-                <TextBox>FAQ</TextBox>
-                <TextBox>Contact</TextBox>
+            <Flex el="header" gap="0.5rem" padding="1rem 2rem 1rem 1rem" align="center">
+                <ImageBox width="2rem" src="/logo.svg" />
+                <TextBox size="1.2rem" weight="bold" margin="0 auto 0 0">
+                    Joy
+                </TextBox>
+                <Flex el="nav" gap="1.5rem">
+                    <TextBox>Blog</TextBox>
+                    <TextBox>About</TextBox>
+                    <TextBox>Pricing</TextBox>
+                    <TextBox>FAQ</TextBox>
+                    <TextBox>Contact</TextBox>
+                </Flex>
             </Flex>
             <Flex el="section" direction="y" maxWidth="55rem" margin="0 auto" align="center" gap="1rem" padding="2rem" grow>
-                <Heading>An awesome big and bold message to catch the eye.</Heading>
+                <Heading el="h1" weight="extraBold" margin="3rem 0 0 0" textAlign="center">
+                    An awesome big and bold message to catch the eye.
+                </Heading>
                 <TextBox
                     size="1.1rem"
                     md-size="1.4rem"
