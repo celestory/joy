@@ -1,10 +1,10 @@
 import {css} from '@emotion/react';
 
-import type {Breakpoints} from '../../types/break';
+import type {Breakpoints} from '../../utils/types/break';
 import type {BoxProps, BoxFlexItemProps, BoxGridItemProps} from './Box';
 
 export const boxCss = (props: BoxProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
-    display: ${props[`${breakpoint}hidden`] === true ? 'none' : undefined};
+    display: ${props[`${breakpoint}hidden`] === true ? 'none' : breakpoint === '' ? undefined : 'initial'};
     overflow: ${props.overflow};
 
     width: ${props[`${breakpoint}width`]};

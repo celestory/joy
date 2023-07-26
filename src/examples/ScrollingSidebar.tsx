@@ -2,7 +2,7 @@ import {Flex, TextBox} from '../joy';
 
 export const ScrollingSidebar = () => {
     return (
-        <Flex padding="2rem" gap="2rem" height="fill">
+        <Flex padding="2rem" gap="2rem" height="fill" maxWidth="70rem" margin="0 auto">
             <TextBox lineHeight={1.7} color="theme:subForeground" el="aside" width="30%" shrink={false} overflow="auto">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis labore hic aliquid modi! Officiis sapiente dolore quisquam reiciendis
                 veritatis architecto, earum corrupti reprehenderit nemo soluta? Fugit voluptas vero officia perspiciatis. Lorem, ipsum dolor sit amet

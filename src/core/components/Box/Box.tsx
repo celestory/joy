@@ -1,13 +1,9 @@
-import {css} from '@emotion/react';
-import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
-import type {StyledOptions} from '@emotion/styled';
 import type {CSSProperties, PropsWithChildren} from 'react';
 
 import {boxCss} from './boxCss';
-import {breakpoints} from '../../types/break';
-import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../types/theme';
-import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../../types/break';
+import {createStyledWithBreakpoints} from '../../utils/breakpoints';
+import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
+import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../utils/types/theme';
 
 type BaseProps = {
     style?: CSSProperties;
@@ -46,26 +42,10 @@ export type BoxFlexItemProps = MakeBreakpoints<FlexItemProps>;
 export type BoxGridItemProps = MakeBreakpoints<GridItemProps>;
 export type BoxProps = MakeBreakpoints<BaseProps> & (BoxFlexItemProps | BoxGridItemProps);
 
-const options: StyledOptions<BoxProps> = {
-    shouldForwardProp: prop =>
-        isPropValid(prop) &&
-        !['el', 'hidden', 'overflow', 'width', 'minWidth', 'maxWidth', 'height', 'minHeight', 'item', 'grow', 'basis', 'shrink', 'area'].includes(prop),
-};
-const styledDiv = styled('div', options)<BoxProps>`
-    ${props => boxCss(props)}
-    ${props =>
-        Object.entries(breakpoints).map(([prefix, width]) => {
-            return css`
-                @media (min-width: ${width}) {
-                    ${boxCss(props, `${prefix as Breakpoints}-`)}
-                }
-            `;
-        })}
-` as any;
+const styledDiv = createStyledWithBreakpoints(boxCss);
 
 export const Box = ({el, style, className, children, ...props}: PropsWithChildren<BoxProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
-
     return (
         <Element style={style!} className={className} {...props}>
             {children}

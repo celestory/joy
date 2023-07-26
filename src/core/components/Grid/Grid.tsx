@@ -1,14 +1,10 @@
-import {css} from '@emotion/react';
-import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
-import type {StyledOptions} from '@emotion/styled';
 import type {PropsWithChildren} from 'react';
 
 import {gridCss} from './gridCss';
-import {breakpoints} from '../../types/break';
-import type {CSSGap} from '../../types/theme';
+import {createStyledWithBreakpoints} from '../../utils/breakpoints';
+import type {CSSGap} from '../../utils/types/theme';
 import type {BoxProps} from '../Box/Box';
-import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../../types/break';
+import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 
 type BaseProps = {
     gap?: WithBreakpoint<CSSGap | `${CSSGap} ${CSSGap}`>;
@@ -18,20 +14,7 @@ type BaseProps = {
 
 export type GridProps = BoxProps & MakeBreakpoints<BaseProps>;
 
-const options: StyledOptions<BoxProps> = {
-    shouldForwardProp: prop => isPropValid(prop) && !['el', 'gap', 'fit', 'areas'].includes(prop),
-};
-const styledDiv = styled('div', options)<GridProps>`
-    ${props => gridCss(props)}
-    ${props =>
-        Object.entries(breakpoints).map(([prefix, width]) => {
-            return css`
-                @media (min-width: ${width}) {
-                    ${gridCss(props, `${prefix as Breakpoints}-`)}
-                }
-            `;
-        })}
-` as any;
+const styledDiv = createStyledWithBreakpoints(gridCss);
 
 export const Grid = ({el, style, className, children, ...props}: PropsWithChildren<GridProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;

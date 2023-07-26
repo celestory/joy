@@ -5,9 +5,9 @@ import type {StyledOptions} from '@emotion/styled';
 import type {PropsWithChildren} from 'react';
 
 import {autoGridCss} from './autoGridCss';
-import {breakpoints} from '../../types/break';
+import {breakpoints} from '../../utils/types/break';
 import type {BoxProps} from '../Box/Box';
-import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../../types/break';
+import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 
 type BaseProps = {
     gap?: WithBreakpoint<`${number}rem`>;

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Flex, ImageBox, TextBox} from '../joy';
+import {Box, Flex, ImageBox, TextBox} from '../joy';
 
 const Heading = styled(TextBox)`
     font-size: clamp(2rem, 8vw, 4rem);
@@ -34,13 +34,20 @@ export const Hero = () => {
                 <TextBox size="1.2rem" weight="bold" margin="0 auto 0 0">
                     Joy
                 </TextBox>
-                <Flex el="nav" gap="1.5rem">
+                <Flex el="nav" gap="1.5rem" hidden={true} md-hidden={false}>
                     <TextBox>Blog</TextBox>
                     <TextBox>About</TextBox>
                     <TextBox>Pricing</TextBox>
                     <TextBox>FAQ</TextBox>
                     <TextBox>Contact</TextBox>
                 </Flex>
+                <Box hidden={false} md-hidden={true}>
+                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="20" height="2.66667" rx="1.33333" fill="white" />
+                        <rect y="6.66669" width="20" height="2.66667" rx="1.33333" fill="white" />
+                        <rect y="13.3334" width="20" height="2.66667" rx="1.33333" fill="white" />
+                    </svg>
+                </Box>
             </Flex>
             <Flex el="section" direction="y" maxWidth="55rem" margin="0 auto" align="center" gap="1rem" padding="2rem" grow>
                 <Heading el="h1" weight="extraBold" margin="3rem 0 0 0" textAlign="center">

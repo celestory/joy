@@ -38,18 +38,19 @@ export const Landing = () => {
                 <TextBox weight="bold" size="1.2rem" margin="0 auto 0 0">
                     Joy
                 </TextBox>
-                <Flex el="nav" hidden={true} gap="1.5rem" align="center" padding="0 1rem">
+                <Flex el="nav" gap="1.5rem" align="center" padding="0 1rem" hidden={true} md-hidden={false}>
                     <TextBox>Blog</TextBox>
                     <TextBox>About</TextBox>
                     <TextBox>Contact</TextBox>
                     <SmallButton>Book a demo</SmallButton>
                 </Flex>
-
-                {/* <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="20" height="2.66667" rx="1.33333" fill="white" />
-                    <rect y="6.66669" width="20" height="2.66667" rx="1.33333" fill="white" />
-                    <rect y="13.3334" width="20" height="2.66667" rx="1.33333" fill="white" />
-                </svg> */}
+                <Box hidden={false} md-hidden={true}>
+                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="20" height="2.66667" rx="1.33333" fill="white" />
+                        <rect y="6.66669" width="20" height="2.66667" rx="1.33333" fill="white" />
+                        <rect y="13.3334" width="20" height="2.66667" rx="1.33333" fill="white" />
+                    </svg>
+                </Box>
             </Flex>
             <Flex el="section" gap="1.2rem" align="center" direction="y" lg-direction="x" maxWidth="70rem" margin="3rem auto">
                 <Flex direction="y" lg-width="50%" shrink={false} align="start" padding="2rem">

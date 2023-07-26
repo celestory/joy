@@ -2,7 +2,7 @@ import {css} from '@emotion/react';
 
 import {boxCss} from '../Box/boxCss';
 import type {FlexProps} from './Flex';
-import type {Breakpoints} from '../../types/break';
+import type {Breakpoints} from '../../utils/types/break';
 
 const directionToCss = {
     x: 'row',

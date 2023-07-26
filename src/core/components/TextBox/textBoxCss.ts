@@ -1,8 +1,8 @@
 import {css} from '@emotion/react';
 
 import {boxCss} from '../Box/boxCss';
-import {themeProp, fontWeightToCss} from '../../types/theme';
-import type {Breakpoints} from '../../types/break';
+import {themeProp, fontWeightToCss} from '../../utils/types/theme';
+import type {Breakpoints} from '../../utils/types/break';
 import type {TextBoxProps} from './TextBox';
 
 export const textBoxCss = (props: TextBoxProps, breakpoint: `${Breakpoints}-` | '' = '') => css`

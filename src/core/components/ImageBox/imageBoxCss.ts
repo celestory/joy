@@ -1,9 +1,9 @@
 import {css} from '@emotion/react';
 
 import {boxCss} from '../Box/boxCss';
-import type {Breakpoints} from '../../types/break';
+import {themeProp} from '../../utils/types/theme';
+import type {Breakpoints} from '../../utils/types/break';
 import type {ImageBoxProps} from './ImageBox';
-import {themeProp} from '../../types/theme';
 
 export const imageBoxCss = (props: ImageBoxProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
     ${boxCss(props, breakpoint)}

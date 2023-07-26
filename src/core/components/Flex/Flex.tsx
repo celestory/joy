@@ -1,15 +1,11 @@
-import {css} from '@emotion/react';
-import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
-import type {StyledOptions} from '@emotion/styled';
 import type {PropsWithChildren} from 'react';
 
 import {flexCss} from './flexCss';
-import {breakpoints} from '../../types/break';
-import type {CSSGap} from '../../types/theme';
+import {createStyledWithBreakpoints} from '../../utils/breakpoints';
+import type {CSSGap} from '../../utils/types/theme';
 import type {BoxProps} from '../Box/Box';
 import type {FlexAlign, FlexDirection, FlexDistribute} from './flexCss';
-import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../../types/break';
+import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
 
 type BaseProps = {
     gap?: WithBreakpoint<CSSGap>;
@@ -21,20 +17,7 @@ type BaseProps = {
 
 export type FlexProps = BoxProps & MakeBreakpoints<BaseProps>;
 
-const options: StyledOptions<FlexProps> = {
-    shouldForwardProp: prop => isPropValid(prop) && !['el', 'gap', 'wrap', 'direction', 'align', 'distribute'].includes(prop),
-};
-const styledDiv = styled('div', options)<FlexProps>`
-    ${props => flexCss(props)}
-    ${props =>
-        Object.entries(breakpoints).map(([prefix, width]) => {
-            return css`
-                @media (min-width: ${width}) {
-                    ${flexCss(props, `${prefix as Breakpoints}-`)}
-                }
-            `;
-        })}
-` as any;
+const styledDiv = createStyledWithBreakpoints(flexCss);
 
 export const Flex = ({el, style, className, children, ...props}: PropsWithChildren<FlexProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
