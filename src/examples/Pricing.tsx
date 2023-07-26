@@ -21,6 +21,7 @@ const Button = styled(Box)`
     font-size: 1rem;
     font-weight: bold;
     border-radius: 0.5rem;
+    min-height: 2rem;
     background-color: var(--joy-yellow);
 `;
 
@@ -33,17 +34,17 @@ const TextSpan = styled.span`
 export const Pricing = () => {
     const [isYearly, toggleYearly] = useCheckboxState(true);
     return (
-        <Flex el="main" direction="y" maxWidth="50rem" margin="0 auto" padding="2rem" gap="1rem">
-            <Flex el="header" align="center">
-                <TextBox el="h1" size="3rem" margin="0 auto 0 0">
-                    Pricing
-                </TextBox>
+        <Flex el="main" direction="y" maxWidth="70rem" margin="0 auto" padding="2rem" gap="1rem">
+            <TextBox el="h1" size="4rem" textAlign="center" margin="4rem 0 0 0">
+                Pricing plans
+            </TextBox>
+            <TextBox size="1.4rem" weight="light" textAlign="center" lineHeight={1.5} color="theme:subForeground" maxWidth="40rem" margin="0 auto">
+                Simple pricing example with responsive layout. The price automatically updates using useToogleState hook.
+            </TextBox>
+            <Flex margin="0 auto 2.5rem auto" gap="0.5rem">
                 <label>Pay yealy (save 20%)</label>
                 <input type="checkbox" checked={isYearly} onChange={toggleYearly} />
             </Flex>
-            <TextBox size="1.1rem" lineHeight={1.5} color="theme:subForeground">
-                Simple pricing example with responsive layout. The price automatically updates using useToogleState hook.
-            </TextBox>
             <AutoGrid minColumn="14rem" gap="1rem">
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -58,6 +59,23 @@ export const Pricing = () => {
                     </TextBox>
                     <Button el="button" padding="0.5em 0.8em">
                         Sign up for Free
+                    </Button>
+                </Card>
+                <Card direction="y" padding="1.5rem" gap="1rem">
+                    <TextBox el="h2" margin="0">
+                        Education
+                    </TextBox>
+                    <List el="ul" direction="y" gap=".5rem" padding="0" margin="0 0 auto 0">
+                        <li>👯 20 users included</li>
+                        <li>🗃 10GB of storage</li>
+                        <li>✉️ Email support</li>
+                        <li>🤫 Offline mode</li>
+                    </List>
+                    <TextBox color="theme:subForeground">
+                        <TextSpan>${isYearly ? 50 : 5}</TextSpan>/{isYearly ? 'year' : 'month'}
+                    </TextBox>
+                    <Button el="button" padding="0.5em 0.8em">
+                        Subscribe now
                     </Button>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">

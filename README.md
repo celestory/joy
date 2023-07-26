@@ -20,3 +20,12 @@ Simple UI library built on top of emotion.
 - ajouter des hooks de UI, useTabState, useOpenState, useInputState, etc.
 - Add grid-auto-column to grid ?
 /* text-overflow: nowrap; */
+
+## TODO examples
+
+- LoginVariant (with big image)
+- Profile/settings
+- Editor
+- FAQ
+- Template store
+- Sign up steps ?
