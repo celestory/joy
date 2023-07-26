@@ -1,65 +1,75 @@
 import styled from '@emotion/styled';
-import {Box, Flex} from '../joy';
+import {Box, Flex, TextBox} from '../joy';
 
-const Logo = styled(Box)`
-    font-size: 1.2rem;
-    font-weight: bold;
+const Logo = styled.img`
+    width: 2rem;
 `;
 
-const Button = styled(Box)`
-    color: var(--joy-background);
-    border: none;
+const LogoType = styled.div`
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    margin-right: auto;
+`;
+
+const Button = styled.button`
     cursor: pointer;
+    border: none;
+    padding: 0.75em 1.2em;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 0.5rem;
     background-color: var(--joy-purple);
 `;
 
+const SmallButton = styled(Button)`
+    font-size: 0.9rem;
+`;
+
+const SubButton = styled(Button)`
+    background-color: var(--joy-foreground);
+`;
+
+const TextSpan = styled.span`
+    color: var(--joy-purple);
+`;
+
 export const Landing = () => {
     return (
-        <Flex el="main" direction="y" gap="1.2rem" minHeight="fill" maxWidth="60rem" margin="0 auto" padding="2rem">
-            <Flex el="nav" width="100%" gap="1rem" align="center">
-                <Logo margin="0 auto 0 0">🚀 Landing</Logo>
-                <Box>Home</Box>
-                <Box>Pricing</Box>
-                <Box>Blog</Box>
-                <Box>FAQ</Box>
-                <Button el="button" padding="0.4em 0.6em">
-                    Get started
-                </Button>
-            </Flex>
-            <Flex el="section" gap="1.2rem" align="center" direction="y" md-direction="x">
-                <Flex direction="y" width="60%">
-                    <Box el="h1" margin="0">
-                        My product
-                    </Box>
-                    <Box el="p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus ipsum. Aenean facilisis, justo nec venenatis pellentesque, dui
-                        metus porttitor orci, a euismod lorem magna eu nisl. Vivamus ut laoreet magna. Aliquam varius quam accumsan, feugiat mauris ut, porta
-                        lorem.
-                    </Box>
+        <Flex el="main" direction="y" minHeight="fill">
+            <Flex el="header" padding="1rem" align="center" gap="1rem">
+                <Logo src="/logo.svg" />
+                <LogoType>Joy</LogoType>
+                <Flex el="nav" display="none" gap="1.5rem" align="center" padding="0 1rem">
+                    <TextBox>Blog</TextBox>
+                    <TextBox>About</TextBox>
+                    <TextBox>Contact</TextBox>
+                    <SmallButton>Book a demo</SmallButton>
                 </Flex>
-                <Box width="40%">
+
+                {/* <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="2.66667" rx="1.33333" fill="white" />
+                    <rect y="6.66669" width="20" height="2.66667" rx="1.33333" fill="white" />
+                    <rect y="13.3334" width="20" height="2.66667" rx="1.33333" fill="white" />
+                </svg> */}
+            </Flex>
+            <Flex el="section" gap="1.2rem" align="center" direction="y" lg-direction="x" maxWidth="70rem" margin="3rem auto">
+                <Flex direction="y" lg-width="50%" shrink={false} align="start" padding="2rem">
+                    <TextBox el="h1" margin="0" size="2.5rem" xl-size="3rem">
+                        An impactful message about <TextSpan>your product</TextSpan>.
+                    </TextBox>
+                    <TextBox el="h2" size="1.2rem" weight="light" color="theme:subForeground">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus ipsum.
+                    </TextBox>
+                    <Flex gap="1rem">
+                        <Button>Book a demo</Button>
+                        <SubButton>Hire an expert</SubButton>
+                    </Flex>
+                </Flex>
+                <Box grow lg-padding="0 2rem 0 0">
                     <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
                 </Box>
-            </Flex>
-            <Flex el="section" direction="y" width="100%">
-                <Box el="h2">Features</Box>
-                <Flex gap="1.2rem" direction="y" md-direction="x" width="100%">
-                    <Flex el="picture" direction="y" gap="1rem" grow shrink>
-                        <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
-                        <Box el="legend">Feature 1</Box>
-                    </Flex>
-                    <Flex el="picture" direction="y" gap="1rem" grow shrink>
-                        <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
-                        <Box el="legend">Feature 2</Box>
-                    </Flex>
-                    <Flex el="picture" direction="y" gap="1rem" grow shrink>
-                        <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
-                        <Box el="legend">Feature 3</Box>
-                    </Flex>
-                </Flex>
             </Flex>
         </Flex>
     );

@@ -8,6 +8,10 @@ const Card = styled(Flex)`
     background-color: var(--joy-subBackground);
 `;
 
+const Heading = styled(TextBox)`
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+`;
+
 const List = styled(Flex)`
     list-style: none;
     color: var(--joy-subForeground);
@@ -35,10 +39,19 @@ export const Pricing = () => {
     const [isYearly, toggleYearly] = useCheckboxState(true);
     return (
         <Flex el="main" direction="y" maxWidth="70rem" margin="0 auto" padding="2rem" gap="1rem">
-            <TextBox el="h1" size="4rem" textAlign="center" margin="4rem 0 0 0">
+            <Heading el="h1" textAlign="center" margin="4rem 0 0 0">
                 Pricing plans
-            </TextBox>
-            <TextBox size="1.4rem" weight="light" textAlign="center" lineHeight={1.5} color="theme:subForeground" maxWidth="40rem" margin="0 auto">
+            </Heading>
+            <TextBox
+                size="1.1rem"
+                md-size="1.4rem"
+                weight="light"
+                textAlign="center"
+                lineHeight={1.5}
+                color="theme:subForeground"
+                maxWidth="40rem"
+                margin="0 auto"
+            >
                 Simple pricing example with responsive layout. The price automatically updates using useToogleState hook.
             </TextBox>
             <Flex margin="0 auto 2.5rem auto" gap="0.5rem">
