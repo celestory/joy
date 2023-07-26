@@ -2,14 +2,17 @@ import {css} from '@emotion/react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
+import type {CSSProperties, PropsWithChildren} from 'react';
 
 import {boxCss} from './boxCss';
 import {breakpoints} from '../../types/break';
-import type {PropsWithStyle} from '../../types/utilities';
 import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../types/theme';
 import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../../types/break';
 
 type BaseProps = {
+    style?: CSSProperties;
+    className?: string;
+    //
     el?: keyof JSX.IntrinsicElements;
     display?: WithBreakpoint<'initial' | 'none'>;
     overflow?: CSSOverflow;
@@ -60,7 +63,7 @@ const styledDiv = styled('div', options)<BoxProps>`
         })}
 ` as any;
 
-export const Box = ({el, style, className, children, ...props}: PropsWithStyle<BoxProps>) => {
+export const Box = ({el, style, className, children, ...props}: PropsWithChildren<BoxProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
 
     return (

@@ -2,12 +2,12 @@ import {css} from '@emotion/react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
+import type {PropsWithChildren} from 'react';
 
 import {flexCss} from './flexCss';
 import {breakpoints} from '../../types/break';
 import type {CSSGap} from '../../types/theme';
 import type {BoxProps} from '../Box/Box';
-import type {PropsWithStyle} from '../../types/utilities';
 import type {FlexAlign, FlexDirection, FlexDistribute} from './flexCss';
 import type {Breakpoints, WithBreakpoint, MakeBreakpoints} from '../../types/break';
 
@@ -21,7 +21,7 @@ type BaseProps = {
 
 export type FlexProps = BoxProps & MakeBreakpoints<BaseProps>;
 
-const options: StyledOptions<BoxProps> = {
+const options: StyledOptions<FlexProps> = {
     shouldForwardProp: prop => isPropValid(prop) && !['el', 'gap', 'wrap', 'direction', 'align', 'distribute'].includes(prop),
 };
 const styledDiv = styled('div', options)<FlexProps>`
@@ -36,7 +36,7 @@ const styledDiv = styled('div', options)<FlexProps>`
         })}
 ` as any;
 
-export const Flex = ({el, style, className, children, ...props}: PropsWithStyle<FlexProps>) => {
+export const Flex = ({el, style, className, children, ...props}: PropsWithChildren<FlexProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
     return (
         <Element style={style!} className={className} {...props}>

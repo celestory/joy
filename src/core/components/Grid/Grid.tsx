@@ -2,17 +2,17 @@ import {css} from '@emotion/react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
+import type {PropsWithChildren} from 'react';
 
 import {gridCss} from './gridCss';
 import {breakpoints} from '../../types/break';
 import type {CSSGap} from '../../types/theme';
 import type {BoxProps} from '../Box/Box';
-import type {PropsWithStyle} from '../../types/utilities';
 import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../../types/break';
 
 type BaseProps = {
     gap?: WithBreakpoint<CSSGap | `${CSSGap} ${CSSGap}`>;
-    fit?: boolean;
+    fitColumns?: boolean;
     areas?: WithBreakpoint<string>; // FIXME: better typing?
 };
 
@@ -33,7 +33,7 @@ const styledDiv = styled('div', options)<GridProps>`
         })}
 ` as any;
 
-export const Grid = ({el, style, className, children, ...props}: PropsWithStyle<GridProps>) => {
+export const Grid = ({el, style, className, children, ...props}: PropsWithChildren<GridProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
     return (
         <Element style={style!} className={className} {...props}>

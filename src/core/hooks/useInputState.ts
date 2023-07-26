@@ -1,15 +1,14 @@
 import {useCallback, useState} from 'react';
 import type {FormEvent, ChangeEvent} from 'react';
 
-type InputStringChangeEvent =
+type InputEvent =
     | string
     | FormEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     | ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
-export type InputStringChangeCallback = (e: InputStringChangeEvent) => void;
 
 export const useInputState = (initialValue = '') => {
     const [value, setValue] = useState(initialValue);
-    const handleChange = useCallback((e: InputStringChangeEvent) => {
+    const handleChange = useCallback((e: InputEvent) => {
         if (typeof e === 'string') {
             setValue(e as string);
         } else {

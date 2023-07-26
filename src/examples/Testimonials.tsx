@@ -57,12 +57,12 @@ export const Testimonials = () => {
                         <TextBox el="p" margin="0" size="1.1rem" lineHeight={1.4} color="theme:subForeground" italic={true}>
                             "{message}"
                         </TextBox>
-                        <Grid fit={true} areas="'avatar name' 'avatar job'" el="footer" gap="0rem 0.8rem">
-                            <ImageBox style={{gridArea: 'avatar'}} width="3rem" radius="50%" src="/default-avatar.png" alt={user} />
-                            <TextBox style={{whiteSpace: 'nowrap'}} weight="bold">
+                        <Grid fitColumns={true} areas="'avatar name' 'avatar job'" el="footer" gap="0rem 0.8rem">
+                            <ImageBox area="avatar" width="3rem" radius="50%" src="/default-avatar.png" alt={user} />
+                            <TextBox area="name" style={{whiteSpace: 'nowrap'}} weight="bold">
                                 {user}
                             </TextBox>
-                            <TextBox style={{whiteSpace: 'nowrap'}} size="0.9rem">
+                            <TextBox area="job" style={{whiteSpace: 'nowrap'}} size="0.9rem">
                                 {job}
                             </TextBox>
                         </Grid>

@@ -50,10 +50,10 @@ export const Pricing = () => {
                 maxWidth="40rem"
                 margin="0 auto"
             >
-                Simple pricing example with responsive layout. The price automatically updates using useToogleState hook.
+                Simple pricing example with responsive layout. The price automatically updates using useCheckboxState hook.
             </TextBox>
             <Flex margin="0 auto 2.5rem auto" gap="0.5rem">
-                <label>Pay yealy (save 20%)</label>
+                <label>Pay yearly (save 20%)</label>
                 <input type="checkbox" checked={isYearly} onChange={toggleYearly} />
             </Flex>
             <AutoGrid minColumn="14rem" gap="1rem">
