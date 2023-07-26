@@ -6,6 +6,7 @@ Simple UI library built on top of emotion.
 
 - handle missing attributs for specific elements `<Box el="a" href="#truc" />`
 - cursor pointer?
+- do not generate mediaqueries if no breakpoints are present
 - Icons
 - ImageBox
 - TextSpan

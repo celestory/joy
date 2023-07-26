@@ -4,7 +4,7 @@ import type {Breakpoints} from '../../types/break';
 import type {BoxProps, BoxFlexItemProps, BoxGridItemProps} from './Box';
 
 export const boxCss = (props: BoxProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
-    display: ${props[`${breakpoint}display`]};
+    display: ${props[`${breakpoint}hidden`] === true ? 'none' : undefined};
     overflow: ${props.overflow};
 
     width: ${props[`${breakpoint}width`]};

@@ -34,7 +34,7 @@ export type FlexDistribute = keyof typeof distributeToCss;
 export const flexCss = (props: FlexProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
     ${boxCss(props, breakpoint)}
 
-    display: ${props[`${breakpoint}display`] === 'none' ? 'none' : 'flex'};
+    display: ${props[`${breakpoint}hidden`] === true ? 'none' : 'flex'};
     flex-direction: ${directionToCss[props[`${breakpoint}direction`] || 'default']};
     flex-wrap: ${props.wrap ? 'wrap' : undefined};
     gap: ${props[`${breakpoint}gap`]};

@@ -38,7 +38,7 @@ export const Landing = () => {
                 <TextBox weight="bold" size="1.2rem" margin="0 auto 0 0">
                     Joy
                 </TextBox>
-                <Flex el="nav" display="none" gap="1.5rem" align="center" padding="0 1rem">
+                <Flex el="nav" hidden={true} gap="1.5rem" align="center" padding="0 1rem">
                     <TextBox>Blog</TextBox>
                     <TextBox>About</TextBox>
                     <TextBox>Contact</TextBox>

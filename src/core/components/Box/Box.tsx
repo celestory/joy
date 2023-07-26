@@ -14,7 +14,7 @@ type BaseProps = {
     className?: string;
     //
     el?: keyof JSX.IntrinsicElements;
-    display?: WithBreakpoint<'initial' | 'none'>;
+    hidden?: WithBreakpoint<boolean>;
     overflow?: CSSOverflow;
     //
     width?: WithBreakpoint<CSSWidth>;
