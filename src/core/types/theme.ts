@@ -1,3 +1,4 @@
+export type CSSGap = '0' | `${number}rem`;
 export type CSSFont = 'serif' | 'sans-serif' | 'monospace';
 export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
 export type CSSHeight = '0' | `${number}rem` | 'fill';

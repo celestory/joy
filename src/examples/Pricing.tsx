@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
-import {AutoGrid} from '../core/components/AutoGrid/AutoGrid';
-import {useCheckboxState} from '../core/hooks/useCheckboxState';
-import {Box, Flex, TextBox} from '../joy';
+import {AutoGrid, Box, Flex, TextBox, useCheckboxState} from '../joy';
 
 const Card = styled(Flex)`
     border-radius: 1rem;

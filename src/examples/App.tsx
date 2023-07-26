@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import {ThemeProvider} from '../joy';
+import {ThemeProvider, useLocationState} from '../joy';
 
 // examples
 import {Hero} from './Hero';
@@ -10,8 +10,8 @@ import {Landing} from './Landing';
 import {Pricing} from './Pricing';
 import {Gallery} from './Gallery';
 import {FancyGrid} from './FancyGrid';
+import {Testimonials} from './Testimonials';
 import {ScrollingSidebar} from './ScrollingSidebar';
-import {useLocationState} from '../core/hooks/useLocationState';
 
 const examples = {
     hero: <Hero />,
@@ -21,6 +21,7 @@ const examples = {
     gallery: <Gallery />,
     landing: <Landing />,
     fancyGrid: <FancyGrid />,
+    testimonials: <Testimonials />,
     scrollingSidebar: <ScrollingSidebar />,
 };
 type Example = keyof typeof examples;

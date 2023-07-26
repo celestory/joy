@@ -21,6 +21,13 @@ const Button = styled.button`
     font-weight: bold;
     border-radius: 0.5rem;
     background-color: var(--joy-purple);
+    transition: 0.3s all;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(1);
+    }
 `;
 
 const SmallButton = styled(Button)`

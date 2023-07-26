@@ -5,19 +5,21 @@ import type {StyledOptions} from '@emotion/styled';
 
 import {gridCss} from './gridCss';
 import {breakpoints} from '../../types/break';
+import type {CSSGap} from '../../types/theme';
 import type {BoxProps} from '../Box/Box';
 import type {PropsWithStyle} from '../../types/utilities';
 import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../../types/break';
 
 type BaseProps = {
-    gap?: WithBreakpoint<`${number}rem`>;
+    gap?: WithBreakpoint<CSSGap | `${CSSGap} ${CSSGap}`>;
+    fit?: boolean;
     areas?: WithBreakpoint<string>; // FIXME: better typing?
 };
 
 export type GridProps = BoxProps & MakeBreakpoints<BaseProps>;
 
 const options: StyledOptions<BoxProps> = {
-    shouldForwardProp: prop => isPropValid(prop) && !['el', 'gap', 'areas'].includes(prop),
+    shouldForwardProp: prop => isPropValid(prop) && !['el', 'gap', 'fit', 'areas'].includes(prop),
 };
 const styledDiv = styled('div', options)<GridProps>`
     ${props => gridCss(props)}

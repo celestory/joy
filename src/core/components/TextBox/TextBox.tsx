@@ -14,6 +14,7 @@ type BaseProps = {
     font?: WithTheme<CSSFont>;
     size?: WithBreakpoint<CSSFontSize>;
     color?: WithTheme<CSSColor>;
+    italic?: boolean;
     weight?: WithTheme<CSSFontWeight>;
     textAlign?: 'start' | 'center' | 'end';
     lineHeight?: number;
@@ -22,7 +23,7 @@ type BaseProps = {
 export type TextBoxProps = BoxProps & MakeBreakpoints<BaseProps>;
 
 const options: StyledOptions<BoxProps> = {
-    shouldForwardProp: prop => isPropValid(prop) && !['font', 'size', 'color', 'textAlign', 'lineHeight'].includes(prop),
+    shouldForwardProp: prop => isPropValid(prop) && !['font', 'size', 'color', 'italic', 'weight', 'textAlign', 'lineHeight'].includes(prop),
 };
 const styledDiv = styled('div', options)<TextBoxProps>`
     ${props => textBoxCss(props)}

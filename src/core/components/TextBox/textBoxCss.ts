@@ -11,6 +11,7 @@ export const textBoxCss = (props: TextBoxProps, breakpoint: `${Breakpoints}-` | 
     color: ${themeProp(props.color)};
     font-size: ${props[`${breakpoint}size`]};
     font-family: ${props.font};
+    font-style: ${props.italic ? 'italic' : undefined};
     font-weight: ${fontWeightToCss[props.weight || 'default']};
 
     text-align: ${props.textAlign};

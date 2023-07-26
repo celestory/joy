@@ -9,5 +9,6 @@ export const gridCss = (props: GridProps, breakpoint: `${Breakpoints}-` | '' = '
 
     display: ${props[`${breakpoint}display`] === 'none' ? 'none' : 'grid'};
     gap: ${props[`${breakpoint}gap`]};
+    grid-auto-columns: ${props.fit ? 'min-content' : undefined};
     grid-template-areas: ${props[`${breakpoint}areas`]};
 `;

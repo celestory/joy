@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
-import {Flex} from '../joy';
-import {TextBox} from '../core/components/TextBox/TextBox';
-import {AutoGrid} from '../core/components/AutoGrid/AutoGrid';
+import {AutoGrid, Flex, TextBox} from '../joy';
 
 const Input = styled(Flex)`
     color: #eeeeee;
