@@ -3,7 +3,8 @@ export type CSSFont = 'serif' | 'sans-serif' | 'monospace';
 export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
 export type CSSHeight = '0' | `${number}rem` | 'fill';
 export type CSSRadius = '0' | `${number}rem` | `${number}%`;
-export type CSSColor = `#${string}` | `hsla(${number}, ${number}%, ${number}%, ${number})`;
+export type CSSColor = `#${string}` | 'magenta' | 'transparent';
+export type CSSBorder = `${number}px ${'solid' | 'dashed' | 'dotted'} ${CSSColor}`;
 export type CSSMargin = '0' | `${number}rem` | `${number}%` | 'auto';
 export type CSSPadding = '0' | `${number}rem` | `${number}em`;
 export type CSSOverflow = 'auto' | 'hidden' | 'visible';
@@ -53,12 +54,30 @@ export interface Theme {
     yellow: CSSColor;
     magenta: CSSColor;
     turquoise: CSSColor;
+
+    // input
+    input: {
+        radius: CSSRadius;
+        border: CSSBorder;
+        background: CSSColor;
+
+        hover: {
+            radius: CSSRadius;
+            border: CSSBorder;
+            background: CSSColor;
+        };
+    };
 }
 
 const themePrefix = 'theme:';
-export const themeProp = <T extends WithTheme<any>>(prop: T) => {
+// TODO: get rid of defaultValue and type prop: T to prop: T | ThemeKey
+export const themeProp = <T extends WithTheme<any>>(prop: T, defaultValue?: string) => {
     if (typeof prop === 'string' && prop.startsWith(themePrefix)) {
         const propsWithoutPrefix = prop.replace(themePrefix, '--joy-').replaceAll('.', '-');
+        return `var(${propsWithoutPrefix})`;
+    }
+    if (typeof prop === 'undefined' && defaultValue) {
+        const propsWithoutPrefix = defaultValue.replace(themePrefix, '--joy-').replaceAll('.', '-');
         return `var(${propsWithoutPrefix})`;
     }
     return prop;

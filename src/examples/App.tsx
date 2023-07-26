@@ -64,6 +64,18 @@ export const App = () => {
                 yellow: '#F9CC30',
                 magenta: '#F54E9E',
                 turquoise: '#00E5D8',
+
+                input: {
+                    radius: '0.5rem',
+                    border: '3px solid transparent',
+                    background: '#555',
+
+                    hover: {
+                        radius: '0.5rem',
+                        border: '3px solid transparent',
+                        background: '#555',
+                    },
+                },
             }}
         >
             {examples[example]}

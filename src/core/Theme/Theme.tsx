@@ -8,6 +8,10 @@ import type {Theme} from '../utils/types/theme';
 type Props = {
     theme: Theme;
 };
+const styledCache = createCache({
+    key: 'joy',
+    stylisPlugins: [],
+});
 
 const createThemeVariables = (theme: object, parent = 'joy'): string[] => {
     return Object.entries(theme).reduce((cssVariables, [key, value]) => {
@@ -17,11 +21,6 @@ const createThemeVariables = (theme: object, parent = 'joy'): string[] => {
         return [...cssVariables, `--${parent}-${key}: ${value};`];
     }, [] as string[]);
 };
-
-const styledCache = createCache({
-    key: 'joy',
-    stylisPlugins: [],
-});
 
 export const ThemeProvider = ({theme, children}: PropsWithChildren<Props>) => {
     const cssVariables = createThemeVariables(theme).join('\n');

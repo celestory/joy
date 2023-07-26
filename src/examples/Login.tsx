@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Flex, ImageBox, TextBox} from '../joy';
+import {Flex, Input, ImageBox, TextBox} from '../joy';
 
 const TextLink = styled.a`
     color: var(--joy-blue);
@@ -14,16 +14,16 @@ const Label = styled.label`
     }
 `;
 
-const Input = styled(Flex)`
-    color: #eeeeee;
-    border: none;
-    outline: 2px solid transparent;
-    border-radius: 0.5em;
-    background-color: #444444;
-    :focus {
-        outline: 2px solid var(--joy-blue);
-    }
-`;
+// const Input = styled(Flex)`
+//     color: #eeeeee;
+//     border: none;
+//     outline: 2px solid transparent;
+//     border-radius: 0.5em;
+//     background-color: #444444;
+//     :focus {
+//         outline: 2px solid var(--joy-blue);
+//     }
+// `;
 
 const Button = styled(Flex)<{primary?: boolean}>`
     cursor: pointer;
@@ -56,11 +56,11 @@ export const Login = () => {
                 </TextBox>
                 <Label htmlFor="email">
                     Email
-                    <Input el="input" width="20rem" minHeight="2.5rem" padding="0.8em 1em" />
+                    <Input width="20rem" minHeight="2.5rem" padding="0.8em 1em" />
                 </Label>
                 <Label htmlFor="password">
                     Password
-                    <Input el="input" width="20rem" minHeight="2.5rem" padding="0.8em 1em" />
+                    <Input type="password" width="20rem" minHeight="2.5rem" padding="0.8em 1em" />
                 </Label>
                 <Button el="button" primary width="20rem" minHeight="2.5rem" align="center" distribute="center">
                     Sign in

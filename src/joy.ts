@@ -12,4 +12,6 @@ export {AutoGrid} from './core/components/AutoGrid/AutoGrid';
 export {TextBox} from './core/components/TextBox/TextBox';
 export {ImageBox} from './core/components/ImageBox/ImageBox';
 
+export {Input} from './core/components/Forms/Input/Input';
+
 export {ThemeProvider} from './core/Theme/Theme';
