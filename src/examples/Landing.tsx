@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Box, Button, Flex, ImageBox, TextBox} from '../joy';
+import {Box, Button, Flex, ImageBox, TextBox, TextSpan} from '../joy';
 
 const SmallButton = styled(Button)`
     font-size: 0.9rem;
@@ -7,10 +7,6 @@ const SmallButton = styled(Button)`
 
 const SubButton = styled(Button)`
     background-color: var(--joy-foreground);
-`;
-
-const TextSpan = styled.span`
-    color: var(--joy-blue);
 `;
 
 export const Landing = () => {
@@ -38,7 +34,11 @@ export const Landing = () => {
             <Flex el="section" gap="1.2rem" align="center" direction="y" lg-direction="x" maxWidth="70rem" margin="3rem auto">
                 <Flex direction="y" lg-width="50%" shrink={false} align="start" padding="2rem" gap="1.5rem">
                     <TextBox el="h1" weight="extraBold" margin="0" size="2.5rem" xl-size="3rem">
-                        An impactful message about <TextSpan>your product</TextSpan>.
+                        An impactful message about{' '}
+                        <TextSpan el="strong" color="theme:blue">
+                            your product
+                        </TextSpan>
+                        .
                     </TextBox>
                     <TextBox el="h2" size="1.2rem" weight="light" color="theme:subForeground">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus ipsum.

@@ -10,6 +10,7 @@ export {Grid} from './core/components/Grid/Grid';
 export {AutoGrid} from './core/components/AutoGrid/AutoGrid';
 
 export {TextBox} from './core/components/TextBox/TextBox';
+export {TextSpan} from './core/components/TextSpan/TextSpan';
 export {ImageBox} from './core/components/ImageBox/ImageBox';
 
 export {Input} from './core/components/Forms/Input/Input';
