@@ -11,6 +11,7 @@ export {AutoGrid} from './core/components/AutoGrid/AutoGrid';
 
 export {TextBox} from './core/components/TextBox/TextBox';
 export {TextSpan} from './core/components/TextSpan/TextSpan';
+export {TextLink} from './core/components/TextLink/TextLink';
 export {ImageBox} from './core/components/ImageBox/ImageBox';
 
 export {Input} from './core/components/Forms/Input/Input';

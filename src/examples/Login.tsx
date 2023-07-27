@@ -1,9 +1,5 @@
 import styled from '@emotion/styled';
-import {Flex, Input, ImageBox, TextBox, Button} from '../joy';
-
-const TextLink = styled.a`
-    color: var(--joy-blue);
-`;
+import {Flex, Input, ImageBox, TextBox, Button, TextLink} from '../joy';
 
 const Label = styled.label`
     width: 20rem;
@@ -28,7 +24,10 @@ export const Login = () => {
                     Welcome back
                 </TextBox>
                 <TextBox color="theme:subForeground">
-                    New to Joy? <TextLink href="#">Create an account</TextLink>
+                    New to Joy?{' '}
+                    <TextLink href="#" color="theme:blue">
+                        Create an account
+                    </TextLink>
                 </TextBox>
                 <Label htmlFor="email">
                     Email
@@ -44,7 +43,9 @@ export const Login = () => {
                 <Button width="20rem" minHeight="2.5rem">
                     🤓 Sign in with Google
                 </Button>
-                <TextLink href="#">Forgot password?</TextLink>
+                <TextLink href="#" color="theme:blue">
+                    Forgot password?
+                </TextLink>
             </Flex>
         </Flex>
     );

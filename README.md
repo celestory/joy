@@ -25,6 +25,7 @@ Simple UI library built on top of emotion.
 - Find a better way to handle fontWeight font = family + weight ?
 - Handle default values for theme and fallbacks (cf button)
 - Refactor text-based rules (TextBox, TextSpan)
+- Handle buttons as link or button
 
 ## TODO examples
 

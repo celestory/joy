@@ -55,21 +55,21 @@ export const Hero = () => {
                 </TextBox>
                 <Flex gap="1.2rem" direction="y" md-direction="x" width="100%">
                     <Flex direction="y" gap="1rem" grow shrink>
-                        <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
+                        <ImageBox radius="1rem" width="100%" fit="cover" src="/default-image.png" alt="Default image" />
                         <TextBox size="1.1rem" weight="bold">
                             Article title
                         </TextBox>
                         <TextBox size="0.8rem">Lorem ipsum dolor sit amet</TextBox>
                     </Flex>
                     <Flex direction="y" gap="1rem" grow shrink>
-                        <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
+                        <ImageBox radius="1rem" width="100%" fit="cover" src="/default-image.png" alt="Default image" />
                         <TextBox size="1.1rem" weight="bold">
                             Article title
                         </TextBox>
                         <TextBox size="0.8rem">Lorem ipsum dolor sit amet</TextBox>
                     </Flex>
                     <Flex direction="y" gap="1rem" grow shrink>
-                        <img style={{width: '100%'}} src="/default-image.png" alt="Default image" />
+                        <ImageBox radius="1rem" width="100%" fit="cover" src="/default-image.png" alt="Default image" />
                         <TextBox size="1.1rem" weight="bold">
                             Article title
                         </TextBox>
