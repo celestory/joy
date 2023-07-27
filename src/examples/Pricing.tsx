@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {AutoGrid, Box, Flex, TextBox, useCheckboxState} from '../joy';
+import {AutoGrid, Button, Flex, TextBox, useCheckboxState} from '../joy';
 
 const Card = styled(Flex)`
     border-radius: 1rem;
@@ -15,15 +15,7 @@ const List = styled(Flex)`
     color: var(--joy-subForeground);
 `;
 
-const Button = styled(Box)`
-    color: var(--joy-background);
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 0.5rem;
-    min-height: 2rem;
+const PricingButton = styled(Button)`
     background-color: var(--joy-yellow);
 `;
 
@@ -68,9 +60,7 @@ export const Pricing = () => {
                     <TextBox color="theme:subForeground">
                         <TextSpan>$0</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <Button el="button" padding="0.5em 0.8em">
-                        Sign up for Free
-                    </Button>
+                    <PricingButton padding="0.5em 0.8em">Sign up for Free</PricingButton>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -85,9 +75,7 @@ export const Pricing = () => {
                     <TextBox color="theme:subForeground">
                         <TextSpan>${isYearly ? 50 : 5}</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <Button el="button" padding="0.5em 0.8em">
-                        Subscribe now
-                    </Button>
+                    <PricingButton padding="0.5em 0.8em">Subscribe now</PricingButton>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -102,9 +90,7 @@ export const Pricing = () => {
                     <TextBox color="theme:subForeground">
                         <TextSpan>${isYearly ? 100 : 10}</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <Button el="button" padding="0.5em 0.8em">
-                        Subscribe now
-                    </Button>
+                    <PricingButton padding="0.5em 0.8em">Subscribe now</PricingButton>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -117,9 +103,7 @@ export const Pricing = () => {
                         <li>🤫 Offline mode</li>
                         <li>🎨 Custom export</li>
                     </List>
-                    <Button el="button" padding="0.5em 0.8em">
-                        Contact Us
-                    </Button>
+                    <PricingButton padding="0.5em 0.8em">Contact Us</PricingButton>
                 </Card>
             </AutoGrid>
         </Flex>

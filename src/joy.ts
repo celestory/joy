@@ -13,5 +13,6 @@ export {TextBox} from './core/components/TextBox/TextBox';
 export {ImageBox} from './core/components/ImageBox/ImageBox';
 
 export {Input} from './core/components/Forms/Input/Input';
+export {Button} from './core/components/Forms/Button/Button';
 
 export {ThemeProvider} from './core/Theme/Theme';

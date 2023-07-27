@@ -4,7 +4,7 @@ export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
 export type CSSHeight = '0' | `${number}rem` | 'fill';
 export type CSSRadius = '0' | `${number}rem` | `${number}%`;
 export type CSSColor = `#${string}` | 'magenta' | 'transparent';
-export type CSSBorder = `${number}px ${'solid' | 'dashed' | 'dotted'} ${CSSColor}`;
+export type CSSBorder = 'none' | `${number}px ${'solid' | 'dashed' | 'dotted'} ${CSSColor}`;
 export type CSSMargin = '0' | `${number}rem` | `${number}%` | 'auto';
 export type CSSPadding = '0' | `${number}rem` | `${number}em`;
 export type CSSOverflow = 'auto' | 'hidden' | 'visible';
@@ -57,11 +57,40 @@ export interface Theme {
 
     // input
     input: {
+        color: CSSColor;
         radius: CSSRadius;
         border: CSSBorder;
         background: CSSColor;
+        transition: `${number}s`;
 
         hover: {
+            radius: CSSRadius;
+            border: CSSBorder;
+            background: CSSColor;
+        };
+
+        focus: {
+            radius: CSSRadius;
+            border: CSSBorder;
+            background: CSSColor;
+        };
+    };
+
+    // button
+    button: {
+        color: CSSColor;
+        radius: CSSRadius;
+        border: CSSBorder;
+        background: CSSColor;
+        transition: `${number}s`;
+
+        hover: {
+            radius: CSSRadius;
+            border: CSSBorder;
+            background: CSSColor;
+        };
+
+        focus: {
             radius: CSSRadius;
             border: CSSBorder;
             background: CSSColor;

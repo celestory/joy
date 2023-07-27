@@ -1,29 +1,8 @@
 import styled from '@emotion/styled';
-import {Box, Flex, ImageBox, TextBox} from '../joy';
+import {Box, Button, Flex, ImageBox, Input, TextBox} from '../joy';
 
 const Heading = styled(TextBox)`
     font-size: clamp(2rem, 8vw, 4rem);
-`;
-
-const Input = styled(Flex)`
-    color: #eeeeee;
-    border: none;
-    outline: 2px solid transparent;
-    border-radius: 0.5em;
-    background-color: #444444;
-    :focus {
-        outline: 2px solid var(--joy-indigo);
-    }
-`;
-
-const Button = styled.button`
-    cursor: pointer;
-    border: none;
-    padding: 0.75rem 1.2rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 0.5rem;
-    background-color: var(--joy-indigo);
 `;
 
 export const Hero = () => {
@@ -66,8 +45,8 @@ export const Hero = () => {
                     Use the input bellow to get your email and get informed about the project.
                 </TextBox>
                 <Flex gap="1rem">
-                    <Input el="input" width="15rem" minHeight="2.5rem" padding="0.8em 1em" />
-                    <Button>Join Now!</Button>
+                    <Input placeholder="name@email.com" width="15rem" minHeight="2.5rem" padding="0.8em 1em" />
+                    <Button padding="0.75rem 1.2rem">Join Now!</Button>
                 </Flex>
             </Flex>
             <Flex el="section" direction="y" width="100%" padding="2rem" maxWidth="60rem" margin="0 auto">

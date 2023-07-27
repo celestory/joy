@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Flex, Input, ImageBox, TextBox} from '../joy';
+import {Flex, Input, ImageBox, TextBox, Button} from '../joy';
 
 const TextLink = styled.a`
     color: var(--joy-blue);
@@ -11,30 +11,6 @@ const Label = styled.label`
     font-size: 0.9rem;
     input {
         margin-top: 0.5rem;
-    }
-`;
-
-// const Input = styled(Flex)`
-//     color: #eeeeee;
-//     border: none;
-//     outline: 2px solid transparent;
-//     border-radius: 0.5em;
-//     background-color: #444444;
-//     :focus {
-//         outline: 2px solid var(--joy-blue);
-//     }
-// `;
-
-const Button = styled(Flex)<{primary?: boolean}>`
-    cursor: pointer;
-    border: none;
-    outline: 2px solid transparent;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 0.5rem;
-    background-color: ${props => (props.primary ? 'var(--joy-blue)' : 'var(--joy-foreground)')};
-    &:focus-visible {
-        outline: 2px solid var(--joy-foreground);
     }
 `;
 
@@ -62,10 +38,10 @@ export const Login = () => {
                     Password
                     <Input type="password" width="20rem" minHeight="2.5rem" padding="0.8em 1em" />
                 </Label>
-                <Button el="button" primary width="20rem" minHeight="2.5rem" align="center" distribute="center">
+                <Button width="20rem" minHeight="2.5rem">
                     Sign in
                 </Button>
-                <Button el="button" width="20rem" minHeight="2.5rem" align="center" distribute="center">
+                <Button width="20rem" minHeight="2.5rem">
                     🤓 Sign in with Google
                 </Button>
                 <TextLink href="#">Forgot password?</TextLink>

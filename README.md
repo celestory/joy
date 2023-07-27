@@ -22,6 +22,9 @@ Simple UI library built on top of emotion.
 - Add grid-auto-column to grid ?
 /* text-overflow: nowrap; */
 - youtube videos / aspect ratio ?
+- Find a better way to handle fontWeight font = family + weight ?
+- Handle default values for theme and fallbacks (cf button)
+- Refactor text-based rules (TextBox, TextSpan)
 
 ## TODO examples
 

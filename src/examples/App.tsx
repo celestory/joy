@@ -66,14 +66,41 @@ export const App = () => {
                 turquoise: '#00E5D8',
 
                 input: {
+                    color: '#eeeeee',
                     radius: '0.5rem',
                     border: '3px solid transparent',
-                    background: '#555',
+                    background: '#444444',
+                    transition: '.3s',
 
                     hover: {
                         radius: '0.5rem',
                         border: '3px solid transparent',
-                        background: '#555',
+                        background: '#555555',
+                    },
+
+                    focus: {
+                        radius: '0.5rem',
+                        border: '3px solid #00B2FF',
+                        background: '#444444',
+                    },
+                },
+                button: {
+                    color: '#222222',
+                    radius: '0.5rem',
+                    border: 'none',
+                    background: '#00B2FF',
+                    transition: '.3s',
+
+                    hover: {
+                        radius: '0.5rem',
+                        border: 'none',
+                        background: '#4ecaff',
+                    },
+
+                    focus: {
+                        radius: '0.5rem',
+                        border: 'none',
+                        background: '#00B2FF',
                     },
                 },
             }}

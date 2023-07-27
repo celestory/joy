@@ -50,7 +50,9 @@ const data = [
 export const Testimonials = () => {
     return (
         <Flex direction="y" maxWidth="60rem" margin="0 auto" padding="2rem">
-            <h1>Testimonials</h1>
+            <TextBox el="h1" margin="2rem 0">
+                Testimonials
+            </TextBox>
             <Flex gap="1rem" overflow="auto" align="start">
                 {data.map(({id, user, job, message}) => (
                     <Card el="section" direction="y" key={id} padding="2rem" minWidth="16rem" gap="1rem">

@@ -12,16 +12,21 @@ export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' =
     background: ${themeProp('theme:input.background')};
     border-radius: ${themeProp('theme:input.radius')};
 
-    // FIXME: Jerem :)
-    color: var(--joy-red);
-    outline: 2px solid transparent;
-    :focus {
-        outline: 2px solid var(--joy-red);
-    }
+    font-family: ${themeProp('theme:mainFont')};
+    color: ${themeProp('theme:input.color', 'theme:foreground')};
+    outline: none;
+
+    transition: ${themeProp('theme:input.transition')} all;
 
     &:hover {
         border: ${themeProp('theme:input.hover.border')};
         background: ${themeProp('theme:input.hover.background')};
         border-radius: ${themeProp('theme:input.hover.radius')};
+    }
+
+    &:focus {
+        border: ${themeProp('theme:input.focus.border')};
+        background: ${themeProp('theme:input.focus.background')};
+        border-radius: ${themeProp('theme:input.focus.radius')};
     }
 `;
