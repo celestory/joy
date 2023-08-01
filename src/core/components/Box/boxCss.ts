@@ -1,5 +1,6 @@
 import {css} from '@emotion/react';
 
+import {scrollbar} from './scrollbarCss';
 import type {Breakpoints} from '../../utils/types/break';
 import type {BoxProps, BoxFlexItemProps, BoxGridItemProps} from './Box';
 
@@ -19,6 +20,7 @@ export const boxCss = (props: BoxProps, breakpoint: `${Breakpoints}-` | '' = '')
 
     ${boxFlexItemCss(props as BoxFlexItemProps)}
     ${boxGridItemCss(props as BoxGridItemProps)}
+    ${scrollbar}
 `;
 
 const boxFlexItemCss = (props: BoxFlexItemProps, breakpoint: `${Breakpoints}-` | '' = '') => css`

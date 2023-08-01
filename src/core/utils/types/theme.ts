@@ -53,6 +53,13 @@ export interface Theme {
     magenta: CSSColor;
     turquoise: CSSColor;
 
+    scrollbar?: {
+        thumb: CSSColor;
+        hover: {
+            thumb: CSSColor;
+        };
+    };
+
     // input
     input: {
         color: CSSColor;

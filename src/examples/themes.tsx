@@ -25,6 +25,13 @@ export const dark: Theme = {
     magenta: '#F54E9E',
     turquoise: '#00E5D8',
 
+    scrollbar: {
+        thumb: '#333333',
+        hover: {
+            thumb: '#444444',
+        },
+    },
+
     input: {
         color: '#eeeeee',
         radius: '0.5rem',
@@ -92,6 +99,13 @@ export const light: Theme = {
     yellow: '#F9CC30',
     magenta: '#F54E9E',
     turquoise: '#00E5D8',
+
+    scrollbar: {
+        thumb: '#dddddd',
+        hover: {
+            thumb: '#cccccc',
+        },
+    },
 
     input: {
         color: '#444444',
