@@ -1,13 +1,4 @@
-import styled from '@emotion/styled';
-import {AutoGrid, Box, Flex, ImageBox, Input, TextBox} from '../joy';
-
-const Select = styled(Box)`
-    color: #eeeeee;
-    border: none;
-    border-radius: 0.5rem;
-    outline-width: 0;
-    background-color: #444444;
-`;
+import {AutoGrid, Flex, ImageBox, Input, Select, TextBox} from '../joy';
 
 export const Gallery = () => {
     const images = new Array<{url: string; title: string}>(20).fill({url: '/default-image.png', title: 'Product name'});
@@ -18,7 +9,7 @@ export const Gallery = () => {
             </TextBox>
             <Flex gap="1rem" padding="0 0 1rem 0" width="100%">
                 <Input placeholder="Search..." width="15rem" minHeight="2.5rem" padding="0.8em 1em" grow={true} />
-                <Select el="select" minWidth="10rem" minHeight="2.5rem" padding="0 0.5rem">
+                <Select minWidth="10rem" minHeight="2.5rem" padding="0 0.5rem">
                     <option>All</option>
                     <option>Draft</option>
                     <option>Other</option>

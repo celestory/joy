@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Flex, ThemeProvider, useInputState, useLocationState} from '../joy';
+import {Flex, Select, ThemeProvider, useInputState, useLocationState} from '../joy';
 
 // examples
 import {Hero} from './Hero';
@@ -45,15 +45,15 @@ export const App = () => {
         <ThemeProvider theme={themes[themeName]}>
             {examples[example]}
             <Bottom gap="1rem">
-                <select value={themeName} onChange={setThemeName}>
+                <Select value={themeName} onChange={setThemeName}>
                     <option value="dark">🌙 Dark</option>
                     <option value="light">☀️ Light</option>
-                </select>
-                <select value={example} onChange={changeExample}>
+                </Select>
+                <Select value={example} onChange={changeExample}>
                     {Object.keys(examples).map(example => (
                         <option key={example}>{example}</option>
                     ))}
-                </select>
+                </Select>
             </Bottom>
         </ThemeProvider>
     );

@@ -15,6 +15,7 @@ export {TextLink} from './core/components/TextLink/TextLink';
 export {ImageBox} from './core/components/ImageBox/ImageBox';
 
 export {Input} from './core/components/Forms/Input/Input';
+export {Select} from './core/components/Forms/Select/Select';
 export {Button, LinkButton} from './core/components/Forms/Button/Button';
 
 export {ThemeProvider} from './core/Theme/Theme';
