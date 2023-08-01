@@ -11,6 +11,9 @@ export type CSSOverflow = 'auto' | 'hidden' | 'visible';
 export type CSSPosition = 'absolute' | 'relative';
 export type CSSFontSize = `${number}rem`;
 export type CSSFontWeight = keyof typeof fontWeightToCss;
+export type CSSTranslate = `${'0' | `${number}em`} ${'0' | `${number}em`}`;
+export type CSSRotate = `${number}deg`;
+export type CSSScale = `${number}`;
 
 export type WithTheme<PropType> = PropType | `${typeof themePrefix}${keyof PathSelector<Theme, PropType> & string}`;
 export type PathSelector<T, PropType = string> = {
@@ -27,9 +30,6 @@ export interface Theme {
     textFont: CSSFont;
     titleFont: CSSFont;
     monoFont?: CSSFont;
-
-    // effects
-    radius?: CSSRadius;
 
     // monochrome
     foreground: CSSColor;
@@ -82,18 +82,33 @@ export interface Theme {
         radius: CSSRadius;
         border: CSSBorder;
         background: CSSColor;
+
+        scale?: CSSScale;
+        rotate?: CSSRotate;
+        translate?: CSSTranslate;
+
         transition: `${number}s`;
 
         hover: {
+            color: CSSColor;
             radius: CSSRadius;
             border: CSSBorder;
             background: CSSColor;
+
+            scale?: CSSScale;
+            rotate?: CSSRotate;
+            translate?: CSSTranslate;
         };
 
         focus: {
+            color: CSSColor;
             radius: CSSRadius;
             border: CSSBorder;
             background: CSSColor;
+
+            scale?: CSSScale;
+            rotate?: CSSRotate;
+            translate?: CSSTranslate;
         };
     };
 }

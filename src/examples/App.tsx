@@ -41,8 +41,6 @@ export const App = () => {
                 titleFont: 'sans-serif',
                 textFont: 'serif',
 
-                radius: '0.6rem',
-
                 foreground: '#eeeeee',
                 subForeground: '#bbbbbb',
                 disabledForeground: '#888888',
@@ -92,15 +90,18 @@ export const App = () => {
                     transition: '.3s',
 
                     hover: {
+                        color: '#222222',
                         radius: '0.5rem',
                         border: 'none',
                         background: '#4ecaff',
                     },
 
                     focus: {
+                        color: '#222222',
                         radius: '0.5rem',
                         border: 'none',
                         background: '#00B2FF',
+                        translate: '0 0.2em',
                     },
                 },
             }}
