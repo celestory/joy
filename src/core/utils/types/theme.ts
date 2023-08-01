@@ -34,10 +34,8 @@ export interface Theme {
     // monochrome
     foreground: CSSColor;
     subForeground: CSSColor;
-    disabledForeground: CSSColor;
     background: CSSColor;
     subBackground: CSSColor;
-    disabledBackground: CSSColor;
 
     // colors
     red: CSSColor;
