@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 import {Box, Button, Flex, ImageBox, TextBox, TextSpan} from '../joy';
 
-const SmallButton = styled(Button)`
-    font-size: 0.9rem;
-`;
-
 const SubButton = styled(Button)`
     background-color: var(--joy-foreground);
 `;
@@ -21,7 +17,7 @@ export const Landing = () => {
                     <TextBox>Blog</TextBox>
                     <TextBox>About</TextBox>
                     <TextBox>Contact</TextBox>
-                    <SmallButton>Book a demo</SmallButton>
+                    <Button>Book a demo</Button>
                 </Flex>
                 <Box hidden={false} md-hidden={true}>
                     <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,8 +40,8 @@ export const Landing = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus ipsum.
                     </TextBox>
                     <Flex gap="1rem">
-                        <Button>Book a demo</Button>
-                        <SubButton>Hire an expert</SubButton>
+                        <Button xl-size="1.1rem">Book a demo</Button>
+                        <SubButton xl-size="1.1rem">Hire an expert</SubButton>
                     </Flex>
                 </Flex>
                 <Box grow lg-padding="0 2rem 0 0">

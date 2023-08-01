@@ -60,7 +60,7 @@ export const Pricing = () => {
                     <TextBox color="theme:subForeground">
                         <TextSpan>$0</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <PricingButton padding="0.5em 0.8em">Sign up for Free</PricingButton>
+                    <PricingButton>Sign up for Free</PricingButton>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -75,7 +75,7 @@ export const Pricing = () => {
                     <TextBox color="theme:subForeground">
                         <TextSpan>${isYearly ? 50 : 5}</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <PricingButton padding="0.5em 0.8em">Subscribe now</PricingButton>
+                    <PricingButton>Subscribe now</PricingButton>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -90,7 +90,7 @@ export const Pricing = () => {
                     <TextBox color="theme:subForeground">
                         <TextSpan>${isYearly ? 100 : 10}</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <PricingButton padding="0.5em 0.8em">Subscribe now</PricingButton>
+                    <PricingButton>Subscribe now</PricingButton>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -103,7 +103,7 @@ export const Pricing = () => {
                         <li>🤫 Offline mode</li>
                         <li>🎨 Custom export</li>
                     </List>
-                    <PricingButton padding="0.5em 0.8em">Contact Us</PricingButton>
+                    <PricingButton>Contact Us</PricingButton>
                 </Card>
             </AutoGrid>
         </Flex>

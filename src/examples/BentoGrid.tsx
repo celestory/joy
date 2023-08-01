@@ -9,11 +9,11 @@ const GridItem = styled(Flex)`
     background-color: var(--joy-subBackground);
 `;
 
-export const FancyGrid = () => {
+export const BentoGrid = () => {
     return (
         <Flex direction="y" minHeight="fill" margin="0 auto" maxWidth="50rem" padding="2rem">
             <TextBox el="h1" size="3rem" margin="2rem 0">
-                Fancy grid
+                Bento grid
             </TextBox>
             <Grid areas="'a' 'b' 'c' 'd' 'e'" md-areas="'a a b e' 'c d d e'" gap="1rem">
                 <GridItem area="a" align="center" distribute="center" padding="3rem">

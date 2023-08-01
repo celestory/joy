@@ -6,15 +6,19 @@ import type {InputProps} from './Input';
 import type {Breakpoints} from '../../../utils/types/break';
 
 export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
+    padding: 0.8em;
+
     ${boxCss(props, breakpoint)}
+
+    outline: none;
 
     border: ${themeProp('theme:input.border')};
     background: ${themeProp('theme:input.background')};
     border-radius: ${themeProp('theme:input.radius')};
 
-    font-family: ${themeProp('theme:mainFont')};
     color: ${themeProp('theme:input.color', 'theme:foreground')};
-    outline: none;
+    font-size: ${props[`${breakpoint}size`]};
+    font-family: ${themeProp('theme:mainFont')};
 
     transition: ${themeProp('theme:input.transition')} all;
 

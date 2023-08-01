@@ -6,7 +6,7 @@ import type {ButtonProps} from './Button';
 import type {Breakpoints} from '../../../utils/types/break';
 
 export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
-    padding: 0.75em 1em;
+    padding: 0.8em 1em;
 
     ${boxCss(props, breakpoint)}
 
@@ -17,7 +17,7 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
     border-radius: ${themeProp('theme:button.radius')};
 
     font-family: ${themeProp('theme:mainFont')};
-    font-size: 1rem;
+    font-size: ${props[`${breakpoint}size`]};
     font-weight: bold;
     color: ${themeProp('theme:button.color', 'theme:foreground')};
     outline: none;

@@ -45,8 +45,10 @@ export const Hero = () => {
                     Use the input bellow to get your email and get informed about the project.
                 </TextBox>
                 <Flex gap="1rem">
-                    <Input placeholder="name@email.com" width="15rem" minHeight="2.5rem" padding="0.8em 1em" />
-                    <Button padding="0.75rem 1.2rem">Join Now!</Button>
+                    <Input placeholder="name@email.com" width="15rem" md-width="20rem" size="1rem" md-size="1.2rem" />
+                    <Button size="1rem" md-size="1.2rem">
+                        Join Now!
+                    </Button>
                 </Flex>
             </Flex>
             <Flex el="section" direction="y" width="100%" padding="2rem" maxWidth="60rem" margin="0 auto">

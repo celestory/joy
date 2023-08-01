@@ -6,23 +6,23 @@ import {ThemeProvider, useLocationState} from '../joy';
 import {Hero} from './Hero';
 import {Tags} from './Tags';
 import {Login} from './Login';
+import {Editor} from './Editor';
 import {Landing} from './Landing';
 import {Pricing} from './Pricing';
 import {Gallery} from './Gallery';
-import {FancyGrid} from './FancyGrid';
+import {BentoGrid} from './BentoGrid';
 import {Testimonials} from './Testimonials';
-import {ScrollingSidebar} from './ScrollingSidebar';
 
 const examples = {
     hero: <Hero />,
     tags: <Tags />,
     login: <Login />,
+    editor: <Editor />,
     pricing: <Pricing />,
     gallery: <Gallery />,
     landing: <Landing />,
-    fancyGrid: <FancyGrid />,
+    bentoGrid: <BentoGrid />,
     testimonials: <Testimonials />,
-    scrollingSidebar: <ScrollingSidebar />,
 };
 type Example = keyof typeof examples;
 
@@ -68,19 +68,19 @@ export const App = () => {
                 input: {
                     color: '#eeeeee',
                     radius: '0.5rem',
-                    border: '3px solid transparent',
+                    border: '2px solid transparent',
                     background: '#444444',
                     transition: '.3s',
 
                     hover: {
                         radius: '0.5rem',
-                        border: '3px solid transparent',
+                        border: '2px solid transparent',
                         background: '#555555',
                     },
 
                     focus: {
                         radius: '0.5rem',
-                        border: '3px solid #00B2FF',
+                        border: '2px solid #00B2FF',
                         background: '#444444',
                     },
                 },

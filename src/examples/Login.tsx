@@ -29,20 +29,16 @@ export const Login = () => {
                         Create an account
                     </TextLink>
                 </TextBox>
-                <Label htmlFor="email">
-                    Email
-                    <Input width="20rem" minHeight="2.5rem" padding="0.8em 1em" />
-                </Label>
-                <Label htmlFor="password">
-                    Password
-                    <Input type="password" width="20rem" minHeight="2.5rem" padding="0.8em 1em" />
-                </Label>
-                <Button width="20rem" minHeight="2.5rem">
-                    Sign in
-                </Button>
-                <Button width="20rem" minHeight="2.5rem">
-                    🤓 Sign in with Google
-                </Button>
+                <Flex direction="y" gap="0.5rem">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" width="20rem" />
+                </Flex>
+                <Flex direction="y" gap="0.5rem">
+                    <Label htmlFor="password">Password</Label>
+                    <Input id="password" type="password" width="20rem" />
+                </Flex>
+                <Button width="20rem">Sign in</Button>
+                <Button width="20rem">🤓 Sign in with Google</Button>
                 <TextLink href="#" color="theme:blue">
                     Forgot password?
                 </TextLink>
