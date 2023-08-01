@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Box, Button, Flex, ImageBox, Input, TextBox} from '../joy';
+import {Box, Flex, ImageBox, Input, LinkButton, TextBox} from '../joy';
 
 const Heading = styled(TextBox)`
     font-size: clamp(2rem, 8vw, 4rem);
@@ -46,9 +46,9 @@ export const Hero = () => {
                 </TextBox>
                 <Flex gap="1rem">
                     <Input placeholder="name@email.com" width="15rem" md-width="20rem" size="1rem" md-size="1.2rem" />
-                    <Button size="1rem" md-size="1.2rem">
+                    <LinkButton href="/pricing" size="1rem" md-size="1.2rem">
                         Join Now!
-                    </Button>
+                    </LinkButton>
                 </Flex>
             </Flex>
             <Flex el="section" direction="y" width="100%" padding="2rem" maxWidth="60rem" margin="0 auto">

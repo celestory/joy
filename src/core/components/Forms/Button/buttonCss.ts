@@ -13,6 +13,7 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
     cursor: pointer;
     outline: none;
     font-weight: bold; // 💩
+    text-decoration: none;
 
     font-size: ${props[`${breakpoint}size`]};
     font-family: ${themeProp('theme:mainFont')};
