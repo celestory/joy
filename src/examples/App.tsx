@@ -12,12 +12,14 @@ import {Pricing} from './Pricing';
 import {Gallery} from './Gallery';
 import {BentoGrid} from './BentoGrid';
 import {Testimonials} from './Testimonials';
+import {Article} from './Article';
 
 const examples = {
     hero: <Hero />,
     tags: <Tags />,
     login: <Login />,
     editor: <Editor />,
+    article: <Article />,
     pricing: <Pricing />,
     gallery: <Gallery />,
     landing: <Landing />,
