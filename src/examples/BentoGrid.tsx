@@ -1,12 +1,10 @@
 import styled from '@emotion/styled';
-import {Flex, Grid, TextBox} from '../joy';
+import {Card, Flex, Grid, TextBox} from '../joy';
 
-const GridItem = styled(Flex)`
+const GridItem = styled(Card)`
     color: var(--joy-subForeground);
     font-size: 3rem;
     font-weight: bold;
-    border-radius: 1rem;
-    background-color: var(--joy-subBackground);
 `;
 
 export const BentoGrid = () => {

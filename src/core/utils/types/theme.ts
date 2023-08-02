@@ -5,15 +5,18 @@ export type CSSHeight = '0' | `${number}rem` | 'fill';
 export type CSSRadius = '0' | `${number}rem` | `${number}%`;
 export type CSSColor = `#${string}` | 'magenta' | 'transparent';
 export type CSSBorder = 'none' | `${number}px ${'solid' | 'dashed' | 'dotted'} ${CSSColor}`;
+export type CSSShadow = `${number}em ${number}em ${number}em ${number}em ${CSSColor}`;
 export type CSSMargin = '0' | `${number}rem` | `${number}%` | 'auto';
 export type CSSPadding = '0' | `${number}rem` | `${number}em`;
 export type CSSOverflow = 'auto' | 'hidden' | 'visible';
 export type CSSPosition = 'absolute' | 'relative';
+
 export type CSSFontSize = `${number}rem`;
 export type CSSFontWeight = keyof typeof fontWeightToCss;
-export type CSSTranslate = `${'0' | `${number}em`} ${'0' | `${number}em`}`;
-export type CSSRotate = `${number}deg`;
+
 export type CSSScale = `${number}`;
+export type CSSRotate = `${number}deg`;
+export type CSSTranslate = `${'0' | `${number}em`} ${'0' | `${number}em`}`;
 
 export type WithTheme<PropType> = PropType | `${typeof themePrefix}${keyof PathSelector<Theme, PropType> & string}`;
 export type PathSelector<T, PropType = string> = {
@@ -58,6 +61,13 @@ export interface Theme {
         hover: {
             thumb: CSSColor;
         };
+    };
+
+    card: {
+        border?: CSSBorder;
+        radius?: CSSRadius;
+        shadow?: CSSShadow | CSSShadow[];
+        background: CSSColor;
     };
 
     // input

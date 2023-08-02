@@ -1,10 +1,5 @@
 import styled from '@emotion/styled';
-import {AutoGrid, Button, Flex, TextBox, useCheckboxState} from '../joy';
-
-const Card = styled(Flex)`
-    border-radius: 1rem;
-    background-color: var(--joy-subBackground);
-`;
+import {AutoGrid, Button, Card, Flex, TextBox, useCheckboxState} from '../joy';
 
 const Heading = styled(TextBox)`
     font-size: clamp(2.5rem, 7vw, 4.5rem);

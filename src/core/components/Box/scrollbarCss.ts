@@ -15,12 +15,12 @@ export const scrollbar = css`
     ::-webkit-scrollbar-thumb {
         transition: background-color 0.3s;
         border-radius: 3px;
-        background-color: ${themeProp('theme:scrollbar.thumb') ?? `hsla(0, 0%, 50%, 0.2)`};
+        background-color: ${themeProp('theme:scrollbar.thumb', `hsla(0, 0%, 50%, 0.2)`)};
     }
 
     ::-webkit-scrollbar-thumb:hover {
         border-radius: 3px;
-        background-color: ${themeProp('theme:scrollbar.hover.thumb') ?? `hsla(0, 0%, 50%, 0.3)`};
+        background-color: ${themeProp('theme:scrollbar.hover.thumb', `hsla(0, 0%, 50%, 0.3)`)};
     }
 
     ::-webkit-scrollbar-button {

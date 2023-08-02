@@ -1,10 +1,4 @@
-import styled from '@emotion/styled';
-import {Flex, Grid, ImageBox, TextBox} from '../joy';
-
-const Card = styled(Flex)`
-    border-radius: 0.5rem;
-    background-color: var(--joy-subBackground);
-`;
+import {Card, Flex, Grid, ImageBox, TextBox} from '../joy';
 
 const data = [
     {

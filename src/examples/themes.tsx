@@ -32,6 +32,11 @@ export const dark: Theme = {
         },
     },
 
+    card: {
+        radius: '1rem',
+        background: '#222222',
+    },
+
     input: {
         color: '#eeeeee',
         radius: '0.5rem',
@@ -105,6 +110,11 @@ export const light: Theme = {
         hover: {
             thumb: '#cccccc',
         },
+    },
+
+    card: {
+        radius: '1rem',
+        background: '#dddddd',
     },
 
     input: {
