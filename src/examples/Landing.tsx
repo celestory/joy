@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Box, Button, Flex, ImageBox, TextBox, TextSpan} from '../joy';
+import {Box, Button, Flex, ImageBox, LinkButton, TextBox, TextSpan} from '../joy';
 
 const SubButton = styled(Button)`
     background-color: var(--joy-foreground);
@@ -40,7 +40,9 @@ export const Landing = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus ipsum.
                     </TextBox>
                     <Flex gap="1rem">
-                        <Button xl-size="1.1rem">Book a demo</Button>
+                        <LinkButton xl-size="1.1rem" href="/pricing">
+                            Book a demo
+                        </LinkButton>
                         <SubButton xl-size="1.1rem">Hire an expert</SubButton>
                     </Flex>
                 </Flex>

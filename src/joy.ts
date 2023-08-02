@@ -18,5 +18,8 @@ export {Input} from './core/components/Forms/Input/Input';
 export {Select} from './core/components/Forms/Select/Select';
 export {Button, LinkButton} from './core/components/Forms/Button/Button';
 
+export {Dialog} from './core/components/Dialog/Dialog';
+export {useDialogState} from './core/hooks/useDialogState';
+
 export {ThemeProvider} from './core/Theme/Theme';
 export type {Theme} from './core/utils/types/theme';

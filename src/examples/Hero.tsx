@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
-import {Box, Flex, ImageBox, Input, LinkButton, TextBox} from '../joy';
+import {Box, Button, Dialog, Flex, ImageBox, Input, TextBox, useDialogState} from '../joy';
 
 const Heading = styled(TextBox)`
     font-size: clamp(2rem, 8vw, 4rem);
 `;
 
 export const Hero = () => {
+    const [dialogRef, openDialog, closeDialog] = useDialogState();
     return (
         <Flex el="main" direction="y" minHeight="fill">
             <Flex el="header" gap="0.5rem" padding="1rem 2rem 1rem 1rem" align="center">
@@ -46,9 +47,9 @@ export const Hero = () => {
                 </TextBox>
                 <Flex gap="1rem">
                     <Input placeholder="name@email.com" width="15rem" md-width="20rem" size="1rem" md-size="1.2rem" />
-                    <LinkButton href="/pricing" size="1rem" md-size="1.2rem">
+                    <Button onClick={openDialog} size="1rem" md-size="1.2rem">
                         Join Now!
-                    </LinkButton>
+                    </Button>
                 </Flex>
             </Flex>
             <Flex el="section" direction="y" width="100%" padding="2rem" maxWidth="60rem" margin="0 auto">
@@ -79,6 +80,10 @@ export const Hero = () => {
                     </Flex>
                 </Flex>
             </Flex>
+            <Dialog ref={dialogRef}>
+                <h1>Coucou 👋</h1>
+                <Button onClick={closeDialog}>Close</Button>
+            </Dialog>
         </Flex>
     );
 };
