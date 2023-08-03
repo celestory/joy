@@ -1,20 +1,40 @@
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
-    font-family: var(--joy-mainFont);
     color: var(--joy-foreground);
     background-color: var(--joy-background);
+
+    font-family: var(--joy-mainFont);
+    -webkit-font-smoothing: antialiased;
 }
 
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-ul,
-ol {
-    margin: 0;
+h6 {
+    overflow-wrap: break-word;
 }

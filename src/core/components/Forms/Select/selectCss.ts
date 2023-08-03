@@ -10,6 +10,7 @@ export const selectCss = (props: SelectProps, breakpoint: `${Breakpoints}-` | ''
 
     ${boxCss(props, breakpoint)}
 
+    cursor: pointer;
     outline: none;
 
     border: ${themeProp('theme:input.border')};

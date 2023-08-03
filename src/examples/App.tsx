@@ -13,7 +13,7 @@ import {Gallery} from './Gallery';
 import {BentoGrid} from './BentoGrid';
 import {Testimonials} from './Testimonials';
 
-import {dark, light} from './themes';
+import {dark, light, luxe} from './themes';
 
 const examples = {
     hero: <Hero />,
@@ -29,7 +29,7 @@ const examples = {
 };
 type Example = keyof typeof examples;
 
-const themes = {light, dark};
+const themes = {light, dark, luxe};
 type ThemeName = keyof typeof themes;
 
 const Bottom = styled(Flex)`
@@ -45,11 +45,12 @@ export const App = () => {
         <ThemeProvider theme={themes[themeName]}>
             {examples[example]}
             <Bottom gap="1rem">
-                <Select value={themeName} onChange={setThemeName}>
+                <Select size="0.8rem" value={themeName} onChange={setThemeName}>
                     <option value="dark">🌙 Dark</option>
                     <option value="light">☀️ Light</option>
+                    <option value="luxe">💎 Luxe</option>
                 </Select>
-                <Select value={example} onChange={changeExample}>
+                <Select size="0.8rem" value={example} onChange={changeExample}>
                     {Object.keys(examples).map(example => (
                         <option key={example}>{example}</option>
                     ))}

@@ -40,6 +40,8 @@ export interface Theme {
     background: CSSColor;
     subBackground: CSSColor;
 
+    brand: CSSColor;
+
     // colors
     red: CSSColor;
     blue: CSSColor;

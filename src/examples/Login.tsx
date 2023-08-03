@@ -25,7 +25,7 @@ export const Login = () => {
                 </TextBox>
                 <TextBox color="theme:subForeground">
                     New to Joy?{' '}
-                    <TextLink href="#" color="theme:blue">
+                    <TextLink href="#" color="theme:brand">
                         Create an account
                     </TextLink>
                 </TextBox>
@@ -39,7 +39,7 @@ export const Login = () => {
                 </Flex>
                 <Button width="20rem">Sign in</Button>
                 <Button width="20rem">🤓 Sign in with Google</Button>
-                <TextLink href="#" color="theme:blue">
+                <TextLink href="#" color="theme:brand">
                     Forgot password?
                 </TextLink>
             </Flex>

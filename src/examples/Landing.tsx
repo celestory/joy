@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import {Box, Button, Flex, ImageBox, LinkButton, TextBox, TextSpan} from '../joy';
 
 const SubButton = styled(Button)`
+    color: var(--joy-background);
     background-color: var(--joy-foreground);
 `;
 
@@ -31,7 +32,7 @@ export const Landing = () => {
                 <Flex direction="y" lg-width="50%" shrink={false} align="start" padding="2rem" gap="1.5rem">
                     <TextBox el="h1" weight="extraBold" margin="0" size="2.5rem" xl-size="3rem">
                         An impactful message about{' '}
-                        <TextSpan el="strong" color="theme:blue">
+                        <TextSpan el="strong" color="theme:brand">
                             your product
                         </TextSpan>
                         .
