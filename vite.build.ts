@@ -12,11 +12,12 @@ export default defineConfig({
             fileName: 'joy',
         },
         rollupOptions: {
-            external: ['react', 'react-dom'],
+            external: ['react', 'react-dom', '@emotion/react'],
             output: {
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',
+                    '@emotion/react': 'styled',
                 },
             },
         },
