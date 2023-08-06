@@ -11,6 +11,15 @@ export default defineConfig({
             entry: resolve(__dirname, 'src/joy.ts'),
             fileName: 'joy',
         },
+        rollupOptions: {
+            external: ['react', 'react-dom'],
+            output: {
+                globals: {
+                    react: 'React',
+                    'react-dom': 'ReactDOM',
+                },
+            },
+        },
     },
     plugins: [dts({staticImport: true}), react()],
 });
