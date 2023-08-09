@@ -21,5 +21,7 @@ export {Button, LinkButton} from './core/components/Forms/Button/Button';
 export {Dialog} from './core/components/Dialog/Dialog';
 export {useDialogState} from './core/hooks/useDialogState';
 
+export {CircleProgress} from './core/components/Forms/CircleProgress/CircleProgress';
+
 export {ThemeProvider} from './core/Theme/Theme';
 export type {Theme} from './core/utils/types/theme';

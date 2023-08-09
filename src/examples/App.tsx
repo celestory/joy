@@ -14,6 +14,7 @@ import {BentoGrid} from './BentoGrid';
 import {Testimonials} from './Testimonials';
 
 import {dark, light, luxe} from './themes';
+import {Progress} from './Progress';
 
 const examples = {
     hero: <Hero />,
@@ -22,6 +23,7 @@ const examples = {
     editor: <Editor />,
     article: <Article />,
     pricing: <Pricing />,
+    progress: <Progress />,
     gallery: <Gallery />,
     landing: <Landing />,
     bentoGrid: <BentoGrid />,

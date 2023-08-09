@@ -6,6 +6,7 @@ import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
 import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../utils/types/theme';
 
 type BaseProps = {
+    role?: string;
     style?: CSSProperties;
     className?: string;
     //
