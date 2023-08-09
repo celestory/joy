@@ -12,11 +12,10 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
 
     cursor: pointer;
     outline: none;
-    font-weight: bold; // 💩
     text-decoration: none;
 
+    font: ${themeProp('theme:font.button')};
     font-size: ${props[`${breakpoint}size`]};
-    font-family: ${themeProp('theme:mainFont')};
 
     color: ${themeProp('theme:button.color', 'theme:foreground')};
     border: ${themeProp('theme:button.border')};

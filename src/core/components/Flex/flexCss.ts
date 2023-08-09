@@ -7,18 +7,20 @@ import type {Breakpoints} from '../../utils/types/break';
 const directionToCss = {
     x: 'row',
     y: 'column',
+    //
     default: undefined,
 };
-export type FlexDirection = keyof typeof directionToCss;
+export type FlexDirection = keyof Omit<typeof directionToCss, 'default'>;
 
 const alignToCss = {
     end: 'flex-end',
     start: 'flex-start',
     center: 'center',
     stretch: 'stretch',
+    //
     default: undefined,
 };
-export type FlexAlign = keyof typeof alignToCss;
+export type FlexAlign = keyof Omit<typeof alignToCss, 'default'>;
 
 const distributeToCss = {
     end: 'flex-end',
@@ -27,9 +29,10 @@ const distributeToCss = {
     around: 'space-around',
     evenly: 'space-evenly',
     between: 'space-between',
+    //
     default: undefined,
 };
-export type FlexDistribute = keyof typeof distributeToCss;
+export type FlexDistribute = keyof Omit<typeof distributeToCss, 'default'>;
 
 export const flexCss = (props: FlexProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
     ${boxCss(props, breakpoint)}

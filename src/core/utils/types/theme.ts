@@ -1,5 +1,5 @@
 export type CSSGap = '0' | `${number}rem`;
-export type CSSFont = 'serif' | 'sans-serif' | 'monospace';
+export type CSSFont = `normal ${number} 1em ${string}`;
 export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
 export type CSSHeight = '0' | `${number}rem` | 'fill';
 export type CSSRadius = '0' | `${number}rem` | `${number}%`;
@@ -12,7 +12,7 @@ export type CSSOverflow = 'auto' | 'hidden' | 'visible';
 export type CSSPosition = 'absolute' | 'relative';
 
 export type CSSFontSize = `${number}rem`;
-export type CSSFontWeight = keyof typeof fontWeightToCss;
+export type CSSFontWeight = keyof Omit<typeof fontWeightToCss, 'default'>;
 
 export type CSSScale = `${number}`;
 export type CSSRotate = `${number}deg`;
@@ -27,12 +27,17 @@ export type PathSelector<T, PropType = string> = {
         : never]: unknown;
 };
 
+// TODO: Default the maximum stuff
 export interface Theme {
     // typography
-    mainFont: CSSFont;
-    textFont: CSSFont;
-    titleFont: CSSFont;
-    monoFont?: CSSFont;
+    font: {
+        ui?: CSSFont; // TODO: Find why making this optional prevent from selecting them from react props
+        mono?: CSSFont;
+        button?: CSSFont;
+        heading?: CSSFont;
+        content?: CSSFont;
+        boldContent?: CSSFont;
+    };
 
     // monochrome
     foreground: CSSColor;
@@ -154,5 +159,6 @@ export const fontWeightToCss = {
     bold: '700',
     extraBold: '800',
     black: '900',
+    //
     default: undefined,
 };

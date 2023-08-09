@@ -17,8 +17,9 @@ export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' =
     border-radius: ${themeProp('theme:input.radius')};
 
     color: ${themeProp('theme:input.color', 'theme:foreground')};
+
+    font: ${themeProp('theme:font.ui')};
     font-size: ${props[`${breakpoint}size`]};
-    font-family: ${themeProp('theme:mainFont')};
 
     transition: ${themeProp('theme:input.transition')} all;
 

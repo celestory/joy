@@ -18,7 +18,7 @@ export const Landing = () => {
                     <TextBox>Blog</TextBox>
                     <TextBox>About</TextBox>
                     <TextBox>Contact</TextBox>
-                    <Button>Book a demo</Button>
+                    <Button size="0.9rem">Book a demo</Button>
                 </Flex>
                 <Box hidden={false} md-hidden={true}>
                     <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">

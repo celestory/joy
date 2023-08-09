@@ -9,7 +9,7 @@ body {
     color: var(--joy-foreground);
     background-color: var(--joy-background);
 
-    font-family: var(--joy-mainFont);
+    font-family: var(--joy-font-ui);
     -webkit-font-smoothing: antialiased;
 }
 

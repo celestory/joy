@@ -1,9 +1,14 @@
 import type {Theme} from '../joy';
 
 export const dark: Theme = {
-    mainFont: 'sans-serif',
-    titleFont: 'sans-serif',
-    textFont: 'serif',
+    font: {
+        ui: 'normal 400 1em sans-serif',
+        mono: 'normal 400 1em monospace',
+        button: 'normal 700 1em sans-serif',
+        heading: 'normal 700 1em sans-serif',
+        content: 'normal 400 1em serif',
+        boldContent: 'normal 700 1em serif',
+    },
 
     foreground: '#eeeeee',
     subForeground: '#bbbbbb',
@@ -83,9 +88,14 @@ export const dark: Theme = {
 };
 
 export const light: Theme = {
-    mainFont: 'sans-serif',
-    titleFont: 'sans-serif',
-    textFont: 'serif',
+    font: {
+        ui: 'normal 400 1em sans-serif',
+        mono: 'normal 400 1em monospace',
+        button: 'normal 700 1em sans-serif',
+        heading: 'normal 700 1em sans-serif',
+        content: 'normal 400 1em serif',
+        boldContent: 'normal 700 1em serif',
+    },
 
     foreground: '#444444',
     subForeground: '#888888',
@@ -165,9 +175,14 @@ export const light: Theme = {
 };
 
 export const luxe: Theme = {
-    mainFont: 'sans-serif',
-    titleFont: 'sans-serif',
-    textFont: 'serif',
+    font: {
+        ui: 'normal 400 1em sans-serif',
+        mono: 'normal 400 1em monospace',
+        button: 'normal 700 1em sans-serif',
+        heading: 'normal 700 1em sans-serif',
+        content: 'normal 400 1em serif',
+        boldContent: 'normal 700 1em serif',
+    },
 
     foreground: '#222222',
     subForeground: '#888888',

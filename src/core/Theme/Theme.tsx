@@ -7,12 +7,9 @@ import type {Theme} from '../utils/types/theme';
 type Props = {
     theme: Theme;
 };
-// const styledCache = createCache({
-//     key: 'joy',
-//     stylisPlugins: [],
-// });
 
 const createThemeVariables = (theme: object, parent = 'joy'): string[] => {
+    // TODO: Handle input.hover.background => input.background if input.hover.background is empty.
     return Object.entries(theme).reduce((cssVariables, [key, value]) => {
         if (typeof value !== 'string') {
             return [...cssVariables, ...createThemeVariables(value, `${parent}-${key}`)];
