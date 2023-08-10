@@ -2,6 +2,7 @@ import {css} from '@emotion/react';
 
 import {boxCss} from '../../Box/boxCss';
 import {themeProp} from '../../../utils/types/theme';
+import {surfaceCss} from '../../../utils/surfaceCss';
 import type {SelectProps} from './Select';
 import type {Breakpoints} from '../../../utils/types/break';
 
@@ -13,9 +14,7 @@ export const selectCss = (props: SelectProps, breakpoint: `${Breakpoints}-` | ''
     cursor: pointer;
     outline: none;
 
-    border: ${themeProp('theme:input.border')};
-    background: ${themeProp('theme:input.background')};
-    border-radius: ${themeProp('theme:input.radius')};
+    ${surfaceCss({}, 'input')}
 
     color: ${themeProp('theme:input.color', 'theme:foreground')};
 
@@ -25,9 +24,7 @@ export const selectCss = (props: SelectProps, breakpoint: `${Breakpoints}-` | ''
     transition: ${themeProp('theme:input.transition')} all;
 
     &:hover {
-        border: ${themeProp('theme:input.hover.border')};
-        background: ${themeProp('theme:input.hover.background')};
-        border-radius: ${themeProp('theme:input.hover.radius')};
+        ${surfaceCss({}, 'input.hover')}
     }
 
     /* 💩 */

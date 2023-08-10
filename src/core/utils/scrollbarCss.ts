@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {themeProp} from '../../utils/types/theme';
+import {themeProp} from './types/theme';
 
 export const scrollbar = css`
     scrollbar-width: thin;

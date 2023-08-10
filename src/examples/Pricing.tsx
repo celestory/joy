@@ -87,7 +87,7 @@ export const Pricing = () => {
                     </TextBox>
                     <PricingButton>Subscribe now</PricingButton>
                 </Card>
-                <Card direction="y" padding="1.5rem" gap="1rem">
+                <Card direction="y" padding="1.5rem" gap="1rem" background="theme:pink">
                     <TextBox el="h2" margin="0">
                         Enterprise
                     </TextBox>

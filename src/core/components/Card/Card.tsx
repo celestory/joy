@@ -1,19 +1,16 @@
 import styled from '@emotion/styled';
 
 import {Flex} from '../Flex/Flex';
-import {themeProp} from '../../utils/types/theme';
-import type {CSSBorder, CSSColor, CSSRadius, CSSShadow} from '../../utils/types/theme';
+import {surfaceCss} from '../../utils/surfaceCss';
+import type {CSSBorder, CSSColor, CSSRadius, CSSShadow, WithTheme} from '../../utils/types/theme';
 
 interface CardProps {
-    border?: CSSBorder;
-    radius?: CSSRadius;
-    shadow?: CSSShadow;
-    background?: CSSColor;
+    border?: WithTheme<CSSBorder>;
+    radius?: WithTheme<CSSRadius>;
+    shadow?: WithTheme<CSSShadow>;
+    background?: WithTheme<CSSColor>;
 }
 
 export const Card = styled(Flex)<CardProps>`
-    border: ${props => props.border ?? themeProp('theme:card.border')};
-    box-shadow: ${props => props.shadow ?? themeProp('theme:card.shadow')};
-    border-radius: ${props => props.radius ?? themeProp('theme:card.radius')};
-    background-color: ${props => props.background ?? themeProp('theme:card.background')};
+    ${props => surfaceCss({...props}, 'card')}
 `;

@@ -80,20 +80,28 @@ export interface Theme {
     // input
     input: {
         color: CSSColor;
-        radius: CSSRadius;
+
+        // surface
         border: CSSBorder;
+        radius: CSSRadius;
+        shadow?: CSSShadow | CSSShadow[];
         background: CSSColor;
+
         transition: `${number}s`;
 
         hover: {
-            radius: CSSRadius;
+            // surface
             border: CSSBorder;
+            radius: CSSRadius;
+            shadow?: CSSShadow | CSSShadow[];
             background: CSSColor;
         };
 
         focus: {
-            radius: CSSRadius;
+            // surface
             border: CSSBorder;
+            radius: CSSRadius;
+            shadow?: CSSShadow | CSSShadow[];
             background: CSSColor;
         };
     };
@@ -101,8 +109,11 @@ export interface Theme {
     // button
     button: {
         color: CSSColor;
-        radius: CSSRadius;
+
+        // surface
         border: CSSBorder;
+        radius: CSSRadius;
+        shadow?: CSSShadow | CSSShadow[];
         background: CSSColor;
 
         scale?: CSSScale;
@@ -113,8 +124,11 @@ export interface Theme {
 
         hover: {
             color: CSSColor;
-            radius: CSSRadius;
+
+            // surface
             border: CSSBorder;
+            radius: CSSRadius;
+            shadow?: CSSShadow | CSSShadow[];
             background: CSSColor;
 
             scale?: CSSScale;
@@ -124,8 +138,11 @@ export interface Theme {
 
         focus: {
             color: CSSColor;
-            radius: CSSRadius;
+
+            // surface
             border: CSSBorder;
+            radius: CSSRadius;
+            shadow?: CSSShadow | CSSShadow[];
             background: CSSColor;
 
             scale?: CSSScale;

@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
 
-import {scrollbar} from './scrollbarCss';
+import {scrollbar} from '../../utils/scrollbarCss';
 import type {Breakpoints} from '../../utils/types/break';
 import type {BoxProps, BoxFlexItemProps, BoxGridItemProps} from './Box';
 
