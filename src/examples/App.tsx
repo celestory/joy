@@ -15,6 +15,7 @@ import {Testimonials} from './Testimonials';
 
 import {dark, light, luxe} from './themes';
 import {Progress} from './Progress';
+import {MegaForms} from './MegaForms';
 
 const examples = {
     hero: <Hero />,
@@ -27,6 +28,7 @@ const examples = {
     gallery: <Gallery />,
     landing: <Landing />,
     bentoGrid: <BentoGrid />,
+    megaforms: <MegaForms />,
     testimonials: <Testimonials />,
 };
 type Example = keyof typeof examples;

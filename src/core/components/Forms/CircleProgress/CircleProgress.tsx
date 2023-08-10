@@ -37,6 +37,7 @@ const Meter = styled(Track)<{circumference: number; dashoffset: number}>`
     stroke: var(--joy-foreground);
     stroke-dasharray: ${props => `${props.circumference} ${props.circumference}`};
     stroke-dashoffset: ${props => props.dashoffset};
+    transition: stroke-dashoffset 0.3s;
 `;
 
 export const CircleProgress = ({value, thickness = 0.2, ...props}: CircleProgressProps & BoxProps) => {
@@ -46,7 +47,7 @@ export const CircleProgress = ({value, thickness = 0.2, ...props}: CircleProgres
         const circumference = radius * 2 * Math.PI;
         return {
             circumference,
-            dashoffset: circumference - ((value || 25) / 100) * circumference,
+            dashoffset: circumference - ((value ?? 25) / 100) * circumference,
         };
     }, [radius, value]);
 
