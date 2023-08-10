@@ -22,7 +22,7 @@ export type WithTheme<PropType> = PropType | `${typeof themePrefix}${keyof PathS
 export type PathSelector<T, PropType = string> = {
     [K in keyof T as T[K] extends object
         ? `${K & string}.${keyof PathSelector<T[K], PropType> & string}`
-        : T[K] extends PropType
+        : T[K] extends PropType | undefined
         ? `${K & string}`
         : never]: unknown;
 };
@@ -31,7 +31,7 @@ export type PathSelector<T, PropType = string> = {
 export interface Theme {
     // typography
     font: {
-        ui?: CSSFont; // TODO: Find why making this optional prevent from selecting them from react props
+        ui?: CSSFont;
         mono?: CSSFont;
         button?: CSSFont;
         heading?: CSSFont;
