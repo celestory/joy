@@ -1,15 +1,28 @@
 import styled from '@emotion/styled';
 import {Box, Button, Dialog, Flex, ImageBox, Input, TextBox, useDialogState} from '../joy';
 
+const Header = styled(Flex)`
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--joy-subBackground);
+`;
+
 const Heading = styled(TextBox)`
     font-size: clamp(2rem, 8vw, 4rem);
+`;
+
+const MenuIcon = styled.svg`
+    [fill='white'] {
+        fill: var(--joy-foreground);
+    }
 `;
 
 export const Hero = () => {
     const [dialogRef, openDialog, closeDialog] = useDialogState();
     return (
         <Flex el="main" direction="y" minHeight="fill">
-            <Flex el="header" gap="0.5rem" padding="1rem 2rem 1rem 1rem" align="center">
+            <Header el="header" gap="0.5rem" padding="1rem 2rem 1rem 1rem" align="center">
                 <ImageBox width="2rem" src="/logo.svg" />
                 <TextBox size="1.2rem" weight="bold" margin="0 auto 0 0">
                     Joy
@@ -22,13 +35,13 @@ export const Hero = () => {
                     <TextBox>Contact</TextBox>
                 </Flex>
                 <Box hidden={false} md-hidden={true}>
-                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <MenuIcon width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="20" height="2.66667" rx="1.33333" fill="white" />
                         <rect y="6.66669" width="20" height="2.66667" rx="1.33333" fill="white" />
                         <rect y="13.3334" width="20" height="2.66667" rx="1.33333" fill="white" />
-                    </svg>
+                    </MenuIcon>
                 </Box>
-            </Flex>
+            </Header>
             <Flex el="section" direction="y" maxWidth="55rem" margin="0 auto" align="center" gap="1rem" padding="2rem" grow>
                 <Heading el="h1" weight="extraBold" margin="3rem 0 0 0" textAlign="center">
                     An awesome big and bold message to catch the eye.

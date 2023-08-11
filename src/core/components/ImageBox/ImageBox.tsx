@@ -9,7 +9,7 @@ import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 
 type BaseProps = {
     fit?: 'content' | 'cover';
-    radius?: WithTheme<WithBreakpoint<CSSRadius>>;
+    radius?: WithBreakpoint<WithTheme<CSSRadius>>;
 } & ImgHTMLAttributes<HTMLImageElement>;
 
 export type ImageBoxProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps>;

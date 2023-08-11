@@ -30,9 +30,9 @@ export const Landing = () => {
             </Flex>
             <Flex el="section" gap="1.2rem" align="center" direction="y" lg-direction="x" maxWidth="70rem" margin="3rem auto">
                 <Flex direction="y" lg-width="50%" shrink={false} align="start" padding="2rem" gap="1.5rem">
-                    <TextBox el="h1" weight="extraBold" margin="0" size="2.5rem" xl-size="3rem">
+                    <TextBox el="h1" weight="bold" margin="0" size="2.5rem" xl-size="3rem">
                         An impactful message about{' '}
-                        <TextSpan el="strong" color="theme:brand">
+                        <TextSpan el="strong" weight="bold" color="theme:brand">
                             your product
                         </TextSpan>
                         .
@@ -48,7 +48,7 @@ export const Landing = () => {
                     </Flex>
                 </Flex>
                 <Box grow lg-padding="0 2rem 0 0">
-                    <ImageBox lg-radius="1rem" width="100%" src="/default-image.png" alt="Default image" />
+                    <ImageBox lg-radius="theme:card.radius" width="100%" src="/default-image.png" alt="Default image" />
                 </Box>
             </Flex>
         </Flex>
