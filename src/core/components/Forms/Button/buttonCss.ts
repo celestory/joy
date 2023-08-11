@@ -19,6 +19,7 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
 
     color: ${themeProp('theme:button.color', 'theme:foreground')};
     border: ${themeProp('theme:button.border')};
+    box-shadow: ${themeProp('theme:button.shadow')};
     border-radius: ${themeProp('theme:button.radius')};
     background-color: ${themeProp('theme:button.background')};
 
@@ -31,6 +32,7 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
     &:hover {
         color: ${themeProp('theme:button.hover.color', 'theme:foreground')};
         border: ${themeProp('theme:button.hover.border')};
+        box-shadow: ${themeProp('theme:button.hover.shadow')};
         border-radius: ${themeProp('theme:button.hover.radius')};
         background-color: ${themeProp('theme:button.hover.background')};
 
@@ -43,6 +45,7 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
     &:focus-visible {
         color: ${themeProp('theme:button.hover.color', 'theme:foreground')};
         border: ${themeProp('theme:button.focus.border')};
+        box-shadow: ${themeProp('theme:button.focus.shadow')};
         border-radius: ${themeProp('theme:button.focus.radius')};
         background-color: ${themeProp('theme:button.focus.background')};
 

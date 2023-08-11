@@ -24,7 +24,7 @@ export const Pricing = () => {
     const [isYearly, toggleYearly] = useCheckboxState(true);
     return (
         <Flex el="main" direction="y" maxWidth="70rem" margin="0 auto" padding="2rem" gap="1rem">
-            <Heading el="h1" textAlign="center" margin="4rem 0 0 0">
+            <Heading el="h1" textAlign="center" font="theme:font.heading" margin="4rem 0 0 0">
                 Pricing plans
             </Heading>
             <TextBox

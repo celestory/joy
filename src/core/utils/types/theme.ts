@@ -2,7 +2,7 @@ export type CSSGap = '0' | `${number}rem`;
 export type CSSFont = `normal ${number} 1em ${string}`;
 export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
 export type CSSHeight = '0' | `${number}rem` | 'fill';
-export type CSSRadius = '0' | `${number}rem` | `${number}%`;
+export type CSSRadius = '0' | `${number}rem` | `${number}em` | `${number}%`;
 export type CSSColor = `#${string}` | 'magenta' | 'transparent';
 export type CSSBorder = 'none' | `${number}px ${'solid' | 'dashed' | 'dotted'} ${CSSColor}`;
 export type CSSShadow = `${number}em ${number}em ${number}em ${number}em ${CSSColor}`;
@@ -82,37 +82,37 @@ export interface Theme {
         color: CSSColor;
 
         // surface
-        border: CSSBorder;
-        radius: CSSRadius;
+        border?: CSSBorder;
+        radius?: CSSRadius;
         shadow?: CSSShadow | CSSShadow[];
-        background: CSSColor;
+        background?: CSSColor;
 
-        transition: `${number}s`;
+        transition?: `${number}s`;
 
         hover: {
             // surface
-            border: CSSBorder;
-            radius: CSSRadius;
+            border?: CSSBorder;
+            radius?: CSSRadius;
             shadow?: CSSShadow | CSSShadow[];
-            background: CSSColor;
+            background?: CSSColor;
         };
 
         focus: {
             // surface
-            border: CSSBorder;
-            radius: CSSRadius;
+            border?: CSSBorder;
+            radius?: CSSRadius;
             shadow?: CSSShadow | CSSShadow[];
-            background: CSSColor;
+            background?: CSSColor;
         };
     };
 
     // button
     button: {
-        color: CSSColor;
+        color?: CSSColor;
 
         // surface
-        border: CSSBorder;
-        radius: CSSRadius;
+        border?: CSSBorder;
+        radius?: CSSRadius;
         shadow?: CSSShadow | CSSShadow[];
         background: CSSColor;
 
@@ -120,16 +120,16 @@ export interface Theme {
         rotate?: CSSRotate;
         translate?: CSSTranslate;
 
-        transition: `${number}s`;
+        transition?: `${number}s`;
 
         hover: {
-            color: CSSColor;
+            color?: CSSColor;
 
             // surface
-            border: CSSBorder;
-            radius: CSSRadius;
+            border?: CSSBorder;
+            radius?: CSSRadius;
             shadow?: CSSShadow | CSSShadow[];
-            background: CSSColor;
+            background?: CSSColor;
 
             scale?: CSSScale;
             rotate?: CSSRotate;
@@ -137,13 +137,13 @@ export interface Theme {
         };
 
         focus: {
-            color: CSSColor;
+            color?: CSSColor;
 
             // surface
-            border: CSSBorder;
-            radius: CSSRadius;
+            border?: CSSBorder;
+            radius?: CSSRadius;
             shadow?: CSSShadow | CSSShadow[];
-            background: CSSColor;
+            background?: CSSColor;
 
             scale?: CSSScale;
             rotate?: CSSRotate;

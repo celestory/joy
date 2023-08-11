@@ -2,12 +2,15 @@ import styled from '@emotion/styled';
 import {TextBox} from '../joy';
 
 const RichTextBox = styled(TextBox)`
-    font-family: var(--joy-textFont);
+    font: var(--joy-font-content);
     color: var(--joy-subForeground);
     h1,
     h2,
-    h3 {
-        font-family: var(--joy-titleFont);
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--joy-font-heading);
         color: var(--joy-foreground);
     }
     strong {
@@ -22,6 +25,10 @@ export const Article = () => {
     return (
         <RichTextBox lineHeight={1.7} size="1.1rem" padding="1.5rem" margin="1rem auto" maxWidth="45rem">
             <h1>The Importance of UI/UX</h1>
+            <TextBox lineHeight={1.7} color="magenta">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi tenetur amet molestiae quidem velit reprehenderit ut placeat doloremque, nulla id
+                omnis! Voluptate eveniet consectetur ex consequuntur ipsum, vero animi eos.
+            </TextBox>
 
             <h2>Understanding UI and UX</h2>
             <p>

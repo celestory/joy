@@ -6,8 +6,9 @@ import type {TextSpanProps} from './TextSpan';
 
 export const textSpanCss = (props: TextSpanProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
     color: ${themeProp(props.color)};
+
+    font: ${themeProp(props.font, 'theme:font.ui')};
     font-size: ${props[`${breakpoint}size`]};
-    font-family: ${props.font};
     font-style: ${props.italic ? 'italic' : undefined};
     font-weight: ${fontWeightToCss[props.weight || 'default']};
 

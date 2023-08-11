@@ -3,20 +3,10 @@ import type {PropsWithChildren} from 'react';
 import {textBoxCss} from './textBoxCss';
 import {createStyledWithBreakpoints} from '../../utils/breakpoints';
 import type {BoxProps} from '../Box/Box';
-import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
-import type {CSSFont, CSSColor, CSSFontSize, CSSFontWeight, WithTheme} from '../../utils/types/theme';
+import type {TextProps} from '../TextSpan/TextSpan';
+import type {MakeBreakpoints} from '../../utils/types/break';
 
-type BaseProps = {
-    font?: WithTheme<CSSFont>;
-    size?: WithBreakpoint<CSSFontSize>;
-    color?: WithTheme<CSSColor>;
-    italic?: boolean;
-    weight?: WithTheme<CSSFontWeight>;
-    textAlign?: 'start' | 'center' | 'end';
-    lineHeight?: number;
-};
-
-export type TextBoxProps = BoxProps & MakeBreakpoints<BaseProps>;
+export type TextBoxProps = BoxProps & MakeBreakpoints<TextProps>;
 
 const styledDiv = createStyledWithBreakpoints(textBoxCss);
 

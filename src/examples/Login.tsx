@@ -3,7 +3,8 @@ import {Flex, Input, ImageBox, TextBox, Button, TextLink} from '../joy';
 
 const Label = styled.label`
     width: 20rem;
-    color: #aaaaaa;
+    color: var(--joy-subForeground);
+    font: var(--joy-font-ui);
     font-size: 0.9rem;
     input {
         margin-top: 0.5rem;
@@ -20,7 +21,7 @@ export const Login = () => {
                 </TextBox>
             </Flex>
             <Flex grow direction="y" align="center" distribute="center" gap="1rem">
-                <TextBox el="h1" margin="0">
+                <TextBox el="h1" margin="0" font="theme:font.heading" size="2rem">
                     Welcome back
                 </TextBox>
                 <TextBox color="theme:subForeground">

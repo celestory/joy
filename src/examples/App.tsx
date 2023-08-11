@@ -13,7 +13,7 @@ import {Gallery} from './Gallery';
 import {BentoGrid} from './BentoGrid';
 import {Testimonials} from './Testimonials';
 
-import {dark, light, luxe} from './themes';
+import {dark, kids, light, academic} from './themes';
 import {Progress} from './Progress';
 import {MegaForms} from './MegaForms';
 
@@ -33,7 +33,7 @@ const examples = {
 };
 type Example = keyof typeof examples;
 
-const themes = {light, dark, luxe};
+const themes = {light, dark, academic, kids};
 type ThemeName = keyof typeof themes;
 
 const Bottom = styled(Flex)`
@@ -52,7 +52,8 @@ export const App = () => {
                 <Select size="0.8rem" value={themeName} onChange={setThemeName}>
                     <option value="dark">🌙 Dark</option>
                     <option value="light">☀️ Light</option>
-                    <option value="luxe">💎 Luxe</option>
+                    <option value="academic">🎓 Academic</option>
+                    <option value="kids">🧸 Kids</option>
                 </Select>
                 <Select size="0.8rem" value={example} onChange={changeExample}>
                     {Object.keys(examples).map(example => (
