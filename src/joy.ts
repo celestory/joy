@@ -1,3 +1,6 @@
+import styled from '@emotion/styled';
+export {styled};
+
 export {useInputState} from './core/hooks/useInputState';
 export {useToggleState} from './core/hooks/useToggleState';
 export {useLocationState} from './core/hooks/useLocationState';
