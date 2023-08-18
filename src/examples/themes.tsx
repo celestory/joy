@@ -84,6 +84,11 @@ export const dark: Theme = {
             background: '#00B2FF',
             translate: '0 0.2em',
         },
+        disabled: {
+            color: '#888888',
+            radius: '0.5rem',
+            background: '#222222',
+        },
     },
 };
 
@@ -170,6 +175,12 @@ export const light: Theme = {
             border: 'none',
             background: '#00B2FF',
             translate: '0 0.2em',
+        },
+
+        disabled: {
+            color: '#cccccc',
+            radius: '0.5rem',
+            background: '#eeeeee',
         },
     },
 };
@@ -258,6 +269,11 @@ export const academic: Theme = {
             background: '#222222',
             scale: '0.98',
         },
+
+        disabled: {
+            color: '#888888',
+            background: '#cccccc',
+        },
     },
 };
 
@@ -345,6 +361,9 @@ export const kids: Theme = {
             color: '#ffffff',
             radius: '3rem',
             background: '#3743b5',
+        },
+        disabled: {
+            background: '#aaaaaa',
         },
     },
 };

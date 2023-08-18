@@ -1,0 +1,86 @@
+import styled from '@emotion/styled';
+import type {ChangeEvent} from 'react';
+import {useEffect, useMemo, useRef} from 'react';
+import {surfaceCss} from '../../utils/surfaceCss';
+import {themeProp} from '../../utils/types/theme';
+
+const Control = styled.div`
+    --offset-width: auto;
+    --offset-left: 0;
+    display: inline-flex;
+    justify-content: space-between;
+    position: relative;
+    font: ${themeProp('theme:font.button')};
+    font-size: 0.8rem; // 💩
+    ${surfaceCss({}, 'input')}
+    input {
+        display: none;
+    }
+    &::before {
+        content: '';
+        ${surfaceCss({}, 'input.hover')}
+        width: var(--offset-width);
+        transform: translateX(var(--offset-left));
+        position: absolute;
+        top: 2px; // 💩
+        bottom: 2px;
+        left: 0;
+        z-index: 0;
+        transition: transform 0.3s cubic-bezier(0, 0.95, 0.38, 0.98), width 0.3s cubic-bezier(0, 0.95, 0.38, 0.98);
+    }
+`;
+const Segment = styled.div`
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    label {
+        cursor: pointer;
+        display: block;
+        padding: 0.8em;
+        transition: color 0.3s ease;
+        color: ${themeProp('theme:subForeground')};
+        &:hover {
+            color: ${themeProp('theme:foreground')};
+        }
+    }
+    &[data-selected] label {
+        color: ${themeProp('theme:foreground')};
+    }
+`;
+
+type SegmentValue = {value: string; label: string | React.ReactNode | ((selected: boolean) => React.ReactNode)};
+type Props = {
+    name?: string;
+    value: string;
+    onChange: (value: string) => void;
+    segments: SegmentValue[];
+};
+
+export const SegmentedControl = ({name, value, onChange, segments}: Props) => {
+    const controlRef = useRef<HTMLDivElement>(null);
+    const activeIndex = useMemo(() => segments.findIndex(({value: segmentValue}) => segmentValue === value), [segments, value]);
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const {offsetWidth, offsetLeft} = event.currentTarget.parentElement!;
+        controlRef.current?.style?.setProperty('--offset-width', `${offsetWidth}px`);
+        controlRef.current?.style?.setProperty('--offset-left', `${offsetLeft}px`);
+        onChange(event.currentTarget.value);
+    };
+
+    useEffect(() => {
+        const initialElement = controlRef.current?.querySelector('[data-selected]') as HTMLElement;
+        controlRef.current?.style?.setProperty('--offset-width', `${initialElement?.offsetWidth}px`);
+        controlRef.current?.style?.setProperty('--offset-left', `${initialElement?.offsetLeft}px`);
+    }, [segments]);
+
+    return (
+        <Control ref={controlRef}>
+            {segments?.map(({value: segmentValue, label}, i) => (
+                <Segment key={segmentValue} data-selected={i === activeIndex || undefined}>
+                    <input type="radio" value={segmentValue} id={segmentValue} name={name} onChange={handleChange} checked={i === activeIndex} />
+                    <label htmlFor={segmentValue}>{typeof label === 'function' ? label(i === activeIndex) : label}</label>
+                </Segment>
+            ))}
+        </Control>
+    );
+};

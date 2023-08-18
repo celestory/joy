@@ -53,4 +53,17 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
         rotate: ${themeProp('theme:button.focus.rotate')};
         translate: ${themeProp('theme:button.focus.translate')};
     }
+
+    &:disabled {
+        cursor: default;
+        color: ${themeProp('theme:button.disabled.color', 'theme:foreground')};
+        border: ${themeProp('theme:button.disabled.border')};
+        box-shadow: ${themeProp('theme:button.disabled.shadow')};
+        border-radius: ${themeProp('theme:button.disabled.radius')};
+        background-color: ${themeProp('theme:button.disabled.background')};
+
+        scale: ${themeProp('theme:button.disabled.scale')};
+        rotate: ${themeProp('theme:button.disabled.rotate')};
+        translate: ${themeProp('theme:button.disabled.translate')};
+    }
 `;

@@ -149,6 +149,20 @@ export interface Theme {
             rotate?: CSSRotate;
             translate?: CSSTranslate;
         };
+
+        disabled: {
+            color?: CSSColor;
+
+            // surface
+            border?: CSSBorder;
+            radius?: CSSRadius;
+            shadow?: CSSShadow | CSSShadow[];
+            background?: CSSColor;
+
+            scale?: CSSScale;
+            rotate?: CSSRotate;
+            translate?: CSSTranslate;
+        };
     };
 }
 

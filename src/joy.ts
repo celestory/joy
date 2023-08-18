@@ -17,8 +17,9 @@ export {ImageBox} from './core/components/ImageBox/ImageBox';
 export {Input} from './core/components/Forms/Input/Input';
 export {Select} from './core/components/Forms/Select/Select';
 export {Toggle} from './core/components/Forms/Toggle/Toggle';
-export {Button, LinkButton} from './core/components/Forms/Button/Button';
 export {CircleProgress} from './core/components/Forms/CircleProgress/CircleProgress';
+export {SegmentedControl} from './core/components/SegmentedControl/SegmentedControl';
+export {Button, LinkButton} from './core/components/Forms/Button/Button';
 
 export {Dialog} from './core/components/Dialog/Dialog';
 export {useDialogState} from './core/hooks/useDialogState';
