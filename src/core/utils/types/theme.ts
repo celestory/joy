@@ -27,6 +27,19 @@ export type PathSelector<T, PropType = string> = {
         : never]: unknown;
 };
 
+type Surface = {
+    border?: CSSBorder;
+    radius?: CSSRadius;
+    shadow?: CSSShadow | CSSShadow[];
+    background?: CSSColor;
+};
+
+type Transform = {
+    scale?: CSSScale;
+    rotate?: CSSRotate;
+    translate?: CSSTranslate;
+};
+
 // TODO: Default the maximum stuff
 export interface Theme {
     // typography
@@ -70,100 +83,46 @@ export interface Theme {
         };
     };
 
-    card: {
-        border?: CSSBorder;
-        radius?: CSSRadius;
-        shadow?: CSSShadow | CSSShadow[];
-        background: CSSColor;
-    };
+    card: Surface;
 
     // input
     input: {
         color: CSSColor;
 
-        // surface
-        border?: CSSBorder;
-        radius?: CSSRadius;
-        shadow?: CSSShadow | CSSShadow[];
-        background?: CSSColor;
-
         transition?: `${number}s`;
-
-        hover: {
-            // surface
-            border?: CSSBorder;
-            radius?: CSSRadius;
-            shadow?: CSSShadow | CSSShadow[];
-            background?: CSSColor;
-        };
-
-        focus: {
-            // surface
-            border?: CSSBorder;
-            radius?: CSSRadius;
-            shadow?: CSSShadow | CSSShadow[];
-            background?: CSSColor;
-        };
-    };
+        hover: Surface;
+        focus: Surface;
+    } & Surface;
 
     // button
     button: {
         color?: CSSColor;
 
-        // surface
-        border?: CSSBorder;
-        radius?: CSSRadius;
-        shadow?: CSSShadow | CSSShadow[];
-        background: CSSColor;
-
-        scale?: CSSScale;
-        rotate?: CSSRotate;
-        translate?: CSSTranslate;
-
         transition?: `${number}s`;
 
         hover: {
             color?: CSSColor;
-
-            // surface
-            border?: CSSBorder;
-            radius?: CSSRadius;
-            shadow?: CSSShadow | CSSShadow[];
-            background?: CSSColor;
-
-            scale?: CSSScale;
-            rotate?: CSSRotate;
-            translate?: CSSTranslate;
-        };
+        } & Surface &
+            Transform;
 
         focus: {
             color?: CSSColor;
-
-            // surface
-            border?: CSSBorder;
-            radius?: CSSRadius;
-            shadow?: CSSShadow | CSSShadow[];
-            background?: CSSColor;
-
-            scale?: CSSScale;
-            rotate?: CSSRotate;
-            translate?: CSSTranslate;
-        };
+        } & Surface &
+            Transform;
 
         disabled: {
             color?: CSSColor;
+        } & Surface &
+            Transform;
+    } & Surface &
+        Transform;
 
-            // surface
-            border?: CSSBorder;
-            radius?: CSSRadius;
-            shadow?: CSSShadow | CSSShadow[];
-            background?: CSSColor;
-
-            scale?: CSSScale;
-            rotate?: CSSRotate;
-            translate?: CSSTranslate;
-        };
-    };
+    // toggle
+    toggle: {
+        thumb: Surface;
+        checked: Surface;
+        transition?: `${number}s`;
+    } & Surface;
 }
 
 const themePrefix = 'theme:';

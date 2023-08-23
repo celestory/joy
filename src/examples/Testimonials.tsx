@@ -49,7 +49,7 @@ export const Testimonials = () => {
             </TextBox>
             <Flex gap="1rem" overflow="auto" align="start">
                 {data.map(({id, user, job, message}) => (
-                    <Card el="section" direction="y" key={id} padding="2rem" minWidth="16rem" gap="1rem">
+                    <Card el="article" direction="y" key={id} padding="2rem" minWidth="16rem" gap="1rem">
                         <TextBox el="p" margin="0" size="1.1rem" lineHeight={1.4} color="theme:subForeground" italic={true}>
                             "{message}"
                         </TextBox>

@@ -90,6 +90,22 @@ export const dark: Theme = {
             background: '#222222',
         },
     },
+    toggle: {
+        radius: '2rem',
+        border: '2px solid transparent',
+        background: '#444444',
+        transition: '.3s',
+        checked: {
+            radius: '2rem',
+            border: '2px solid transparent',
+            background: '#00B2FF',
+        },
+        thumb: {
+            radius: '50%',
+            background: '#ffffff',
+            shadow: '0em 2em 5em 0em #f00',
+        },
+    },
 };
 
 export const light: Theme = {
@@ -181,6 +197,21 @@ export const light: Theme = {
             color: '#cccccc',
             radius: '0.5rem',
             background: '#eeeeee',
+        },
+    },
+    toggle: {
+        radius: '2rem',
+        border: '2px solid transparent',
+        background: '#dddddd',
+        transition: '0.3s',
+        checked: {
+            radius: '2rem',
+            border: '2px solid transparent',
+            background: '#00B2FF',
+        },
+        thumb: {
+            radius: '50%',
+            background: '#ffffff',
         },
     },
 };
@@ -275,6 +306,19 @@ export const academic: Theme = {
             background: '#cccccc',
         },
     },
+    toggle: {
+        radius: '0.5rem',
+        border: '2px solid transparent',
+        background: '#444444',
+        checked: {
+            radius: '0.5rem',
+            border: '2px solid transparent',
+            background: '#00B2FF',
+        },
+        thumb: {
+            background: '#ffffff',
+        },
+    },
 };
 
 export const kids: Theme = {
@@ -364,6 +408,19 @@ export const kids: Theme = {
         },
         disabled: {
             background: '#aaaaaa',
+        },
+    },
+    toggle: {
+        radius: '0.5rem',
+        border: '2px solid transparent',
+        background: '#444444',
+        checked: {
+            radius: '0.5rem',
+            border: '2px solid transparent',
+            background: '#00B2FF',
+        },
+        thumb: {
+            background: '#ffffff',
         },
     },
 };

@@ -80,6 +80,7 @@ export const MegaForms = () => {
             </TextBox>
             <form style={{display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem'}}>
                 <Toggle color="theme:yellow" checked={checked} onChange={onChange} />
+                <Toggle checked={checked} onChange={onChange} />
                 <SegmentedControl value={framework} onChange={setFramework} segments={frameworks} />
                 <Button
                     size=".8rem"

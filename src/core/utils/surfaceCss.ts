@@ -3,10 +3,10 @@ import {themeProp} from './types/theme';
 import type {CSSBorder, CSSColor, CSSRadius, CSSShadow, WithTheme} from './types/theme';
 
 interface SurfaceProps {
-    border?: WithTheme<CSSBorder>;
-    radius?: WithTheme<CSSRadius>;
-    shadow?: WithTheme<CSSShadow>;
-    background?: WithTheme<CSSColor>;
+    border?: WithTheme<CSSBorder | undefined>;
+    radius?: WithTheme<CSSRadius | undefined>;
+    shadow?: WithTheme<CSSShadow | undefined>;
+    background?: WithTheme<CSSColor | undefined>;
 }
 
 export const surfaceCss = ({border, radius, shadow, background}: SurfaceProps, themeNamespace = 'surface') => css`
