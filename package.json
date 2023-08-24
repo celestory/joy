@@ -1,6 +1,6 @@
 {
-    "name": "joy",
-    "version": "0.0.24",
+    "name": "@volt/joy",
+    "version": "0.0.1",
     "type": "module",
     "main": "dist/joy.umd.cjs",
     "module": "dist/joy.js",
