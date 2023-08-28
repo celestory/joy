@@ -2,8 +2,9 @@ import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
 import type {ChangeEvent, FC, ReactNode} from 'react';
-import {surfaceCss} from '../../../utils/surfaceCss';
+
 import {themeProp} from '../../../utils/types/theme';
+import {surfaceCss} from '../../../utils/surfaceCss';
 
 interface CheckboxProps {
     checked: boolean;

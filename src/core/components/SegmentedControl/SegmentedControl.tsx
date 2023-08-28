@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import type {ChangeEvent} from 'react';
-import {useEffect, useMemo, useRef} from 'react';
+import {useEffect, useId, useMemo, useRef} from 'react';
 import {surfaceCss} from '../../utils/surfaceCss';
 import {themeProp} from '../../utils/types/theme';
 
 const Control = styled.div`
-    --offset-width: auto;
-    --offset-left: 0;
+    --control-offset-width: auto;
+    --control-offset-left: 0;
     display: inline-flex;
     justify-content: space-between;
     position: relative;
@@ -19,8 +19,8 @@ const Control = styled.div`
     &::before {
         content: '';
         ${surfaceCss({}, 'input.hover')}
-        width: var(--offset-width);
-        transform: translateX(var(--offset-left));
+        width: var(--control-offset-width);
+        transform: translateX(var(--control-offset-left));
         position: absolute;
         top: 2px; // 💩
         bottom: 2px;
@@ -57,28 +57,29 @@ type Props = {
 };
 
 export const SegmentedControl = ({name, value, onChange, segments}: Props) => {
+    const id = useId();
     const controlRef = useRef<HTMLDivElement>(null);
-    const activeIndex = useMemo(() => segments.findIndex(({value: segmentValue}) => segmentValue === value), [segments, value]);
+    const activeIndex = useMemo(() => segments.findIndex(segment => segment.value === value), [segments, value]);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {offsetWidth, offsetLeft} = event.currentTarget.parentElement!;
-        controlRef.current?.style?.setProperty('--offset-width', `${offsetWidth}px`);
-        controlRef.current?.style?.setProperty('--offset-left', `${offsetLeft}px`);
+        controlRef.current?.style?.setProperty('--control-offset-width', `${offsetWidth}px`);
+        controlRef.current?.style?.setProperty('--control-offset-left', `${offsetLeft}px`);
         onChange(event.currentTarget.value);
     };
 
     useEffect(() => {
         const initialElement = controlRef.current?.querySelector('[data-selected]') as HTMLElement;
-        controlRef.current?.style?.setProperty('--offset-width', `${initialElement?.offsetWidth}px`);
-        controlRef.current?.style?.setProperty('--offset-left', `${initialElement?.offsetLeft}px`);
+        controlRef.current?.style?.setProperty('--control-offset-width', `${initialElement?.offsetWidth}px`);
+        controlRef.current?.style?.setProperty('--control-offset-left', `${initialElement?.offsetLeft}px`);
     }, [segments]);
 
     return (
         <Control ref={controlRef}>
-            {segments?.map(({value: segmentValue, label}, i) => (
-                <Segment key={segmentValue} data-selected={i === activeIndex || undefined}>
-                    <input type="radio" value={segmentValue} id={segmentValue} name={name} onChange={handleChange} checked={i === activeIndex} />
-                    <label htmlFor={segmentValue}>{typeof label === 'function' ? label(i === activeIndex) : label}</label>
+            {segments?.map((segment, i) => (
+                <Segment key={segment.value} data-selected={i === activeIndex || undefined}>
+                    <input type="radio" id={`${id}-${segment.value}`} value={segment.value} name={name} onChange={handleChange} checked={i === activeIndex} />
+                    <label htmlFor={`${id}-${segment.value}`}>{typeof segment.label === 'function' ? segment.label(i === activeIndex) : segment.label}</label>
                 </Segment>
             ))}
         </Control>
