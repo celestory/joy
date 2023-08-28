@@ -3,7 +3,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
 import type {ChangeEvent, FC, ReactNode} from 'react';
 
-import {themeProp} from '../../../utils/types/theme';
+import {themeConst} from '../../../utils/types/theme';
 import {surfaceCss} from '../../../utils/surfaceCss';
 
 interface CheckboxProps {
@@ -43,7 +43,7 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
         width: ${props => props.size};
         height: ${props => props.size};
         //
-        transition: ${themeProp('theme:toggle.transition')} all;
+        transition: ${themeConst('theme:toggle.transition')} all;
         ${surfaceCss({}, 'checkbox')}
 
         svg {
@@ -51,7 +51,7 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
             width: ${props => parseFloat(props.size) / 2.0}rem;
             fill: none;
             overflow: visible;
-            stroke: ${themeProp('theme:checkbox.color', 'theme:foreground')};
+            stroke: ${themeConst('theme:checkbox.color', themeConst('theme:foreground'))};
             stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -72,7 +72,7 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
     input[type='checkbox']:disabled + i {
         ${surfaceCss({}, 'checkbox.disabled')}
         svg {
-            stroke: ${themeProp('theme:checkbox.disabled.color', 'theme:foreground')};
+            stroke: ${themeConst('theme:checkbox.disabled.color', themeConst('theme:foreground'))};
         }
     }
 `;

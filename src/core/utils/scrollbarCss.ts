@@ -1,5 +1,5 @@
 import {css} from '@emotion/react';
-import {themeProp} from './types/theme';
+import {themeConst} from './types/theme';
 
 export const scrollbar = css`
     scrollbar-width: thin;
@@ -15,12 +15,12 @@ export const scrollbar = css`
     ::-webkit-scrollbar-thumb {
         transition: background-color 0.3s;
         border-radius: 3px;
-        background-color: ${themeProp('theme:scrollbar.thumb', `hsla(0, 0%, 50%, 0.2)`)};
+        background-color: ${themeConst('theme:scrollbar.thumb', `hsla(0, 0%, 50%, 0.2)`)};
     }
 
     ::-webkit-scrollbar-thumb:hover {
         border-radius: 3px;
-        background-color: ${themeProp('theme:scrollbar.hover.thumb', `hsla(0, 0%, 50%, 0.3)`)};
+        background-color: ${themeConst('theme:scrollbar.hover.thumb', `hsla(0, 0%, 50%, 0.3)`)};
     }
 
     ::-webkit-scrollbar-button {

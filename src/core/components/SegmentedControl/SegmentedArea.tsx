@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import type {ChangeEvent} from 'react';
 import {useEffect, useId, useMemo, useRef} from 'react';
-import {surfaceCss} from '../../utils/surfaceCss';
-import {themeProp} from '../../utils/types/theme';
+import type {ChangeEvent} from 'react';
+
 import {Flex} from '../Flex/Flex';
+import {surfaceCss} from '../../utils/surfaceCss';
+import {themeConst} from '../../utils/types/theme';
 
 const Control = styled.div`
     --area-offset-width: auto;
@@ -14,7 +15,7 @@ const Control = styled.div`
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    font: ${themeProp('theme:font.button')};
+    font: ${themeConst('theme:font.button')};
     font-size: 0.8rem; // 💩
     ${surfaceCss({}, 'input')}
     input {
@@ -42,13 +43,13 @@ const Segment = styled.div`
         display: block;
         padding: 0.8em;
         transition: color 0.3s ease;
-        color: ${themeProp('theme:subForeground')};
+        color: ${themeConst('theme:subForeground')};
         &:hover {
-            color: ${themeProp('theme:foreground')};
+            color: ${themeConst('theme:foreground')};
         }
     }
     &[data-selected] label {
-        color: ${themeProp('theme:foreground')};
+        color: ${themeConst('theme:foreground')};
     }
 `;
 

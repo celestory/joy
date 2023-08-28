@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import type {InputHTMLAttributes} from 'react';
 
 import {surfaceCss} from '../../../utils/surfaceCss';
-import {themeProp, type CSSColor, type WithTheme} from '../../../utils/types/theme';
+import {themeConst, type CSSColor, type WithTheme} from '../../../utils/types/theme';
 
 type ToggleProps = {
     color?: WithTheme<CSSColor>;
@@ -23,7 +23,7 @@ const StyledInput = styled.input<{color?: WithTheme<CSSColor>}>`
 
     margin: 0;
     padding-inline: 0 var(--toggle-width);
-    transition: ${themeProp('theme:toggle.transition')} all;
+    transition: ${themeConst('theme:toggle.transition')} all;
 
     ${surfaceCss({}, 'toggle')}
 

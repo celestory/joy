@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 
 import {boxCss} from '../../Box/boxCss';
-import {themeProp} from '../../../utils/types/theme';
+import {themeConst} from '../../../utils/types/theme';
 import type {ButtonProps} from './Button';
 import type {Breakpoints} from '../../../utils/types/break';
 
@@ -14,56 +14,56 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
     outline: none;
     text-decoration: none;
 
-    font: ${themeProp('theme:font.button')};
+    font: ${themeConst('theme:font.button')};
     font-size: ${props[`${breakpoint}size`]};
 
-    color: ${themeProp('theme:button.color', 'theme:foreground')};
-    border: ${themeProp('theme:button.border')};
-    box-shadow: ${themeProp('theme:button.shadow')};
-    border-radius: ${themeProp('theme:button.radius')};
-    background-color: ${themeProp('theme:button.background')};
+    color: ${themeConst('theme:button.color', themeConst('theme:foreground'))};
+    border: ${themeConst('theme:button.border')};
+    box-shadow: ${themeConst('theme:button.shadow')};
+    border-radius: ${themeConst('theme:button.radius')};
+    background-color: ${themeConst('theme:button.background')};
 
-    scale: ${themeProp('theme:button.scale')};
-    rotate: ${themeProp('theme:button.rotate')};
-    translate: ${themeProp('theme:button.translate')};
+    scale: ${themeConst('theme:button.scale')};
+    rotate: ${themeConst('theme:button.rotate')};
+    translate: ${themeConst('theme:button.translate')};
 
-    transition: ${themeProp('theme:button.transition')} all;
+    transition: ${themeConst('theme:button.transition')} all;
 
     &:hover {
-        color: ${themeProp('theme:button.hover.color', 'theme:foreground')};
-        border: ${themeProp('theme:button.hover.border')};
-        box-shadow: ${themeProp('theme:button.hover.shadow')};
-        border-radius: ${themeProp('theme:button.hover.radius')};
-        background-color: ${themeProp('theme:button.hover.background')};
+        color: ${themeConst('theme:button.hover.color', themeConst('theme:foreground'))};
+        border: ${themeConst('theme:button.hover.border')};
+        box-shadow: ${themeConst('theme:button.hover.shadow')};
+        border-radius: ${themeConst('theme:button.hover.radius')};
+        background-color: ${themeConst('theme:button.hover.background')};
 
-        scale: ${themeProp('theme:button.hover.scale')};
-        rotate: ${themeProp('theme:button.hover.rotate')};
-        translate: ${themeProp('theme:button.hover.translate')};
+        scale: ${themeConst('theme:button.hover.scale')};
+        rotate: ${themeConst('theme:button.hover.rotate')};
+        translate: ${themeConst('theme:button.hover.translate')};
     }
 
     &:active,
     &:focus-visible {
-        color: ${themeProp('theme:button.hover.color', 'theme:foreground')};
-        border: ${themeProp('theme:button.focus.border')};
-        box-shadow: ${themeProp('theme:button.focus.shadow')};
-        border-radius: ${themeProp('theme:button.focus.radius')};
-        background-color: ${themeProp('theme:button.focus.background')};
+        color: ${themeConst('theme:button.hover.color', themeConst('theme:foreground'))};
+        border: ${themeConst('theme:button.focus.border')};
+        box-shadow: ${themeConst('theme:button.focus.shadow')};
+        border-radius: ${themeConst('theme:button.focus.radius')};
+        background-color: ${themeConst('theme:button.focus.background')};
 
-        scale: ${themeProp('theme:button.focus.scale')};
-        rotate: ${themeProp('theme:button.focus.rotate')};
-        translate: ${themeProp('theme:button.focus.translate')};
+        scale: ${themeConst('theme:button.focus.scale')};
+        rotate: ${themeConst('theme:button.focus.rotate')};
+        translate: ${themeConst('theme:button.focus.translate')};
     }
 
     &:disabled {
         cursor: default;
-        color: ${themeProp('theme:button.disabled.color', 'theme:foreground')};
-        border: ${themeProp('theme:button.disabled.border')};
-        box-shadow: ${themeProp('theme:button.disabled.shadow')};
-        border-radius: ${themeProp('theme:button.disabled.radius')};
-        background-color: ${themeProp('theme:button.disabled.background')};
+        color: ${themeConst('theme:button.disabled.color', themeConst('theme:foreground'))};
+        border: ${themeConst('theme:button.disabled.border')};
+        box-shadow: ${themeConst('theme:button.disabled.shadow')};
+        border-radius: ${themeConst('theme:button.disabled.radius')};
+        background-color: ${themeConst('theme:button.disabled.background')};
 
-        scale: ${themeProp('theme:button.disabled.scale')};
-        rotate: ${themeProp('theme:button.disabled.rotate')};
-        translate: ${themeProp('theme:button.disabled.translate')};
+        scale: ${themeConst('theme:button.disabled.scale')};
+        rotate: ${themeConst('theme:button.disabled.rotate')};
+        translate: ${themeConst('theme:button.disabled.translate')};
     }
 `;

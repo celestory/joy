@@ -18,7 +18,8 @@ export type CSSScale = `${number}`;
 export type CSSRotate = `${number}deg`;
 export type CSSTranslate = `${'0' | `${number}em`} ${'0' | `${number}em`}`;
 
-export type WithTheme<PropType> = PropType | `${typeof themePrefix}${keyof PathSelector<Theme, PropType> & string}`;
+export type ThemeKey<PropType> = `${typeof themePrefix}${keyof PathSelector<Theme, PropType> & string}`;
+export type WithTheme<PropType> = PropType | ThemeKey<PropType>;
 export type PathSelector<T, PropType = string> = {
     [K in keyof T as T[K] extends object
         ? `${K & string}.${keyof PathSelector<T[K], PropType> & string}`
@@ -76,7 +77,7 @@ export interface Theme {
     magenta: CSSColor;
     turquoise: CSSColor;
 
-    scrollbar?: {
+    scrollbar: {
         thumb: CSSColor;
         hover: {
             thumb: CSSColor;
@@ -141,17 +142,22 @@ export interface Theme {
 }
 
 const themePrefix = 'theme:';
-// TODO: get rid of defaultValue and type prop: T to prop: T | ThemeKey
 export const themeProp = <T extends WithTheme<any>>(prop: T, defaultValue?: string) => {
     if (typeof prop === 'string' && prop.startsWith(themePrefix)) {
         const propsWithoutPrefix = prop.replace(themePrefix, '--joy-').replaceAll('.', '-');
         return `var(${propsWithoutPrefix})`;
     }
     if (typeof prop === 'undefined' && defaultValue) {
-        const propsWithoutPrefix = defaultValue.replace(themePrefix, '--joy-').replaceAll('.', '-');
-        return `var(${propsWithoutPrefix})`;
+        return defaultValue;
     }
     return prop;
+};
+export const themeConst = <T = any>(prop: ThemeKey<T>, defaultValue?: string) => {
+    if (prop) {
+        const propsWithoutPrefix = prop.replace(themePrefix, '--joy-').replaceAll('.', '-');
+        return `var(${propsWithoutPrefix})`;
+    }
+    return defaultValue;
 };
 
 export const fontWeightToCss = {

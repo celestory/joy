@@ -2,8 +2,8 @@ import type {LinkHTMLAttributes, PropsWithChildren} from 'react';
 
 import {textLinkCss} from './textLinkCss';
 import {createStyledWithBreakpoints} from '../../utils/breakpoints';
-import type {TextSpanProps} from '../TextSpan/TextSpan';
 import type {OmitStrict} from '../../utils/types/utils';
+import type {TextSpanProps} from '../TextSpan/TextSpan';
 
 export type TextLinkProps = OmitStrict<TextSpanProps, 'el'> & LinkHTMLAttributes<HTMLAnchorElement>;
 
