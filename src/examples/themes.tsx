@@ -106,6 +106,21 @@ export const dark: Theme = {
             shadow: '0em 2em 5em 0em #f00',
         },
     },
+    checkbox: {
+        color: '#ffffff',
+        radius: '0.5rem',
+        background: '#444444',
+        transition: '.3s',
+        checked: {
+            radius: '0.5rem',
+            background: '#00B2FF',
+        },
+        disabled: {
+            color: '#888888',
+            radius: '0.5rem',
+            background: '#333333',
+        },
+    },
 };
 
 export const light: Theme = {
@@ -214,6 +229,23 @@ export const light: Theme = {
             background: '#ffffff',
         },
     },
+    checkbox: {
+        color: '#ffffff',
+        radius: '1rem',
+        border: '2px solid transparent',
+        background: '#dddddd',
+        transition: '.3s',
+        checked: {
+            radius: '1rem',
+            border: '2px solid transparent',
+            background: '#00B2FF',
+        },
+        disabled: {
+            radius: '1rem',
+            border: '2px solid transparent',
+            background: '#eeeeee',
+        },
+    },
 };
 
 export const academic: Theme = {
@@ -319,6 +351,23 @@ export const academic: Theme = {
             background: '#ffffff',
         },
     },
+    checkbox: {
+        color: '#ffffff',
+        radius: '1rem',
+        border: '2px solid transparent',
+        background: '#dddddd',
+        transition: '.3s',
+        checked: {
+            radius: '1rem',
+            border: '2px solid transparent',
+            background: '#00B2FF',
+        },
+        disabled: {
+            radius: '1rem',
+            border: '2px solid transparent',
+            background: '#eeeeee',
+        },
+    },
 };
 
 export const kids: Theme = {
@@ -421,6 +470,23 @@ export const kids: Theme = {
         },
         thumb: {
             background: '#ffffff',
+        },
+    },
+    checkbox: {
+        color: '#ffffff',
+        radius: '1rem',
+        border: '2px solid transparent',
+        background: '#dddddd',
+        transition: '.3s',
+        checked: {
+            radius: '1rem',
+            border: '2px solid transparent',
+            background: '#00B2FF',
+        },
+        disabled: {
+            radius: '1rem',
+            border: '2px solid transparent',
+            background: '#eeeeee',
         },
     },
 };

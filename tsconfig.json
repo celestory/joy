@@ -23,8 +23,7 @@
         "noImplicitOverride": true,
         "noUnusedParameters": true,
         "noUncheckedIndexedAccess": true,
-        "noFallthroughCasesInSwitch": true,
-        "exactOptionalPropertyTypes": true
+        "noFallthroughCasesInSwitch": true
     },
     "include": ["src"],
     "references": [{"path": "./tsconfig.node.json"}]

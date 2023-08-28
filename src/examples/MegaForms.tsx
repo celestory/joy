@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import {useState} from 'react';
-import {Button, Flex, SegmentedControl, TextBox, Toggle, useCheckboxState} from '../joy';
+import {Button, Flex, Input, SegmentedControl, TextBox, Toggle, useCheckboxState, useInputState} from '../joy';
+import {Checkbox} from '../core/components/Forms/Checkbox/Checkbox';
 
 const Icon = styled.svg<{selected: boolean}>`
     [fill='black'] {
@@ -71,7 +72,10 @@ export const MegaForms = () => {
     ];
     const [textAlign, setTextAlign] = useState('start');
 
+    const [toggled, onToggle] = useCheckboxState();
     const [checked, onChange] = useCheckboxState();
+
+    const [name, changeName] = useInputState('');
 
     return (
         <Flex direction="y" margin="1rem auto" maxWidth="35rem">
@@ -79,8 +83,10 @@ export const MegaForms = () => {
                 Mega forms
             </TextBox>
             <form style={{display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem'}}>
-                <Toggle color="theme:yellow" checked={checked} onChange={onChange} />
-                <Toggle checked={checked} onChange={onChange} />
+                <Toggle color="theme:yellow" checked={toggled} onChange={onToggle} />
+                <Toggle checked={toggled} onChange={onToggle} />
+                <Checkbox label="Something to check" checked={checked} onChange={onChange} />
+                <Checkbox disabled label="Indeterminate version" checked={checked} indeterminate={true} onChange={onChange} />
                 <SegmentedControl value={framework} onChange={setFramework} segments={frameworks} />
                 <Button
                     size=".8rem"
@@ -93,6 +99,8 @@ export const MegaForms = () => {
                     Add framework
                 </Button>
                 <SegmentedControl value={textAlign} onChange={setTextAlign} segments={textAligns} />
+                <label htmlFor="pseudo">TODO label</label>
+                <Input id="pseudo" name="pseudo" placeholder="pseudo" value={name} onChange={changeName} />
             </form>
         </Flex>
     );

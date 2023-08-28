@@ -18,7 +18,7 @@ export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' =
     color: ${themeProp('theme:input.color', 'theme:foreground')};
 
     font: ${themeProp('theme:font.ui')};
-    font-size: ${props[`${breakpoint}size`]};
+    font-size: ${props[`${breakpoint}size`] || '0.8rem'};
 
     transition: ${themeProp('theme:input.transition')} all;
 

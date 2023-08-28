@@ -123,6 +123,16 @@ export interface Theme {
         checked: Surface;
         transition?: `${number}s`;
     } & Surface;
+
+    // checkbox
+    checkbox: {
+        color: CSSColor;
+        checked: Surface;
+        disabled: {
+            color?: CSSColor;
+        } & Surface;
+        transition?: `${number}s`;
+    } & Surface;
 }
 
 const themePrefix = 'theme:';

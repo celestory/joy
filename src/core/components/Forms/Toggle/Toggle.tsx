@@ -8,7 +8,7 @@ type ToggleProps = {
     color?: WithTheme<CSSColor>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const StyledInput = styled.input<{color?: WithTheme<CSSColor | undefined>}>`
+const StyledInput = styled.input<{color?: WithTheme<CSSColor>}>`
     --toggle-width: 1.4rem;
     --toggle-thumb-gap: 0.1rem;
     --toggle-thumb-size: 0.6rem;
