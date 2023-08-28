@@ -85,6 +85,7 @@ export const MegaForms = () => {
             <form style={{display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem'}}>
                 <Toggle color="theme:yellow" checked={toggled} onChange={onToggle} />
                 <Toggle checked={toggled} onChange={onToggle} />
+                <Checkbox size="2rem" label="Something big" checked={checked} onChange={onChange} />
                 <Checkbox label="Something to check" checked={checked} onChange={onChange} />
                 <Checkbox disabled label="Indeterminate version" checked={checked} indeterminate={true} onChange={onChange} />
                 <SegmentedControl value={framework} onChange={setFramework} segments={frameworks} />

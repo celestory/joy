@@ -25,7 +25,6 @@ const checkboxOptions: StyledOptions<CheckboxProps> = {
 
 const CheckBoxWrapper = styled('label', checkboxOptions)<{
     size: `${number}rem`;
-    disabled?: boolean;
     labelGap: `${number}rem`;
 }>`
     display: flex;
@@ -40,15 +39,15 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
         display: grid;
         place-content: center;
         //
-        width: 24px;
-        height: 24px;
+        width: ${props => props.size};
+        height: ${props => props.size};
         //
         transition: ${themeProp('theme:toggle.transition')} all;
         ${surfaceCss({}, 'checkbox')}
 
         svg {
             display: block;
-            width: 12px;
+            width: ${props => parseFloat(props.size) / 2.0}rem;
             fill: none;
             overflow: visible;
             stroke: ${themeProp('theme:checkbox.color', 'theme:foreground')};
@@ -77,9 +76,9 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
     }
 `;
 
-export const Checkbox: FC<CheckboxProps> = ({checked, onChange, indeterminate, disabled, label, labelGap = '0.5rem', labelAlign = 'end'}) => {
+export const Checkbox: FC<CheckboxProps> = ({checked, onChange, indeterminate, disabled, size = '1.5rem', label, labelGap = '0.5rem', labelAlign = 'end'}) => {
     return (
-        <CheckBoxWrapper size="1rem" disabled={disabled} labelGap={labelGap}>
+        <CheckBoxWrapper size={size} labelGap={labelGap}>
             {labelAlign === 'start' && label}
             <input type="checkbox" disabled={disabled} checked={checked} onChange={onChange} />
             <i>
