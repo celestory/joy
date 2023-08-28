@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import {useMemo, useState} from 'react';
-import {Button, Flex, Input, SegmentedArea, SegmentedControl, TextBox, Toggle, useCheckboxState, useInputState} from '../joy';
-import {Checkbox} from '../core/components/Forms/Checkbox/Checkbox';
+import {Button, Checkbox, Flex, Input, SegmentedArea, SegmentedControl, Range, TextBox, Toggle, useCheckboxState, useInputState, useRangeState} from '../joy';
 
 const Icon = styled.svg<{selected: boolean}>`
     [fill='black'] {
@@ -150,9 +149,11 @@ export const MegaForms = () => {
     const [distribute, setDistribute] = useState('center');
 
     const [toggled, onToggle] = useCheckboxState();
-    const [checked, onChange] = useCheckboxState();
+    const [checked, onCheckboxToggle] = useCheckboxState();
 
     const [name, changeName] = useInputState('');
+
+    const temperature = useRangeState(20, {min: 15, max: 30, step: 0.2});
 
     return (
         <Flex direction="y" margin="1rem auto" maxWidth="35rem">
@@ -162,9 +163,9 @@ export const MegaForms = () => {
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem'}}>
                 <Toggle color="theme:yellow" checked={toggled} onChange={onToggle} />
                 <Toggle checked={toggled} onChange={onToggle} />
-                <Checkbox size="2rem" label="Something big" checked={checked} onChange={onChange} />
-                <Checkbox label="Something to check" checked={checked} onChange={onChange} />
-                <Checkbox disabled label="Indeterminate version" checked={checked} indeterminate={true} onChange={onChange} />
+                <Checkbox size="2rem" label="Something big" checked={checked} onChange={onCheckboxToggle} />
+                <Checkbox label="Something to check" checked={checked} onChange={onCheckboxToggle} />
+                <Checkbox disabled label="Indeterminate version" checked={checked} indeterminate={true} onChange={onCheckboxToggle} />
                 <SegmentedControl value={framework} onChange={setFramework} segments={frameworks} />
                 <Button
                     size=".8rem"
@@ -178,8 +179,10 @@ export const MegaForms = () => {
                 </Button>
                 <SegmentedControl name="caca" value={textAlign} onChange={setTextAlign} segments={textAligns} />
                 <SegmentedArea name="cacahuete" value={distribute} onChange={setDistribute} segments={distributes} />
-                <label htmlFor="pseudo">TODO label</label>
+                <label htmlFor="pseudo">Pseudo</label>
                 <Input id="pseudo" name="pseudo" placeholder="pseudo" value={name} onChange={changeName} />
+                <label htmlFor="temperature">Temperature ({temperature.value})</label>
+                <Range id="temperature" {...temperature} />
             </div>
         </Flex>
     );

@@ -1,5 +1,7 @@
 import type {Theme} from '../joy';
 
+const brandColor = '#00B2FF';
+
 export const dark: Theme = {
     font: {
         ui: 'normal 400 1em Inter, sans-serif',
@@ -15,7 +17,7 @@ export const dark: Theme = {
     background: '#161616',
     subBackground: '#252525',
 
-    brand: '#00B2FF',
+    brand: brandColor,
 
     red: '#F55A50',
     blue: '#00B2FF',
@@ -59,7 +61,7 @@ export const dark: Theme = {
 
         focus: {
             radius: '0.5rem',
-            border: '2px solid #00B2FF',
+            border: `2px solid ${brandColor}`,
             background: '#444444',
         },
     },
@@ -113,12 +115,20 @@ export const dark: Theme = {
         transition: '.3s',
         checked: {
             radius: '0.5rem',
-            background: '#00B2FF',
+            background: brandColor,
         },
         disabled: {
             color: '#888888',
             radius: '0.5rem',
             background: '#333333',
+        },
+    },
+    range: {
+        radius: '2rem',
+        background: '#444444',
+        thumb: {
+            radius: '50%',
+            background: '#ffffff',
         },
     },
 };
@@ -246,6 +256,14 @@ export const light: Theme = {
             background: '#eeeeee',
         },
     },
+    range: {
+        radius: '2rem',
+        background: '#444444',
+        thumb: {
+            radius: '50%',
+            background: '#ffffff',
+        },
+    },
 };
 
 export const academic: Theme = {
@@ -368,6 +386,14 @@ export const academic: Theme = {
             background: '#eeeeee',
         },
     },
+    range: {
+        radius: '2rem',
+        background: '#444444',
+        thumb: {
+            radius: '50%',
+            background: '#ffffff',
+        },
+    },
 };
 
 export const kids: Theme = {
@@ -487,6 +513,14 @@ export const kids: Theme = {
             radius: '1rem',
             border: '2px solid transparent',
             background: '#eeeeee',
+        },
+    },
+    range: {
+        radius: '2rem',
+        background: '#444444',
+        thumb: {
+            radius: '50%',
+            background: '#ffffff',
         },
     },
 };

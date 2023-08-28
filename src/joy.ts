@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 export {styled};
 
 export {useInputState} from './core/hooks/useInputState';
+export {useRangeState} from './core/hooks/useRangeState';
 export {useToggleState} from './core/hooks/useToggleState';
 export {useLocationState} from './core/hooks/useLocationState';
 export {useCheckboxState} from './core/hooks/useCheckboxState';
@@ -19,7 +20,9 @@ export {ImageBox} from './core/components/ImageBox/ImageBox';
 
 export {Input} from './core/components/Forms/Input/Input';
 export {Select} from './core/components/Forms/Select/Select';
+export {Range} from './core/components/Forms/Range/Range';
 export {Toggle} from './core/components/Forms/Toggle/Toggle';
+export {Checkbox} from './core/components/Forms/Checkbox/Checkbox';
 export {CircleProgress} from './core/components/Forms/CircleProgress/CircleProgress';
 export {Button, LinkButton} from './core/components/Forms/Button/Button';
 

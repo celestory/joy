@@ -133,6 +133,11 @@ export interface Theme {
         } & Surface;
         transition?: `${number}s`;
     } & Surface;
+
+    // range
+    range: {
+        thumb: Surface;
+    } & Surface;
 }
 
 const themePrefix = 'theme:';
