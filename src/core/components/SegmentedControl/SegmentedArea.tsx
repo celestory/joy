@@ -23,7 +23,7 @@ const Control = styled.div`
     }
     &::before {
         content: '';
-        ${surfaceCss({}, 'input.hover')}
+        ${surfaceCss({}, 'input._hover')}
         width: var(--area-offset-width);
         height: var(--area-offset-height);
         transform: translate(var(--area-offset-left), var(--area-offset-top));

@@ -89,10 +89,10 @@ export interface Theme {
     // input
     input: {
         color: CSSColor;
-
         transition?: `${number}s`;
-        hover: Surface;
-        focus: Surface;
+
+        _hover: Surface;
+        _focus: Surface;
     } & Surface;
 
     // button

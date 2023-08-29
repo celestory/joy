@@ -1,8 +1,8 @@
-import type {Theme} from '../joy';
+import type {Theme} from '../utils/types/theme';
 
 const brandColor = '#00B2FF';
 
-export const dark: Theme = {
+export const darkTheme: Theme = {
     font: {
         ui: 'normal 400 1em Inter, sans-serif',
         mono: 'normal 400 1em Menlo, Monaco, monospace',
@@ -53,13 +53,13 @@ export const dark: Theme = {
         background: '#444444',
         transition: '.3s',
 
-        hover: {
+        _hover: {
             radius: '0.5rem',
             border: '2px solid transparent',
             background: '#555555',
         },
 
-        focus: {
+        _focus: {
             radius: '0.5rem',
             border: `2px solid ${brandColor}`,
             background: '#444444',
@@ -133,7 +133,7 @@ export const dark: Theme = {
     },
 };
 
-export const light: Theme = {
+export const lightTheme: Theme = {
     font: {
         ui: 'normal 400 1em Inter, sans-serif',
         mono: 'normal 400 1em Menlo, Monaco, monospace',
@@ -184,13 +184,13 @@ export const light: Theme = {
         background: '#dddddd',
         transition: '.3s',
 
-        hover: {
+        _hover: {
             radius: '0.5rem',
             border: '2px solid transparent',
             background: '#cccccc',
         },
 
-        focus: {
+        _focus: {
             radius: '0.5rem',
             border: '2px solid #00B2FF',
             background: '#cccccc',
@@ -266,7 +266,7 @@ export const light: Theme = {
     },
 };
 
-export const academic: Theme = {
+export const academicTheme: Theme = {
     font: {
         ui: 'normal 400 1em Alegreya, serif',
         mono: 'normal 400 1em monospace',
@@ -317,13 +317,13 @@ export const academic: Theme = {
         background: '#ffffff',
         transition: '.3s',
 
-        hover: {
+        _hover: {
             radius: '0rem',
             border: '1px solid #222222',
             background: '#ffffff',
         },
 
-        focus: {
+        _focus: {
             radius: '0rem',
             border: '1px solid #222222',
             background: '#ffffff',
@@ -396,7 +396,7 @@ export const academic: Theme = {
     },
 };
 
-export const kids: Theme = {
+export const kidsTheme: Theme = {
     font: {
         ui: 'normal 400 1em Quicksand, sans-serif',
         mono: 'normal 400 1em monospace',
@@ -448,13 +448,13 @@ export const kids: Theme = {
         background: '#ffffff',
         transition: '.3s',
 
-        hover: {
+        _hover: {
             radius: '1.2em',
             background: '#ffffff',
             border: '3px solid #B4D5E8',
         },
 
-        focus: {
+        _focus: {
             radius: '1.2em',
             background: '#ffffff',
             border: '3px solid #5061FF',

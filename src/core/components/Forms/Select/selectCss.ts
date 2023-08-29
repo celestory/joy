@@ -24,13 +24,13 @@ export const selectCss = (props: SelectProps, breakpoint: `${Breakpoints}-` | ''
     transition: ${themeConst('theme:input.transition')} all;
 
     &:hover {
-        ${surfaceCss({}, 'input.hover')}
+        ${surfaceCss({}, 'input._hover')}
     }
-
-    /* 💩 */
-    /* &:focus-visible {
-        border: ${themeConst('theme:input.focus.border')};
-        background: ${themeConst('theme:input.focus.background')};
-        border-radius: ${themeConst('theme:input.focus.radius')};
-    } */
 `;
+
+/* 💩 */
+/* &:focus-visible {
+        border: ${themeConst('theme:input._focus.border')};
+        background: ${themeConst('theme:input._focus.background')};
+        border-radius: ${themeConst('theme:input._focus.radius')};
+    } */

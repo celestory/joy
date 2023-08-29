@@ -1,5 +1,16 @@
 import styled from '@emotion/styled';
-import {Flex, Select, ThemeProvider, useInputState, useLocationState} from '../joy';
+import {
+    Flex,
+    Select,
+    ThemeProvider,
+    useInputState,
+    useLocationState,
+    //
+    darkTheme,
+    kidsTheme,
+    lightTheme,
+    academicTheme,
+} from '../joy';
 
 // examples
 import {Hero} from './Hero';
@@ -13,7 +24,6 @@ import {Gallery} from './Gallery';
 import {BentoGrid} from './BentoGrid';
 import {Testimonials} from './Testimonials';
 
-import {dark, kids, light, academic} from './themes';
 import {Progress} from './Progress';
 import {MegaForms} from './MegaForms';
 
@@ -33,7 +43,7 @@ const examples = {
 };
 type Example = keyof typeof examples;
 
-const themes = {light, dark, academic, kids};
+const themes = {darkTheme, kidsTheme, lightTheme, academicTheme};
 type ThemeName = keyof typeof themes;
 
 const Bottom = styled(Flex)`
@@ -43,17 +53,18 @@ const Bottom = styled(Flex)`
 `;
 
 export const App = () => {
-    const [themeName, setThemeName] = useInputState<ThemeName>('dark');
     const [example, changeExample] = useLocationState<Example>('landing');
+    const [themeName, setThemeName] = useInputState<ThemeName>('darkTheme');
+
     return (
         <ThemeProvider theme={themes[themeName]}>
             {examples[example]}
             <Bottom gap="1rem">
                 <Select size="0.8rem" value={themeName} onChange={setThemeName}>
-                    <option value="dark">🌙 Dark</option>
-                    <option value="light">☀️ Light</option>
-                    <option value="academic">🎓 Academic</option>
-                    <option value="kids">🧸 Kids</option>
+                    <option value="darkTheme">🌙 Dark</option>
+                    <option value="lightTheme">☀️ Light</option>
+                    <option value="academicTheme">🎓 Academic</option>
+                    <option value="kidsTheme">🧸 Kids</option>
                 </Select>
                 <Select size="0.8rem" value={example} onChange={changeExample}>
                     {Object.keys(examples).map(example => (

@@ -19,7 +19,7 @@ const Control = styled.div`
     }
     &::before {
         content: '';
-        ${surfaceCss({}, 'input.hover')}
+        ${surfaceCss({}, 'input._hover')}
         width: var(--control-offset-width);
         transform: translateX(var(--control-offset-left));
         position: absolute;

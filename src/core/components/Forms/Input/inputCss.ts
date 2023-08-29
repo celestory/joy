@@ -23,9 +23,9 @@ export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' =
     transition: ${themeConst('theme:input.transition')} all;
 
     &:hover {
-        ${surfaceCss({}, 'input.hover')}
+        ${surfaceCss({}, 'input._hover')}
     }
     &:focus {
-        ${surfaceCss({}, 'input.focus')}
+        ${surfaceCss({}, 'input._focus')}
     }
 `;
