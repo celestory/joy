@@ -1,56 +1,133 @@
 import styled from '@emotion/styled';
 import type {InputHTMLAttributes} from 'react';
-import {surfaceCss} from '../../../utils/surfaceCss';
+import {themeConst} from '../../../utils/types/theme';
 
 const StyledInput = styled.input`
-    -webkit-appearance: none;
-    appearance: none;
+    --thumb-color: ${themeConst('theme:foreground')};
+    --track-color: ${themeConst('theme:subBackground')};
+    --progress-color: ${themeConst('theme:brand')};
+    --thumb-height: 1.125em;
+    --track-height: 0.125em;
+    --brightness-hover: 180%;
+    --brightness-down: 80%;
+    --clip-edges: 0.125em;
+
+    width: 12.5em;
+    position: relative;
     background: transparent;
-    cursor: pointer;
-    width: 15rem;
+    overflow: hidden;
 
-    /* Removes default focus */
-    &:focus {
-        outline: none;
+    &:active {
+        cursor: grabbing;
     }
 
-    /* slider track */
-    &::-webkit-slider-runnable-track {
-        ${surfaceCss({}, 'range')}
-        height: 0.5rem;
+    &:disabled {
+        filter: grayscale(1);
+        opacity: 0.3;
+        cursor: not-allowed;
     }
 
-    &::-moz-range-track {
-        ${surfaceCss({}, 'range')}
-        height: 0.5rem;
-    }
-
-    /* slider thumb */
+    /* === WebKit specific styles === */
+    &,
+    &::-webkit-slider-runnable-track,
     &::-webkit-slider-thumb {
-        -webkit-appearance: none; /* Override default look */
-        appearance: none;
+        -webkit-appearance: none;
+        transition: all ease 100ms;
+        height: var(--thumb-height);
+    }
 
-        width: 1rem;
-        height: 1rem;
-        margin-top: -0.25rem;
-        ${surfaceCss({}, 'range.thumb')}
+    &::-webkit-slider-runnable-track,
+    &::-webkit-slider-thumb {
+        position: relative;
+    }
+
+    &::-webkit-slider-thumb {
+        --thumb-radius: calc((var(--thumb-height) * 0.5) - 1px);
+        --clip-top: calc((var(--thumb-height) - var(--track-height)) * 0.5 - 0.5px);
+        --clip-bottom: calc(var(--thumb-height) - var(--clip-top));
+        --clip-further: calc(100% + 1px);
+        --box-fill: calc(-100vmax - var(--thumb-width, var(--thumb-height))) 0 0 100vmax var(--progress-color);
+
+        cursor: grab;
+        overflow: visible;
+
+        width: var(--thumb-width, var(--thumb-height));
+        background-color: var(--thumb-color);
+        box-shadow: var(--box-fill);
+        border-radius: var(--thumb-width, var(--thumb-height));
+
+        filter: brightness(100%);
+        clip-path: polygon(
+            100% -1px,
+            var(--clip-edges) -1px,
+            0 var(--clip-top),
+            -100vmax var(--clip-top),
+            -100vmax var(--clip-bottom),
+            0 var(--clip-bottom),
+            var(--clip-edges) 100%,
+            var(--clip-further) var(--clip-further)
+        );
+    }
+
+    &:active::-webkit-slider-thumb {
+        cursor: grabbing;
+        scale: 0.9;
+    }
+
+    &::-webkit-slider-runnable-track {
+        background: linear-gradient(var(--track-color) 0 0) scroll no-repeat center / 100% calc(var(--track-height) + 1px);
+    }
+
+    &:disabled::-webkit-slider-thumb {
+        cursor: not-allowed;
+    }
+
+    /* === Firefox specific styles === */
+    &,
+    &::-moz-range-track,
+    &::-moz-range-thumb {
+        appearance: none;
+        transition: all ease 100ms;
+        height: var(--thumb-height);
+    }
+
+    &::-moz-range-track,
+    &::-moz-range-thumb,
+    &::-moz-range-progress {
+        background: transparent;
     }
 
     &::-moz-range-thumb {
-        border: none; /*Removes extra border that FF applies*/
-        border-radius: 0; /*Removes default border-radius that FF applies*/
-
-        width: 1rem;
-        height: 1rem;
-        ${surfaceCss({}, 'range.thumb')}
+        background: currentColor;
+        border: 0;
+        width: var(--thumb-width, var(--thumb-height));
+        border-radius: var(--thumb-width, var(--thumb-height));
+        cursor: grab;
     }
 
-    &:focus::-webkit-slider-thumb {
-        outline: 3px solid #053a5f;
+    &:active::-moz-range-thumb {
+        cursor: grabbing;
     }
 
-    &:focus::-moz-range-thumb {
-        outline: 3px solid #053a5f;
+    &::-moz-range-track {
+        width: 100%;
+        background: var(--track-color);
+    }
+
+    &::-moz-range-progress {
+        appearance: none;
+        background: var(--progress-color);
+        transition-delay: 30ms;
+    }
+
+    &::-moz-range-track,
+    &::-moz-range-progress {
+        height: calc(var(--track-height) + 1px);
+        border-radius: var(--track-height);
+    }
+
+    &:disabled::-moz-range-thumb {
+        cursor: not-allowed;
     }
 `;
 

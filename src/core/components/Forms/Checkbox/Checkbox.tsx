@@ -25,13 +25,14 @@ const checkboxOptions: StyledOptions<CheckboxProps> = {
 };
 
 const CheckBoxWrapper = styled('label', checkboxOptions)<{
+    disabled?: boolean;
     size: `${number}rem`;
     labelGap: `${number}rem`;
 }>`
     display: flex;
     gap: ${props => props.labelGap};
     align-items: center;
-    cursor: pointer;
+    cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
     user-select: none;
     input[type='checkbox'] {
         display: none;
@@ -79,7 +80,7 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
 
 export const Checkbox: FC<CheckboxProps> = ({checked, onChange, indeterminate, disabled, size = '1.5rem', label, labelGap = '0.5rem', labelAlign = 'end'}) => {
     return (
-        <CheckBoxWrapper size={size} labelGap={labelGap}>
+        <CheckBoxWrapper disabled={disabled} size={size} labelGap={labelGap}>
             {labelAlign === 'start' && label}
             <input type="checkbox" disabled={disabled} checked={checked} onChange={onChange} />
             <i>
