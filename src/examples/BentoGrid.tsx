@@ -10,7 +10,7 @@ const GridItem = styled(Card)`
 export const BentoGrid = () => {
     return (
         <Flex direction="y" minHeight="fill" margin="0 auto" maxWidth="50rem" padding="2rem">
-            <TextBox el="h1" font="theme:font.heading" size="3rem" margin="2rem 0">
+            <TextBox el="h1" font="theme:fonts.heading" size="3rem" margin="2rem 0">
                 Bento grid
             </TextBox>
             <Grid areas="'a' 'b' 'c' 'd' 'e'" md-areas="'a a b e' 'c d d e'" gap="1rem">

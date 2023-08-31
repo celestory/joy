@@ -1,9 +1,17 @@
-import type {Theme} from '../utils/types/theme';
+import type {CSSColor, Theme} from '../utils/types/theme';
 
-const brandColor = '#00B2FF';
+const darkColors: Record<keyof Theme['colors'], CSSColor> = {
+    fg: '#eeeeee',
+    bg: '#161616',
+    dimmed: '#bbbbbb',
+    area: '#303030',
+    accent: '#36AEF1',
+    success: '#9DD357',
+    error: '#EB586A',
+};
 
 export const darkTheme: Theme = {
-    font: {
+    fonts: {
         ui: 'normal 400 1em Inter, sans-serif',
         mono: 'normal 400 1em Menlo, Monaco, monospace',
         button: 'normal 700 1em Inter, sans-serif',
@@ -12,515 +20,184 @@ export const darkTheme: Theme = {
         boldContent: 'normal 700 1em Inter, serif',
     },
 
-    foreground: '#eeeeee',
-    subForeground: '#bbbbbb',
-    background: '#161616',
-    subBackground: '#252525',
-
-    brand: brandColor,
-
-    red: '#F55A50',
-    blue: '#00B2FF',
-    lime: '#9CEF15',
-    gray: '#AAAAAA',
-    pink: '#FFA0B7',
-    white: '#FFFFFF',
-    black: '#121212',
-    green: '#00DF74',
-    indigo: '#5061FF',
-    orange: '#FF9A62',
-    purple: '#A55FFE',
-    yellow: '#F9CC30',
-    magenta: '#F54E9E',
-    turquoise: '#00E5D8',
+    colors: darkColors,
 
     scrollbar: {
         thumb: '#333333',
-        hover: {
+        _hover: {
             thumb: '#444444',
         },
     },
 
     card: {
         radius: '1rem',
-        background: '#222222',
+        bg: darkColors.area,
     },
 
     input: {
-        color: '#eeeeee',
+        color: darkColors.fg,
         radius: '0.5rem',
         border: '2px solid transparent',
-        background: '#444444',
+        bg: darkColors.area,
         transition: '.3s',
 
         _hover: {
-            radius: '0.5rem',
-            border: '2px solid transparent',
-            background: '#555555',
+            bg: '#555555',
         },
 
         _focus: {
-            radius: '0.5rem',
-            border: `2px solid ${brandColor}`,
-            background: '#444444',
+            border: `2px solid ${darkColors.accent}`,
+            bg: '#555555',
         },
     },
     button: {
         color: '#222222',
         radius: '0.5rem',
         border: 'none',
-        background: '#00B2FF',
+        bg: darkColors.accent,
         transition: '.3s',
 
-        hover: {
-            color: '#222222',
-            radius: '0.5rem',
-            border: 'none',
-            background: '#4ecaff',
+        _hover: {
+            bg: '#4ecaff',
         },
 
-        focus: {
-            color: '#222222',
-            radius: '0.5rem',
-            border: 'none',
-            background: '#00B2FF',
+        _focus: {
+            bg: '#00B2FF',
             translate: '0 0.2em',
         },
-        disabled: {
+        _disabled: {
             color: '#888888',
-            radius: '0.5rem',
-            background: '#222222',
+            bg: '#222222',
         },
     },
     toggle: {
         radius: '2rem',
         border: '2px solid transparent',
-        background: '#444444',
+        bg: darkColors.area,
         transition: '.3s',
-        checked: {
+        _checked: {
             radius: '2rem',
             border: '2px solid transparent',
-            background: '#00B2FF',
+            bg: '#00B2FF',
         },
         thumb: {
             radius: '50%',
-            background: '#ffffff',
+            bg: '#ffffff',
             shadow: '0em 2em 5em 0em #f00',
         },
     },
     checkbox: {
         color: '#ffffff',
-        radius: '0.5rem',
-        background: '#444444',
+        radius: '0.5em',
+        bg: darkColors.area,
         transition: '.3s',
-        checked: {
-            radius: '0.5rem',
-            background: brandColor,
+        _checked: {
+            bg: darkColors.accent,
         },
-        disabled: {
+        _disabled: {
             color: '#888888',
-            radius: '0.5rem',
-            background: '#333333',
-        },
-    },
-    range: {
-        radius: '2rem',
-        background: '#444444',
-        thumb: {
-            radius: '50%',
-            background: '#ffffff',
+            bg: '#333333',
         },
     },
 };
 
+const lightColors: Record<keyof Theme['colors'], CSSColor> = {
+    fg: '#333333',
+    bg: '#ffffff',
+    dimmed: '#888888',
+    area: '#dddddd',
+    accent: '#36AEF1',
+    success: '#9DD357',
+    error: '#EB586A',
+};
+
 export const lightTheme: Theme = {
-    font: {
+    fonts: {
         ui: 'normal 400 1em Inter, sans-serif',
         mono: 'normal 400 1em Menlo, Monaco, monospace',
         button: 'normal 700 1em Inter, sans-serif',
         heading: 'normal 700 1em Inter, sans-serif',
-        content: 'normal 400 1em Inter, sans-serif',
-        boldContent: 'normal 700 1em Inter, sans-serif',
+        content: 'normal 400 1em Inter, serif',
+        boldContent: 'normal 700 1em Inter, serif',
     },
 
-    foreground: '#444444',
-    subForeground: '#888888',
-    background: '#ffffff',
-    subBackground: '#eeeeee',
-
-    brand: '#00B2FF',
-
-    red: '#F55A50',
-    blue: '#00B2FF',
-    lime: '#9CEF15',
-    gray: '#AAAAAA',
-    pink: '#FFA0B7',
-    white: '#FFFFFF',
-    black: '#121212',
-    green: '#00DF74',
-    indigo: '#5061FF',
-    orange: '#FF9A62',
-    purple: '#A55FFE',
-    yellow: '#F9CC30',
-    magenta: '#F54E9E',
-    turquoise: '#00E5D8',
+    colors: lightColors,
 
     scrollbar: {
-        thumb: '#dddddd',
-        hover: {
-            thumb: '#cccccc',
+        thumb: '#eeeeee',
+        _hover: {
+            thumb: '#dddddd',
         },
     },
 
     card: {
         radius: '1rem',
-        background: '#dddddd',
+        bg: lightColors.area,
     },
 
     input: {
-        color: '#444444',
+        color: lightColors.fg,
         radius: '0.5rem',
         border: '2px solid transparent',
-        background: '#dddddd',
+        bg: lightColors.area,
         transition: '.3s',
 
         _hover: {
-            radius: '0.5rem',
-            border: '2px solid transparent',
-            background: '#cccccc',
+            bg: '#cccccc',
         },
 
         _focus: {
-            radius: '0.5rem',
-            border: '2px solid #00B2FF',
-            background: '#cccccc',
+            border: `2px solid ${lightColors.accent}`,
+            bg: '#cccccc',
         },
     },
     button: {
-        color: '#ffffff',
+        color: '#eeeeee',
         radius: '0.5rem',
         border: 'none',
-        background: '#00B2FF',
+        bg: lightColors.accent,
         transition: '.3s',
 
-        hover: {
-            color: '#ffffff',
-            radius: '0.5rem',
-            border: 'none',
-            background: '#4ecaff',
+        _hover: {
+            bg: '#4ecaff',
         },
 
-        focus: {
-            color: '#ffffff',
-            radius: '0.5rem',
-            border: 'none',
-            background: '#00B2FF',
+        _focus: {
+            bg: '#00B2FF',
             translate: '0 0.2em',
         },
-
-        disabled: {
-            color: '#cccccc',
-            radius: '0.5rem',
-            background: '#eeeeee',
+        _disabled: {
+            color: '#aaaaaa',
+            bg: '#eeeeee',
         },
     },
     toggle: {
         radius: '2rem',
         border: '2px solid transparent',
-        background: '#dddddd',
-        transition: '0.3s',
-        checked: {
+        bg: lightColors.area,
+        transition: '.3s',
+        _checked: {
             radius: '2rem',
             border: '2px solid transparent',
-            background: '#00B2FF',
+            bg: '#00B2FF',
         },
         thumb: {
             radius: '50%',
-            background: '#ffffff',
+            bg: '#ffffff',
+            shadow: '0em 2em 5em 0em #f00',
         },
     },
     checkbox: {
         color: '#ffffff',
-        radius: '1rem',
-        border: '2px solid transparent',
-        background: '#dddddd',
+        radius: '0.5em',
+        bg: lightColors.area,
         transition: '.3s',
-        checked: {
-            radius: '1rem',
-            border: '2px solid transparent',
-            background: '#00B2FF',
+        _checked: {
+            bg: lightColors.accent,
         },
-        disabled: {
-            radius: '1rem',
-            border: '2px solid transparent',
-            background: '#eeeeee',
-        },
-    },
-    range: {
-        radius: '2rem',
-        background: '#444444',
-        thumb: {
-            radius: '50%',
-            background: '#ffffff',
-        },
-    },
-};
-
-export const academicTheme: Theme = {
-    font: {
-        ui: 'normal 400 1em Alegreya, serif',
-        mono: 'normal 400 1em monospace',
-        button: 'normal 700 1em Alegreya, serif',
-        heading: 'normal 700 1em Alegreya, serif',
-        content: 'normal 400 1em Alegreya, serif',
-        boldContent: 'normal 700 1em Alegreya, serif',
-    },
-
-    foreground: '#222222',
-    subForeground: '#888888',
-    background: '#eee6e1',
-    subBackground: '#eadacf',
-
-    brand: '#a92e12',
-
-    red: '#F55A50',
-    blue: '#00B2FF',
-    lime: '#9CEF15',
-    gray: '#AAAAAA',
-    pink: '#FFA0B7',
-    white: '#FFFFFF',
-    black: '#121212',
-    green: '#00DF74',
-    indigo: '#5061FF',
-    orange: '#FF9A62',
-    purple: '#A55FFE',
-    yellow: '#F9CC30',
-    magenta: '#F54E9E',
-    turquoise: '#00E5D8',
-
-    scrollbar: {
-        thumb: '#d4ccc7',
-        hover: {
-            thumb: '#c8c0bc',
-        },
-    },
-
-    card: {
-        radius: '0',
-        background: '#dad2cd',
-    },
-
-    input: {
-        color: '#222222',
-        radius: '0rem',
-        border: '1px solid #c8c0bc',
-        background: '#ffffff',
-        transition: '.3s',
-
-        _hover: {
-            radius: '0rem',
-            border: '1px solid #222222',
-            background: '#ffffff',
-        },
-
-        _focus: {
-            radius: '0rem',
-            border: '1px solid #222222',
-            background: '#ffffff',
-        },
-    },
-    button: {
-        color: '#ffffff',
-        radius: '0',
-        border: 'none',
-        background: '#a92e12',
-        transition: '.3s',
-
-        hover: {
-            color: '#ffffff',
-            radius: '0',
-            border: 'none',
-            background: '#222222',
-        },
-
-        focus: {
-            color: '#ffffff',
-            radius: '0',
-            border: 'none',
-            background: '#222222',
-            scale: '0.98',
-        },
-
-        disabled: {
-            color: '#888888',
-            background: '#cccccc',
-        },
-    },
-    toggle: {
-        radius: '0.5rem',
-        border: '2px solid transparent',
-        background: '#444444',
-        checked: {
-            radius: '0.5rem',
-            border: '2px solid transparent',
-            background: '#00B2FF',
-        },
-        thumb: {
-            background: '#ffffff',
-        },
-    },
-    checkbox: {
-        color: '#ffffff',
-        radius: '1rem',
-        border: '2px solid transparent',
-        background: '#dddddd',
-        transition: '.3s',
-        checked: {
-            radius: '1rem',
-            border: '2px solid transparent',
-            background: '#00B2FF',
-        },
-        disabled: {
-            radius: '1rem',
-            border: '2px solid transparent',
-            background: '#eeeeee',
-        },
-    },
-    range: {
-        radius: '2rem',
-        background: '#444444',
-        thumb: {
-            radius: '50%',
-            background: '#ffffff',
-        },
-    },
-};
-
-export const kidsTheme: Theme = {
-    font: {
-        ui: 'normal 400 1em Quicksand, sans-serif',
-        mono: 'normal 400 1em monospace',
-        button: 'normal 700 1em Quicksand, sans-serif',
-        heading: 'normal 700 1em Quicksand, sans-serif',
-        content: 'normal 400 1em Quicksand, sans-serif',
-        boldContent: 'normal 700 1em Quicksand, sans-serif',
-    },
-
-    foreground: '#222222',
-    subForeground: '#888888',
-    background: '#ECF8FF',
-    subBackground: '#eadacf',
-
-    brand: '#5061FF',
-
-    red: '#F55A50',
-    blue: '#00B2FF',
-    lime: '#9CEF15',
-    gray: '#AAAAAA',
-    pink: '#FFA0B7',
-    white: '#FFFFFF',
-    black: '#121212',
-    green: '#00DF74',
-    indigo: '#5061FF',
-    orange: '#FF9A62',
-    purple: '#A55FFE',
-    yellow: '#F9CC30',
-    magenta: '#F54E9E',
-    turquoise: '#00E5D8',
-
-    scrollbar: {
-        thumb: '#B4D5E8',
-        hover: {
-            thumb: '#95bad0',
-        },
-    },
-
-    card: {
-        radius: '1.5em',
-        border: '3px solid #B4D5E8',
-        background: '#ffffff',
-    },
-
-    input: {
-        color: '#222222',
-        radius: '1.5em',
-        border: '3px solid #B4D5E8',
-        background: '#ffffff',
-        transition: '.3s',
-
-        _hover: {
-            radius: '1.2em',
-            background: '#ffffff',
-            border: '3px solid #B4D5E8',
-        },
-
-        _focus: {
-            radius: '1.2em',
-            background: '#ffffff',
-            border: '3px solid #5061FF',
-        },
-    },
-    button: {
-        color: '#ffffff',
-        radius: '3em',
-        shadow: '0em 0.2em 0em 0em #3743b5',
-        background: '#5061FF',
-        transition: '.3s',
-        translate: '0 -0.2em',
-
-        hover: {
-            color: '#ffffff',
-            radius: '3em',
-            shadow: '0em 0.2em 0em 0em #3743b5',
-            background: '#5061FF',
-            translate: '0 -0.2em',
-        },
-
-        focus: {
-            color: '#ffffff',
-            radius: '3rem',
-            background: '#3743b5',
-        },
-        disabled: {
-            background: '#aaaaaa',
-        },
-    },
-    toggle: {
-        radius: '0.5rem',
-        border: '2px solid transparent',
-        background: '#444444',
-        checked: {
-            radius: '0.5rem',
-            border: '2px solid transparent',
-            background: '#00B2FF',
-        },
-        thumb: {
-            background: '#ffffff',
-        },
-    },
-    checkbox: {
-        color: '#ffffff',
-        radius: '1rem',
-        border: '2px solid transparent',
-        background: '#dddddd',
-        transition: '.3s',
-        checked: {
-            radius: '1rem',
-            border: '2px solid transparent',
-            background: '#00B2FF',
-        },
-        disabled: {
-            radius: '1rem',
-            border: '2px solid transparent',
-            background: '#eeeeee',
-        },
-    },
-    range: {
-        radius: '2rem',
-        background: '#444444',
-        thumb: {
-            radius: '50%',
-            background: '#ffffff',
+        _disabled: {
+            color: '#aaaaaa',
+            bg: '#eeeeee',
         },
     },
 };

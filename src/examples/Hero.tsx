@@ -14,7 +14,7 @@ const Heading = styled(TextBox)`
 
 const MenuIcon = styled.svg`
     [fill='white'] {
-        fill: var(--joy-foreground);
+        fill: var(--joy-colors-fg);
     }
 `;
 
@@ -22,6 +22,7 @@ export const Hero = () => {
     const [dialogRef, openDialog, closeDialog] = useDialogState();
     return (
         <Flex el="main" direction="y" minHeight="fill">
+            <TextBox color="theme:colors.accent"></TextBox>
             <Header el="header" gap="0.5rem" padding="1rem 2rem 1rem 1rem" align="center">
                 <ImageBox width="2rem" src="/logo.svg" />
                 <TextBox size="1.2rem" weight="bold" margin="0 auto 0 0">
@@ -52,7 +53,7 @@ export const Hero = () => {
                     weight="light"
                     textAlign="center"
                     lineHeight={1.5}
-                    color="theme:subForeground"
+                    color="theme:colors.dimmed"
                     maxWidth="35rem"
                     margin="0 auto"
                 >

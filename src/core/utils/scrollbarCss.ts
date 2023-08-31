@@ -20,7 +20,7 @@ export const scrollbar = css`
 
     ::-webkit-scrollbar-thumb:hover {
         border-radius: 3px;
-        background-color: ${themeConst('theme:scrollbar.hover.thumb', `hsla(0, 0%, 50%, 0.3)`)};
+        background-color: ${themeConst('theme:scrollbar._hover.thumb', `hsla(0, 0%, 50%, 0.3)`)};
     }
 
     ::-webkit-scrollbar-button {

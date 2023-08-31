@@ -4,6 +4,7 @@ import {boxCss} from '../../Box/boxCss';
 import {themeConst} from '../../../utils/types/theme';
 import type {ButtonProps} from './Button';
 import type {Breakpoints} from '../../../utils/types/break';
+import {surfaceCss} from '../../../utils/surfaceCss';
 
 export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
     padding: 0.8em 1em;
@@ -14,15 +15,11 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
     outline: none;
     text-decoration: none;
 
-    font: ${themeConst('theme:font.button')};
+    font: ${themeConst('theme:fonts.button')};
     font-size: ${props[`${breakpoint}size`]};
 
-    color: ${themeConst('theme:button.color', themeConst('theme:foreground'))};
-    border: ${themeConst('theme:button.border')};
-    box-shadow: ${themeConst('theme:button.shadow')};
-    border-radius: ${themeConst('theme:button.radius')};
-    background-color: ${themeConst('theme:button.background')};
-
+    color: ${themeConst('theme:button.color', themeConst('theme:colors.fg'))};
+    ${surfaceCss({}, 'button')}
     scale: ${themeConst('theme:button.scale')};
     rotate: ${themeConst('theme:button.rotate')};
     translate: ${themeConst('theme:button.translate')};
@@ -30,40 +27,30 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
     transition: ${themeConst('theme:button.transition')} all;
 
     &:hover {
-        color: ${themeConst('theme:button.hover.color', themeConst('theme:foreground'))};
-        border: ${themeConst('theme:button.hover.border')};
-        box-shadow: ${themeConst('theme:button.hover.shadow')};
-        border-radius: ${themeConst('theme:button.hover.radius')};
-        background-color: ${themeConst('theme:button.hover.background')};
-
-        scale: ${themeConst('theme:button.hover.scale')};
-        rotate: ${themeConst('theme:button.hover.rotate')};
-        translate: ${themeConst('theme:button.hover.translate')};
+        color: ${themeConst('theme:button._hover.color', themeConst('theme:colors.fg'))};
+        ${surfaceCss({}, 'button._hover')}
+        scale: ${themeConst('theme:button._hover.scale')};
+        rotate: ${themeConst('theme:button._hover.rotate')};
+        translate: ${themeConst('theme:button._hover.translate')};
     }
 
     &:active,
     &:focus-visible {
-        color: ${themeConst('theme:button.hover.color', themeConst('theme:foreground'))};
-        border: ${themeConst('theme:button.focus.border')};
-        box-shadow: ${themeConst('theme:button.focus.shadow')};
-        border-radius: ${themeConst('theme:button.focus.radius')};
-        background-color: ${themeConst('theme:button.focus.background')};
-
-        scale: ${themeConst('theme:button.focus.scale')};
-        rotate: ${themeConst('theme:button.focus.rotate')};
-        translate: ${themeConst('theme:button.focus.translate')};
+        color: ${themeConst('theme:button._focus.color', themeConst('theme:colors.fg'))};
+        ${surfaceCss({}, 'button._focus')}
+        scale: ${themeConst('theme:button._focus.scale')};
+        rotate: ${themeConst('theme:button._focus.rotate')};
+        translate: ${themeConst('theme:button._focus.translate')};
     }
 
     &:disabled {
         cursor: default;
-        color: ${themeConst('theme:button.disabled.color', themeConst('theme:foreground'))};
-        border: ${themeConst('theme:button.disabled.border')};
-        box-shadow: ${themeConst('theme:button.disabled.shadow')};
-        border-radius: ${themeConst('theme:button.disabled.radius')};
-        background-color: ${themeConst('theme:button.disabled.background')};
+        color: ${themeConst('theme:button._disabled.color', themeConst('theme:colors.fg'))};
 
-        scale: ${themeConst('theme:button.disabled.scale')};
-        rotate: ${themeConst('theme:button.disabled.rotate')};
-        translate: ${themeConst('theme:button.disabled.translate')};
+        ${surfaceCss({}, 'button._disabled')}
+
+        scale: ${themeConst('theme:button._disabled.scale')};
+        rotate: ${themeConst('theme:button._disabled.rotate')};
+        translate: ${themeConst('theme:button._disabled.translate')};
     }
 `;

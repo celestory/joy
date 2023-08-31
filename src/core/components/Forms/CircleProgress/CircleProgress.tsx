@@ -34,7 +34,7 @@ const Track = styled.circle<{thickness: number}>`
 
 const Meter = styled(Track)<{circumference: number; dashoffset: number}>`
     fill: none;
-    stroke: var(--joy-foreground);
+    stroke: var(--joy-colors-fg);
     stroke-dasharray: ${props => `${props.circumference} ${props.circumference}`};
     stroke-dashoffset: ${props => props.dashoffset};
     transition: stroke-dashoffset 0.3s;

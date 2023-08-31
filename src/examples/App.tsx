@@ -7,9 +7,7 @@ import {
     useLocationState,
     //
     darkTheme,
-    kidsTheme,
     lightTheme,
-    academicTheme,
 } from '../joy';
 
 // examples
@@ -43,7 +41,7 @@ const examples = {
 };
 type Example = keyof typeof examples;
 
-const themes = {darkTheme, kidsTheme, lightTheme, academicTheme};
+const themes = {darkTheme, lightTheme};
 type ThemeName = keyof typeof themes;
 
 const Bottom = styled(Flex)`
@@ -63,8 +61,6 @@ export const App = () => {
                 <Select size="0.8rem" value={themeName} onChange={setThemeName}>
                     <option value="darkTheme">🌙 Dark</option>
                     <option value="lightTheme">☀️ Light</option>
-                    <option value="academicTheme">🎓 Academic</option>
-                    <option value="kidsTheme">🧸 Kids</option>
                 </Select>
                 <Select size="0.8rem" value={example} onChange={changeExample}>
                     {Object.keys(examples).map(example => (

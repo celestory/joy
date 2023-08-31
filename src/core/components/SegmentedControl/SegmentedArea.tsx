@@ -15,7 +15,7 @@ const Control = styled.div`
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    font: ${themeConst('theme:font.button')};
+    font: ${themeConst('theme:fonts.button')};
     font-size: 0.8rem; // 💩
     ${surfaceCss({}, 'input')}
     input {
@@ -43,13 +43,13 @@ const Segment = styled.div`
         display: block;
         padding: 0.8em;
         transition: color 0.3s ease;
-        color: ${themeConst('theme:subForeground')};
+        color: ${themeConst('theme:colors.dimmed')};
         &:hover {
-            color: ${themeConst('theme:foreground')};
+            color: ${themeConst('theme:colors.fg')};
         }
     }
     &[data-selected] label {
-        color: ${themeConst('theme:foreground')};
+        color: ${themeConst('theme:colors.fg')};
     }
 `;
 

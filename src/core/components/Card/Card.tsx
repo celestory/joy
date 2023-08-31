@@ -8,7 +8,7 @@ interface CardProps {
     border?: WithTheme<CSSBorder>;
     radius?: WithTheme<CSSRadius>;
     shadow?: WithTheme<CSSShadow>;
-    background?: WithTheme<CSSColor>;
+    bg?: WithTheme<CSSColor>;
 }
 
 export const Card = styled(Flex)<CardProps>`

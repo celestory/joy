@@ -11,10 +11,10 @@ const RichTextBox = styled(TextBox)`
     h5,
     h6 {
         font-family: var(--joy-font-heading);
-        color: var(--joy-foreground);
+        color: var(--joy-colors-fg);
     }
     strong {
-        color: var(--joy-foreground);
+        color: var(--joy-colors-fg);
     }
     img {
         max-width: 100%;

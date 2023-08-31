@@ -33,6 +33,6 @@ export {Dialog} from './core/components/Dialog/Dialog';
 export {useDialogState} from './core/hooks/useDialogState';
 
 export {ThemeProvider} from './core/Theme/ThemeProvider';
-export {darkTheme, kidsTheme, lightTheme, academicTheme} from './core/Theme/themes';
+export {darkTheme, lightTheme} from './core/Theme/themes';
 
 export type {Theme} from './core/utils/types/theme';

@@ -21,12 +21,12 @@ export const Login = () => {
                 </TextBox>
             </Flex>
             <Flex grow direction="y" align="center" distribute="center" gap="1rem">
-                <TextBox el="h1" margin="0" font="theme:font.heading" size="2rem">
+                <TextBox el="h1" margin="0" font="theme:fonts.heading" size="2rem">
                     Welcome back
                 </TextBox>
-                <TextBox color="theme:subForeground">
+                <TextBox color="theme:colors.dimmed">
                     New to Joy?{' '}
-                    <TextLink href="#" color="theme:brand">
+                    <TextLink href="#" color="theme:colors.accent">
                         Create an account
                     </TextLink>
                 </TextBox>
@@ -40,7 +40,7 @@ export const Login = () => {
                 </Flex>
                 <Button width="20rem">Sign in</Button>
                 <Button width="20rem">🤓 Sign in with Google</Button>
-                <TextLink href="#" color="theme:brand">
+                <TextLink href="#" color="theme:colors.accent">
                     Forgot password?
                 </TextLink>
             </Flex>

@@ -4,7 +4,7 @@ export const Gallery = () => {
     const images = new Array<{url: string; title: string}>(20).fill({url: '/default-image.png', title: 'Product name'});
     return (
         <Flex direction="y" padding="2rem" maxWidth="70rem" margin="0 auto">
-            <TextBox el="h1" font="theme:font.heading" size="3rem" margin="1rem 0">
+            <TextBox el="h1" font="theme:fonts.heading" size="3rem" margin="1rem 0">
                 Gallery
             </TextBox>
             <Flex gap="1rem" padding="0 0 1rem 0" width="100%">
@@ -19,7 +19,7 @@ export const Gallery = () => {
                 {images.map(({title, url}, i) => (
                     <Flex key={i} direction="y" gap="1rem">
                         <ImageBox radius="0.5rem" src={url} alt={title} />
-                        <TextBox font="theme:font.heading" size="1.2rem" md-size="1rem" weight="bold">
+                        <TextBox font="theme:fonts.heading" size="1.2rem" md-size="1rem" weight="bold">
                             {title}
                         </TextBox>
                     </Flex>

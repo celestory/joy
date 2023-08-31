@@ -20,13 +20,13 @@ const fillTheme = (theme: Partial<Theme>): Theme => {
                 shadow: filledTheme.input._focus.shadow || filledTheme.input.shadow,
                 border: filledTheme.input._focus.border || filledTheme.input.border,
                 radius: filledTheme.input._focus.radius || filledTheme.input.radius,
-                background: filledTheme.input._focus.background || filledTheme.input.background,
+                bg: filledTheme.input._focus.bg || filledTheme.input.bg,
             },
             _hover: {
                 shadow: filledTheme.input._hover.shadow || filledTheme.input.shadow,
                 border: filledTheme.input._hover.border || filledTheme.input.border,
                 radius: filledTheme.input._hover.radius || filledTheme.input.radius,
-                background: filledTheme.input._hover.background || filledTheme.input.background,
+                bg: filledTheme.input._hover.bg || filledTheme.input.bg,
             },
         },
     };

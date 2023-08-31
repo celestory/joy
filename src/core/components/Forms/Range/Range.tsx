@@ -3,9 +3,9 @@ import type {InputHTMLAttributes} from 'react';
 import {themeConst} from '../../../utils/types/theme';
 
 const StyledInput = styled.input`
-    --thumb-color: ${themeConst('theme:foreground')};
-    --track-color: ${themeConst('theme:subBackground')};
-    --progress-color: ${themeConst('theme:brand')};
+    --thumb-color: ${themeConst('theme:colors.fg')};
+    --track-color: ${themeConst('theme:colors.area')};
+    --progress-color: ${themeConst('theme:colors.accent')};
     --thumb-height: 1.125em;
     --track-height: 0.125em;
     --brightness-hover: 180%;

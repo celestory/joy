@@ -15,9 +15,9 @@ export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' =
 
     ${surfaceCss({}, 'input')}
 
-    color: ${themeConst('theme:input.color', themeConst('theme:foreground'))};
+    color: ${themeConst('theme:input.color', themeConst('theme:colors.fg'))};
 
-    font: ${themeConst('theme:font.ui')};
+    font: ${themeConst('theme:fonts.ui')};
     font-size: ${props[`${breakpoint}size`] || '0.8rem'};
 
     transition: ${themeConst('theme:input.transition')} all;

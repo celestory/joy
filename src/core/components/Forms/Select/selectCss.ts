@@ -16,9 +16,9 @@ export const selectCss = (props: SelectProps, breakpoint: `${Breakpoints}-` | ''
 
     ${surfaceCss({}, 'input')}
 
-    color: ${themeConst('theme:input.color', themeConst('theme:foreground'))};
+    color: ${themeConst('theme:input.color', themeConst('theme:colors.fg'))};
 
-    font: ${themeConst('theme:font.ui')};
+    font: ${themeConst('theme:fonts.ui')};
     font-size: ${props[`${breakpoint}size`]};
 
     transition: ${themeConst('theme:input.transition')} all;
@@ -31,6 +31,6 @@ export const selectCss = (props: SelectProps, breakpoint: `${Breakpoints}-` | ''
 /* 💩 */
 /* &:focus-visible {
         border: ${themeConst('theme:input._focus.border')};
-        background: ${themeConst('theme:input._focus.background')};
+        background: ${themeConst('theme:input._focus.bg')};
         border-radius: ${themeConst('theme:input._focus.radius')};
     } */

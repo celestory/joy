@@ -1,8 +1,9 @@
-export type CSSGap = '0' | `${number}rem`;
+export type CSSNumber<Unit extends string> = '0' | `${number}${Unit}`;
+export type CSSGap = CSSNumber<'rem'>;
 export type CSSFont = `normal ${number} 1em ${string}`;
-export type CSSWidth = '0' | `${number}rem` | `${number}%` | 'fit-content';
-export type CSSHeight = '0' | `${number}rem` | 'fill';
-export type CSSRadius = '0' | `${number}rem` | `${number}em` | `${number}%`;
+export type CSSWidth = CSSNumber<'rem' | '%'> | 'fit-content';
+export type CSSHeight = CSSNumber<'rem'> | 'fill';
+export type CSSRadius = CSSNumber<'rem' | 'em' | '%'>;
 export type CSSColor = `#${string}` | 'magenta' | 'transparent';
 export type CSSBorder = 'none' | `${number}px ${'solid' | 'dashed' | 'dotted'} ${CSSColor}`;
 export type CSSShadow = `${number}em ${number}em ${number}em ${number}em ${CSSColor}`;
@@ -29,10 +30,11 @@ export type PathSelector<T, PropType = string> = {
 };
 
 type Surface = {
+    bg?: CSSColor;
+    blur?: CSSNumber<'rem'>;
     border?: CSSBorder;
     radius?: CSSRadius;
     shadow?: CSSShadow | CSSShadow[];
-    background?: CSSColor;
 };
 
 type Transform = {
@@ -44,7 +46,7 @@ type Transform = {
 // TODO: Default the maximum stuff
 export interface Theme {
     // typography
-    font: {
+    fonts: {
         ui?: CSSFont;
         mono?: CSSFont;
         button?: CSSFont;
@@ -53,33 +55,19 @@ export interface Theme {
         boldContent?: CSSFont;
     };
 
-    // monochrome
-    foreground: CSSColor;
-    subForeground: CSSColor;
-    background: CSSColor;
-    subBackground: CSSColor;
-
-    brand: CSSColor;
-
-    // colors
-    red: CSSColor;
-    blue: CSSColor;
-    lime: CSSColor;
-    gray: CSSColor;
-    pink: CSSColor;
-    white: CSSColor;
-    black: CSSColor;
-    green: CSSColor;
-    indigo: CSSColor;
-    orange: CSSColor;
-    purple: CSSColor;
-    yellow: CSSColor;
-    magenta: CSSColor;
-    turquoise: CSSColor;
+    colors: {
+        bg?: CSSColor;
+        fg?: CSSColor;
+        area?: CSSColor;
+        dimmed?: CSSColor;
+        accent?: CSSColor;
+        success?: CSSColor;
+        error?: CSSColor;
+    };
 
     scrollbar: {
         thumb: CSSColor;
-        hover: {
+        _hover: {
             thumb: CSSColor;
         };
     };
@@ -98,46 +86,28 @@ export interface Theme {
     // button
     button: {
         color?: CSSColor;
-
         transition?: `${number}s`;
 
-        hover: {
-            color?: CSSColor;
-        } & Surface &
-            Transform;
-
-        focus: {
-            color?: CSSColor;
-        } & Surface &
-            Transform;
-
-        disabled: {
-            color?: CSSColor;
-        } & Surface &
-            Transform;
+        _hover: {color?: CSSColor} & Surface & Transform;
+        _focus: {color?: CSSColor} & Surface & Transform;
+        _disabled: {color?: CSSColor} & Surface & Transform;
     } & Surface &
         Transform;
 
     // toggle
     toggle: {
         thumb: Surface;
-        checked: Surface;
         transition?: `${number}s`;
+        _checked: Surface;
     } & Surface;
 
     // checkbox
     checkbox: {
         color: CSSColor;
-        checked: Surface;
-        disabled: {
-            color?: CSSColor;
-        } & Surface;
         transition?: `${number}s`;
-    } & Surface;
 
-    // range
-    range: {
-        thumb: Surface;
+        _checked: Surface;
+        _disabled: {color?: CSSColor} & Surface;
     } & Surface;
 }
 

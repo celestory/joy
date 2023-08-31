@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import {Box, Button, Flex, ImageBox, LinkButton, TextBox, TextSpan} from '../joy';
 
 const SubButton = styled(Button)`
-    color: var(--joy-background);
-    background-color: var(--joy-foreground);
+    color: var(--joy-colors-fg);
+    background-color: var(--joy-colors-fg);
 `;
 
 export const Landing = () => {
@@ -32,12 +32,12 @@ export const Landing = () => {
                 <Flex direction="y" lg-width="50%" shrink={false} align="start" padding="2rem" gap="1.5rem">
                     <TextBox el="h1" weight="bold" margin="0" size="2.5rem" xl-size="3rem">
                         An impactful message about{' '}
-                        <TextSpan el="strong" weight="bold" color="theme:brand">
+                        <TextSpan el="strong" weight="bold" color="theme:colors.accent">
                             your product
                         </TextSpan>
                         .
                     </TextBox>
-                    <TextBox el="h2" size="1.2rem" weight="light" color="theme:subForeground">
+                    <TextBox el="h2" size="1.2rem" weight="light" color="theme:colors.dimmed">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus ipsum.
                     </TextBox>
                     <Flex gap="1rem">

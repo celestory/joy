@@ -52,7 +52,7 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
             width: ${props => parseFloat(props.size) / 2.0}rem;
             fill: none;
             overflow: visible;
-            stroke: ${themeConst('theme:checkbox.color', themeConst('theme:foreground'))};
+            stroke: ${themeConst('theme:checkbox.color', themeConst('theme:colors.fg'))};
             stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -65,15 +65,15 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
         }
     }
     input[type='checkbox']:checked + i {
-        ${surfaceCss({}, 'checkbox.checked')}
+        ${surfaceCss({}, 'checkbox._checked')}
         svg {
             stroke-dashoffset: 0;
         }
     }
     input[type='checkbox']:disabled + i {
-        ${surfaceCss({}, 'checkbox.disabled')}
+        ${surfaceCss({}, 'checkbox._disabled')}
         svg {
-            stroke: ${themeConst('theme:checkbox.disabled.color', themeConst('theme:foreground'))};
+            stroke: ${themeConst('theme:checkbox._disabled.color', themeConst('theme:colors.fg'))};
         }
     }
 `;

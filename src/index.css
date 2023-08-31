@@ -14,8 +14,8 @@
 
 body {
     margin: 0;
-    color: var(--joy-foreground);
-    background-color: var(--joy-background);
+    color: var(--joy-colors-fg);
+    background-color: var(--joy-colors-bg);
 
     font-family: var(--joy-font-ui);
     -webkit-font-smoothing: antialiased;

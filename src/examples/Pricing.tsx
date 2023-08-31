@@ -15,7 +15,7 @@ const PricingButton = styled(Button)`
 `;
 
 const TextSpan = styled.span`
-    color: var(--joy-foreground);
+    color: var(--joy-colors-fg);
     font-size: 3rem;
     font-weight: bold;
 `;
@@ -24,7 +24,7 @@ export const Pricing = () => {
     const [isYearly, toggleYearly] = useCheckboxState(true);
     return (
         <Flex el="main" direction="y" maxWidth="70rem" margin="0 auto" padding="2rem" gap="1rem">
-            <Heading el="h1" textAlign="center" font="theme:font.heading" margin="4rem 0 0 0">
+            <Heading el="h1" textAlign="center" font="theme:fonts.heading" margin="4rem 0 0 0">
                 Pricing plans
             </Heading>
             <TextBox
@@ -33,7 +33,7 @@ export const Pricing = () => {
                 weight="light"
                 textAlign="center"
                 lineHeight={1.5}
-                color="theme:subForeground"
+                color="theme:colors.dimmed"
                 maxWidth="40rem"
                 margin="0 auto"
             >
@@ -52,7 +52,7 @@ export const Pricing = () => {
                         <li>👯 5 users included</li>
                         <li>🗃 2GB of storage</li>
                     </List>
-                    <TextBox color="theme:subForeground">
+                    <TextBox color="theme:colors.dimmed">
                         <TextSpan>$0</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
                     <PricingButton>Sign up for Free</PricingButton>
@@ -67,7 +67,7 @@ export const Pricing = () => {
                         <li>✉️ Email support</li>
                         <li>🤫 Offline mode</li>
                     </List>
-                    <TextBox color="theme:subForeground">
+                    <TextBox color="theme:colors.dimmed">
                         <TextSpan>${isYearly ? 50 : 5}</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
                     <PricingButton>Subscribe now</PricingButton>
@@ -82,12 +82,12 @@ export const Pricing = () => {
                         <li>✉️ Email support</li>
                         <li>🤫 Offline mode</li>
                     </List>
-                    <TextBox color="theme:subForeground">
+                    <TextBox color="theme:colors.dimmed">
                         <TextSpan>${isYearly ? 100 : 10}</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
                     <PricingButton>Subscribe now</PricingButton>
                 </Card>
-                <Card direction="y" padding="1.5rem" gap="1rem" background="theme:pink">
+                <Card direction="y" padding="1.5rem" gap="1rem" bg="magenta">
                     <TextBox el="h2" margin="0">
                         Enterprise
                     </TextBox>

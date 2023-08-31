@@ -29,7 +29,7 @@ const StyledInput = styled.input<{color?: WithTheme<CSSColor>}>`
 
     &:checked {
         padding-inline: var(--toggle-width) 0;
-        ${props => surfaceCss({background: props.color}, 'toggle.checked')}
+        ${props => surfaceCss({bg: props.color}, 'toggle._checked')}
     }
     &::before {
         content: '';

@@ -1,20 +1,21 @@
 import styled from '@emotion/styled';
 import {useMemo, useState} from 'react';
 import {Button, Checkbox, Flex, Input, SegmentedArea, SegmentedControl, Range, TextBox, Toggle, useCheckboxState, useInputState, useRangeState} from '../joy';
+import {themeConst} from '../core/utils/types/theme';
 
 const Icon = styled.svg<{selected: boolean}>`
     [fill='black'] {
-        fill: ${props => (props.selected ? `var(--joy-foreground)` : `var(--joy-subForeground)`)};
+        fill: ${props => themeConst(props.selected ? 'theme:colors.fg' : 'theme:colors.dimmed')};
     }
     [stroke='black'] {
-        stroke: ${props => (props.selected ? `var(--joy-foreground)` : `var(--joy-subForeground)`)};
+        stroke: ${props => themeConst(props.selected ? 'theme:colors.fg' : 'theme:colors.dimmed')};
     }
     &:hover {
         [fill='black'] {
-            fill: var(--joy-foreground);
+            fill: ${themeConst('theme:colors.fg')};
         }
         [stroke='black'] {
-            stroke: var(--joy-foreground);
+            stroke: ${themeConst('theme:colors.fg')};
         }
     }
 `;
@@ -157,11 +158,11 @@ export const MegaForms = () => {
 
     return (
         <Flex direction="y" margin="1rem auto" maxWidth="35rem">
-            <TextBox el="h1" font="theme:font.heading" size="3rem" margin="2rem 0">
+            <TextBox el="h1" font="theme:fonts.heading" size="3rem" margin="2rem 0">
                 Mega forms
             </TextBox>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem'}}>
-                <Toggle color="theme:yellow" checked={toggled} onChange={onToggle} />
+                <Toggle color="theme:colors.success" checked={toggled} onChange={onToggle} />
                 <Toggle checked={toggled} onChange={onToggle} />
                 <Checkbox size="2rem" label="Something big" checked={checked} onChange={onCheckboxToggle} />
                 <Checkbox label="Something to check" checked={checked} onChange={onCheckboxToggle} />
