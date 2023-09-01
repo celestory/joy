@@ -7,6 +7,10 @@ import type {Breakpoints} from '../../../utils/types/break';
 import {surfaceCss} from '../../../utils/surfaceCss';
 
 export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    gap: 0.6em;
     padding: 0.8em 1em;
 
     ${boxCss(props, breakpoint)}

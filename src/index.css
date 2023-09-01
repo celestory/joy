@@ -14,10 +14,10 @@
 
 body {
     margin: 0;
+    font: var(--joy-fonts-ui);
     color: var(--joy-colors-fg);
     background-color: var(--joy-colors-bg);
 
-    font-family: var(--joy-font-ui);
     -webkit-font-smoothing: antialiased;
 }
 

@@ -1,20 +1,21 @@
 import styled from '@emotion/styled';
 import {TextBox} from '../joy';
+import {themeConst} from '../core/utils/types/theme';
 
 const RichTextBox = styled(TextBox)`
-    font: var(--joy-font-content);
-    color: var(--joy-subForeground);
+    font: ${themeConst('theme:fonts.content')};
+    color: ${themeConst('theme:colors.dimmed')};
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-        font-family: var(--joy-font-heading);
-        color: var(--joy-colors-fg);
+        font-family: ${themeConst('theme:fonts.heading')};
+        color: ${themeConst('theme:colors.fg')};
     }
     strong {
-        color: var(--joy-colors-fg);
+        color: ${themeConst('theme:colors.fg')};
     }
     img {
         max-width: 100%;
