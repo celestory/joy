@@ -9,27 +9,27 @@ type Props = {
     theme: Partial<Theme>;
 };
 
-const fillTheme = (theme: Partial<Theme>): Theme => {
-    const filledTheme = {...darkTheme, ...theme};
-
-    return {
-        ...filledTheme,
-        input: {
-            ...filledTheme.input,
-            _focus: {
-                shadow: filledTheme.input._focus.shadow || filledTheme.input.shadow,
-                border: filledTheme.input._focus.border || filledTheme.input.border,
-                radius: filledTheme.input._focus.radius || filledTheme.input.radius,
-                bg: filledTheme.input._focus.bg || filledTheme.input.bg,
-            },
-            _hover: {
-                shadow: filledTheme.input._hover.shadow || filledTheme.input.shadow,
-                border: filledTheme.input._hover.border || filledTheme.input.border,
-                radius: filledTheme.input._hover.radius || filledTheme.input.radius,
-                bg: filledTheme.input._hover.bg || filledTheme.input.bg,
-            },
-        },
+const applyCascadeToTheme = (theme: Partial<Theme>): Theme => {
+    const result = structuredClone({...darkTheme, ...theme});
+    const traverse = (current: Partial<Theme>) => {
+        const parentKeys = Object.keys(current);
+        const finalKeys = parentKeys.filter(key => !key.startsWith('_'));
+        for (const key of parentKeys) {
+            const value = (current as any)[key];
+            if (typeof value === 'object') {
+                if (key.startsWith('_')) {
+                    for (const finalKey of finalKeys) {
+                        if (value[finalKey] === undefined) {
+                            value[finalKey] = (current as any)[finalKey];
+                        }
+                    }
+                }
+                traverse(value);
+            }
+        }
     };
+    traverse(result);
+    return result;
 };
 
 const createThemeVariables = (theme: object, parent = 'joy'): string[] => {
@@ -46,8 +46,8 @@ const createThemeVariables = (theme: object, parent = 'joy'): string[] => {
 };
 
 export const ThemeProvider = ({theme, children}: PropsWithChildren<Props>) => {
-    const filledTheme = fillTheme(theme);
-    const cssVariables = createThemeVariables(filledTheme).join('\n');
+    const finalTheme = applyCascadeToTheme(theme);
+    const cssVariables = createThemeVariables(finalTheme).join('\n');
 
     return (
         <>
