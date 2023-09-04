@@ -7,10 +7,10 @@ import type {OmitStrict} from '../../utils/types/utils';
 import type {CSSRadius, WithTheme} from '../../utils/types/theme';
 import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 
-type BaseProps = {
+interface BaseProps extends ImgHTMLAttributes<HTMLImageElement> {
     fit?: 'content' | 'cover';
     radius?: WithBreakpoint<WithTheme<CSSRadius>>;
-} & ImgHTMLAttributes<HTMLImageElement>;
+}
 
 export type ImageBoxProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps>;
 

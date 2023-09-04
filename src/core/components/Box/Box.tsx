@@ -5,7 +5,7 @@ import {createStyledWithBreakpoints} from '../../utils/breakpoints';
 import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
 import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../utils/types/theme';
 
-type BaseProps = {
+interface BaseProps {
     role?: string;
     style?: CSSProperties;
     className?: string;
@@ -23,21 +23,21 @@ type BaseProps = {
     //
     margin?: WithBreakpoint<CSSMargin | `${CSSMargin} ${CSSMargin}` | `${CSSMargin} ${CSSMargin} ${CSSMargin} ${CSSMargin}`>;
     padding?: WithBreakpoint<CSSPadding | `${CSSPadding} ${CSSPadding}` | `${CSSPadding} ${CSSPadding} ${CSSPadding} ${CSSPadding}`>;
-};
+}
 
-type FlexItemProps = {
+interface FlexItemProps {
     item?: 'flex';
     //
     grow?: WithBreakpoint<boolean>;
     basis?: WithBreakpoint<'0' | `${number}rem` | `${number}%`>;
     shrink?: WithBreakpoint<boolean>;
-};
+}
 
-type GridItemProps = {
+interface GridItemProps {
     item?: 'grid';
     //
     area?: WithBreakpoint<string>;
-};
+}
 
 export type BoxFlexItemProps = MakeBreakpoints<FlexItemProps>;
 export type BoxGridItemProps = MakeBreakpoints<GridItemProps>;

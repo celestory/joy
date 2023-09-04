@@ -9,11 +9,11 @@ import {breakpoints} from '../../utils/types/break';
 import type {BoxProps} from '../Box/Box';
 import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 
-type BaseProps = {
+interface BaseProps {
     gap?: WithBreakpoint<`${number}rem`>;
     mode?: 'fill' | 'fit';
     minColumn?: `${number}rem`;
-};
+}
 
 export type AutoGridProps = BoxProps & MakeBreakpoints<BaseProps>;
 

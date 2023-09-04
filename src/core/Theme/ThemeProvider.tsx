@@ -5,9 +5,9 @@ import type {PropsWithChildren} from 'react';
 import {darkTheme} from './themes';
 import type {Theme} from '../utils/types/theme';
 
-type Props = {
+interface ThemeProviderProps {
     theme: Partial<Theme>;
-};
+}
 
 const applyCascadeToTheme = (theme: Partial<Theme>): Theme => {
     const result = structuredClone({...darkTheme, ...theme});
@@ -45,7 +45,7 @@ const createThemeVariables = (theme: object, parent = 'joy'): string[] => {
     }, [] as string[]);
 };
 
-export const ThemeProvider = ({theme, children}: PropsWithChildren<Props>) => {
+export const ThemeProvider = ({theme, children}: PropsWithChildren<ThemeProviderProps>) => {
     const finalTheme = applyCascadeToTheme(theme);
     const cssVariables = createThemeVariables(finalTheme).join('\n');
 

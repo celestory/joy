@@ -7,9 +7,9 @@ import type {OmitStrict} from '../../../utils/types/utils';
 import type {CSSFontSize} from '../../../utils/types/theme';
 import type {MakeBreakpoints, WithBreakpoint} from '../../../utils/types/break';
 
-type BaseProps = {
+interface BaseProps extends OmitStrict<InputHTMLAttributes<HTMLInputElement>, 'size'> {
     size?: WithBreakpoint<CSSFontSize>;
-} & OmitStrict<InputHTMLAttributes<HTMLInputElement>, 'size'>;
+}
 
 export type InputProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps>;
 

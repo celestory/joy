@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 import type {InputHTMLAttributes} from 'react';
 
 import {surfaceCss} from '../../../utils/surfaceCss';
-import {themeConst, type CSSColor, type WithTheme} from '../../../utils/types/theme';
+import {themeConst} from '../../../utils/types/theme';
+import type {CSSColor, WithTheme} from '../../../utils/types/theme';
 
-type ToggleProps = {
+interface ToggleProps extends InputHTMLAttributes<HTMLInputElement> {
     color?: WithTheme<CSSColor>;
-} & InputHTMLAttributes<HTMLInputElement>;
+}
 
 const StyledInput = styled.input<{color?: WithTheme<CSSColor>}>`
     --toggle-width: 1.4rem;

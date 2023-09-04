@@ -7,13 +7,13 @@ import type {BoxProps} from '../Box/Box';
 import type {FlexAlign, FlexDirection, FlexDistribute} from './flexCss';
 import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
 
-type BaseProps = {
+interface BaseProps {
     gap?: WithBreakpoint<CSSGap>;
     wrap?: WithBreakpoint<boolean>;
     direction?: WithBreakpoint<FlexDirection>;
     align?: WithBreakpoint<FlexAlign>;
     distribute?: WithBreakpoint<FlexDistribute>;
-};
+}
 
 export type FlexProps = BoxProps & MakeBreakpoints<BaseProps>;
 

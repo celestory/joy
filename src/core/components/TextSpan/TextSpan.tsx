@@ -5,7 +5,7 @@ import {createStyledWithBreakpoints} from '../../utils/breakpoints';
 import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 import type {CSSFont, CSSColor, CSSFontSize, CSSFontWeight, WithTheme} from '../../utils/types/theme';
 
-export type TextProps = {
+export interface TextProps {
     font?: WithTheme<CSSFont>;
     size?: WithBreakpoint<CSSFontSize>;
     color?: WithTheme<CSSColor>;
@@ -13,13 +13,13 @@ export type TextProps = {
     weight?: WithTheme<CSSFontWeight>;
     textAlign?: 'start' | 'center' | 'end';
     lineHeight?: number;
-};
+}
 
-type BaseProps = {
+interface BaseProps extends TextProps {
     el?: 'span' | 'strong' | 'em';
     style?: CSSProperties;
     className?: string;
-} & TextProps;
+}
 
 export type TextSpanProps = MakeBreakpoints<BaseProps>;
 

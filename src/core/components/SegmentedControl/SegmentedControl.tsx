@@ -50,14 +50,16 @@ const Segment = styled.div`
 `;
 
 type SegmentValue = {value: string; label: string | React.ReactNode | ((selected: boolean) => React.ReactNode)};
-type Props = {
+
+interface SegmentedControlProps {
     name?: string;
     value: string;
-    onChange: (value: string) => void;
     segments: SegmentValue[];
-};
+    //
+    onChange: (value: string) => void;
+}
 
-export const SegmentedControl = ({name, value, onChange, segments}: Props) => {
+export const SegmentedControl = ({name, value, segments, onChange}: SegmentedControlProps) => {
     const id = useId();
     const controlRef = useRef<HTMLDivElement>(null);
     const activeIndex = useMemo(() => segments.findIndex(segment => segment.value === value), [segments, value]);

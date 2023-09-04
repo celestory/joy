@@ -6,11 +6,11 @@ import type {CSSGap} from '../../utils/types/theme';
 import type {BoxProps} from '../Box/Box';
 import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 
-type BaseProps = {
+interface BaseProps {
     gap?: WithBreakpoint<CSSGap | `${CSSGap} ${CSSGap}`>;
     fitColumns?: boolean;
     areas?: WithBreakpoint<string>; // FIXME: better typing?
-};
+}
 
 export type GridProps = BoxProps & MakeBreakpoints<BaseProps>;
 
