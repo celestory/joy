@@ -1,3 +1,4 @@
+import {forwardRef} from 'react';
 import type {CSSProperties, PropsWithChildren} from 'react';
 
 import {boxCss} from './boxCss';
@@ -45,11 +46,11 @@ export type BoxProps = MakeBreakpoints<BaseProps> & (BoxFlexItemProps | BoxGridI
 
 const styledDiv = createStyledWithBreakpoints(boxCss);
 
-export const Box = ({el, style, className, children, ...props}: PropsWithChildren<BoxProps>) => {
+export const Box = forwardRef<HTMLElement, PropsWithChildren<BoxProps>>(({el, style, className, children, ...props}, ref) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
     return (
-        <Element style={style!} className={className} {...props}>
+        <Element ref={ref} style={style!} className={className} {...props}>
             {children}
         </Element>
     );
-};
+});
