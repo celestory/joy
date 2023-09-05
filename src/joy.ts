@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 export {styled};
 
+export {themeConst, themeProp} from './core/utils/types/theme';
+
 export {useInputState} from './core/hooks/useInputState';
 export {useRangeState} from './core/hooks/useRangeState';
 export {useToggleState} from './core/hooks/useToggleState';

@@ -19,7 +19,7 @@ const MenuIcon = styled.svg`
 `;
 
 export const Hero = () => {
-    const [dialogRef, openDialog, closeDialog] = useDialogState();
+    const dialog = useDialogState();
     return (
         <Flex el="main" direction="y" minHeight="fill">
             <TextBox color="theme:colors.accent"></TextBox>
@@ -61,7 +61,7 @@ export const Hero = () => {
                 </TextBox>
                 <Flex gap="1rem">
                     <Input placeholder="name@email.com" width="15rem" md-width="20rem" size="1rem" md-size="1.2rem" />
-                    <Button onClick={openDialog} size="1rem" md-size="1.2rem">
+                    <Button onClick={dialog.open} size="1rem" md-size="1.2rem">
                         Join Now!
                     </Button>
                 </Flex>
@@ -94,9 +94,9 @@ export const Hero = () => {
                     </Flex>
                 </Flex>
             </Flex>
-            <Dialog ref={dialogRef}>
+            <Dialog ref={dialog.ref}>
                 <h1>Coucou 👋</h1>
-                <Button onClick={closeDialog}>Close</Button>
+                <Button onClick={dialog.close}>Close</Button>
             </Dialog>
         </Flex>
     );

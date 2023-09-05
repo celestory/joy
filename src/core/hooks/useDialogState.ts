@@ -1,18 +1,18 @@
 import {useCallback, useRef} from 'react';
 
 export const useDialogState = () => {
-    const dialogRef = useRef<HTMLDialogElement>(null);
-    const openDialog = useCallback(() => {
-        dialogRef.current?.showModal();
+    const ref = useRef<HTMLDialogElement>(null);
+    const open = useCallback(() => {
+        ref.current?.showModal();
     }, []);
-    const closeDialog = useCallback(() => {
-        if (dialogRef.current) {
-            dialogRef.current.classList.add('joyDialogClosing');
+    const close = useCallback(() => {
+        if (ref.current) {
+            ref.current.classList.add('joyDialogClosing');
             setTimeout(() => {
-                dialogRef.current?.close();
-                dialogRef.current?.classList.remove('joyDialogClosing');
+                ref.current?.close();
+                ref.current?.classList.remove('joyDialogClosing');
             }, 300); // 💩
         }
     }, []);
-    return [dialogRef, openDialog, closeDialog] as const;
+    return {ref, open, close} as const;
 };
