@@ -34,6 +34,11 @@ export const darkTheme: Theme = {
         bg: darkColors.area,
     },
 
+    backdrop: {
+        blur: '5px',
+        color: '#00000066',
+    },
+
     input: {
         color: darkColors.fg,
         radius: '0.5rem',
@@ -133,6 +138,11 @@ export const lightTheme: Theme = {
     card: {
         radius: '1rem',
         bg: lightColors.area,
+    },
+
+    backdrop: {
+        blur: '5px',
+        color: '#00000044',
     },
 
     input: {

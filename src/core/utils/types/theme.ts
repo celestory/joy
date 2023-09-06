@@ -73,6 +73,10 @@ export interface Theme {
     };
 
     card: Surface;
+    backdrop: {
+        blur: `${number}px`;
+        color: CSSColor;
+    };
 
     // input
     input: {

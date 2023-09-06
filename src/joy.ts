@@ -3,9 +3,9 @@ export {styled};
 
 export {themeConst, themeProp} from './core/utils/types/theme';
 
+export {useOpenState} from './core/hooks/useOpenState';
 export {useInputState} from './core/hooks/useInputState';
 export {useRangeState} from './core/hooks/useRangeState';
-export {useToggleState} from './core/hooks/useToggleState';
 export {useLocationState} from './core/hooks/useLocationState';
 export {useCheckboxState} from './core/hooks/useCheckboxState';
 
@@ -32,7 +32,6 @@ export {SegmentedArea} from './core/components/SegmentedControl/SegmentedArea';
 export {SegmentedControl} from './core/components/SegmentedControl/SegmentedControl';
 
 export {Dialog} from './core/components/Dialog/Dialog';
-export {useDialogState} from './core/hooks/useDialogState';
 
 export {ThemeProvider} from './core/Theme/ThemeProvider';
 export {darkTheme, lightTheme} from './core/Theme/themes';

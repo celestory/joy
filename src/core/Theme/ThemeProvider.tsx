@@ -38,7 +38,6 @@ const createThemeVariables = (theme: object, parent = 'joy'): string[] => {
             return [...cssVariables, ...createThemeVariables(value, `${parent}-${key}`)];
         }
         if (typeof value === 'string') {
-            console.log(`--${parent}-${key}: ${value};`);
             return [...cssVariables, `--${parent}-${key}: ${value};`];
         }
         return cssVariables;
@@ -53,7 +52,8 @@ export const ThemeProvider = ({theme, children}: PropsWithChildren<ThemeProvider
         <>
             <Global
                 styles={css`
-                    :root {
+                    :root,
+                    ::backdrop {
                         ${cssVariables}
                     }
                 `}

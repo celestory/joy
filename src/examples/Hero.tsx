@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Box, Button, Dialog, Flex, ImageBox, Input, TextBox, useDialogState} from '../joy';
+import {Box, Button, Dialog, Flex, ImageBox, Input, TextBox, useOpenState} from '../joy';
 
 const Header = styled(Flex)`
     position: sticky;
@@ -19,7 +19,7 @@ const MenuIcon = styled.svg`
 `;
 
 export const Hero = () => {
-    const dialog = useDialogState();
+    const dialog = useOpenState(false);
     return (
         <Flex el="main" direction="y" minHeight="fill">
             <TextBox color="theme:colors.accent"></TextBox>
@@ -94,7 +94,7 @@ export const Hero = () => {
                     </Flex>
                 </Flex>
             </Flex>
-            <Dialog ref={dialog.ref}>
+            <Dialog isOpen={dialog.isOpen} onRequestClose={dialog.close}>
                 <h1>Coucou 👋</h1>
                 <Button onClick={dialog.close}>Close</Button>
             </Dialog>
