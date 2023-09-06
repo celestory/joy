@@ -53,13 +53,13 @@ export const CircleProgress = ({value, thickness = 0.2, ...props}: CircleProgres
 
     return (
         <Box
+            {...props}
             el="figure"
             role="meter"
             aria-valuenow={value || 0}
             aria-valuetext={value ? `${value}%` : 'Infinite Spinner'}
             aria-valuemin={0}
             aria-valuemax={100}
-            {...props}
         >
             <Svg infinite={value === undefined} viewBox={`0 0 ${baseSize} ${baseSize}`}>
                 <Track thickness={thickness * baseSize} r={baseSize / 2} cx="50%" cy="50%" />

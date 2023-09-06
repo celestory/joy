@@ -16,5 +16,5 @@ export type InputProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps>
 const StyledInput = createStyledWithBreakpoints(inputCss, 'input');
 
 export const Input = ({style, className, ...props}: InputProps) => {
-    return <StyledInput style={style!} className={className} {...props} />;
+    return <StyledInput {...props} style={style!} className={className} />;
 };

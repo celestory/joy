@@ -132,5 +132,5 @@ const StyledInput = styled.input`
 `;
 
 export const Range = (props: InputHTMLAttributes<HTMLInputElement>) => {
-    return <StyledInput type="range" {...props} />;
+    return <StyledInput {...props} type="range" />;
 };

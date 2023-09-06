@@ -1,11 +1,12 @@
+import {forwardRef} from 'react';
 import type {PropsWithChildren} from 'react';
 
 import {flexCss} from './flexCss';
 import {createStyledWithBreakpoints} from '../../utils/breakpoints';
 import type {CSSGap} from '../../utils/types/theme';
 import type {BoxProps} from '../Box/Box';
-import type {FlexAlign, FlexDirection, FlexDistribute} from './flexCss';
 import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
+import type {FlexAlign, FlexDirection, FlexDistribute} from './flexCss';
 
 interface BaseProps {
     gap?: WithBreakpoint<CSSGap>;
@@ -19,11 +20,11 @@ export type FlexProps = BoxProps & MakeBreakpoints<BaseProps>;
 
 const styledDiv = createStyledWithBreakpoints(flexCss);
 
-export const Flex = ({el, style, className, children, ...props}: PropsWithChildren<FlexProps>) => {
+export const Flex = forwardRef<HTMLElement, PropsWithChildren<FlexProps>>(({el, style, className, children, ...props}, ref) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
     return (
-        <Element style={style!} className={className} {...props}>
+        <Element {...props} ref={ref} style={style!} className={className}>
             {children}
         </Element>
     );
-};
+});

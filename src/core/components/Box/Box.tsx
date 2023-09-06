@@ -49,7 +49,7 @@ const styledDiv = createStyledWithBreakpoints(boxCss);
 export const Box = forwardRef<HTMLElement, PropsWithChildren<BoxProps>>(({el, style, className, children, ...props}, ref) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
     return (
-        <Element ref={ref} style={style!} className={className} {...props}>
+        <Element {...props} ref={ref} style={style!} className={className}>
             {children}
         </Element>
     );

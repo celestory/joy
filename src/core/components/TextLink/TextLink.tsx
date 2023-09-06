@@ -11,7 +11,7 @@ const StyledLink = createStyledWithBreakpoints(textLinkCss, 'a');
 
 export const TextLink = ({style, className, children, ...props}: PropsWithChildren<TextLinkProps>) => {
     return (
-        <StyledLink style={style!} className={className} {...props}>
+        <StyledLink {...props} style={style!} className={className}>
             {children}
         </StyledLink>
     );

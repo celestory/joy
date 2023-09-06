@@ -13,7 +13,7 @@ const styledDiv = createStyledWithBreakpoints(textBoxCss);
 export const TextBox = ({el, style, className, children, ...props}: PropsWithChildren<TextBoxProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
     return (
-        <Element style={style!} className={className} {...props}>
+        <Element {...props} style={style!} className={className}>
             {children}
         </Element>
     );

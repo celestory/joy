@@ -17,5 +17,5 @@ export type ImageBoxProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BasePro
 const StyledImg = createStyledWithBreakpoints(imageBoxCss, 'img');
 
 export const ImageBox = ({style, className, ...props}: ImageBoxProps) => {
-    return <StyledImg style={style!} className={className} {...props} />;
+    return <StyledImg {...props} style={style!} className={className} />;
 };

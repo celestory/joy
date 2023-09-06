@@ -16,5 +16,5 @@ export type SelectProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps
 const StyledSelect = createStyledWithBreakpoints(selectCss, 'select');
 
 export const Select = ({style, className, ...props}: SelectProps) => {
-    return <StyledSelect style={style!} className={className} {...props} />;
+    return <StyledSelect {...props} style={style!} className={className} />;
 };

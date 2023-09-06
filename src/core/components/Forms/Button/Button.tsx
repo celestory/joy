@@ -14,7 +14,7 @@ export type ButtonProps = OmitStrict<BoxProps, 'el'> & BaseProps & ButtonHTMLAtt
 const StyledButton = createStyledWithBreakpoints(buttonCss, 'button');
 
 export const Button = ({style, className, ...props}: ButtonProps) => {
-    return <StyledButton style={style!} className={className} {...props} />;
+    return <StyledButton {...props} style={style!} className={className} />;
 };
 
 export type LinkButtonProps = OmitStrict<BoxProps, 'el'> & BaseProps & LinkHTMLAttributes<HTMLAnchorElement>;
@@ -22,5 +22,5 @@ export type LinkButtonProps = OmitStrict<BoxProps, 'el'> & BaseProps & LinkHTMLA
 const StyledLinkButton = createStyledWithBreakpoints(buttonCss, 'a');
 
 export const LinkButton = ({style, className, ...props}: LinkButtonProps) => {
-    return <StyledLinkButton style={style!} className={className} {...props} />;
+    return <StyledLinkButton {...props} style={style!} className={className} />;
 };

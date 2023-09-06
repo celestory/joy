@@ -2,16 +2,16 @@ import styled from '@emotion/styled';
 import {forwardRef} from 'react';
 import type {PropsWithChildren} from 'react';
 
-import {Box} from '../Box/Box';
+import {Card} from '../Card/Card';
 import {animations} from '../../utils/animations';
-import type {BoxProps} from '../Box/Box';
+import type {CardProps} from '../Card/Card';
 import type {Animation} from '../../utils/animations';
 
 type DialogProps = {
     animation?: Animation;
-} & BoxProps;
+} & CardProps;
 
-const StyledDialog = styled(Box)<DialogProps>`
+const StyledDialog = styled(Card)<DialogProps>`
     animation: 0.3s ease-in-out 0s ${props => animations[props.animation || 'center'].in} forwards;
 
     &.joyDialogClosing {

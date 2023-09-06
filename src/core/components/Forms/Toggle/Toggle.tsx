@@ -44,5 +44,5 @@ const StyledInput = styled.input<{color?: WithTheme<CSSColor>}>`
 // 💩: handle label and errors consistently across inputs
 
 export const Toggle = ({color, ...props}: ToggleProps) => {
-    return <StyledInput type="checkbox" role="switch" color={color} {...props} />;
+    return <StyledInput {...props} type="checkbox" role="switch" color={color} />;
 };

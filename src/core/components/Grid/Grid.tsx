@@ -19,7 +19,7 @@ const styledDiv = createStyledWithBreakpoints(gridCss);
 export const Grid = ({el, style, className, children, ...props}: PropsWithChildren<GridProps>) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;
     return (
-        <Element style={style!} className={className} {...props}>
+        <Element {...props} style={style!} className={className}>
             {children}
         </Element>
     );
