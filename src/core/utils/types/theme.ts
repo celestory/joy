@@ -1,6 +1,6 @@
 export type CSSNumber<Unit extends string> = '0' | `${number}${Unit}`;
 export type CSSGap = CSSNumber<'rem'>;
-export type CSSFont = `normal ${number} 1em ${string}`;
+export type CSSFont = `normal ${number} 1em ${string}` | `var(--${string})`;
 export type CSSWidth = CSSNumber<'rem' | '%'> | 'fit-content';
 export type CSSHeight = CSSNumber<'rem'> | 'fill';
 export type CSSRadius = CSSNumber<'rem' | 'em' | '%'>;
