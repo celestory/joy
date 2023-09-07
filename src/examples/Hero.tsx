@@ -8,10 +8,6 @@ const Header = styled(Flex)`
     border-bottom: 1px solid var(--joy-subBackground);
 `;
 
-const Heading = styled(TextBox)`
-    font-size: clamp(2rem, 8vw, 4rem);
-`;
-
 const MenuIcon = styled.svg`
     [fill='white'] {
         fill: var(--joy-colors-fg);
@@ -44,9 +40,9 @@ export const Hero = () => {
                 </Box>
             </Header>
             <Flex el="section" direction="y" maxWidth="55rem" margin="0 auto" align="center" gap="1rem" padding="2rem" grow>
-                <Heading el="h1" weight="extraBold" margin="3rem 0 0 0" textAlign="center">
+                <TextBox el="h1" weight="extraBold" margin="3rem 0 0 0" textAlign="center" size="clamp(2rem, 8vw, 4rem)" letterSpacing="-2px">
                     An awesome big and bold message to catch the eye.
-                </Heading>
+                </TextBox>
                 <TextBox
                     size="1.1rem"
                     md-size="1.4rem"

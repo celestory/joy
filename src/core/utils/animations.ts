@@ -26,7 +26,7 @@ export const fadeOut = keyframes`
 export const centerIn = keyframes`
     from {
         opacity: 0;
-        transform: scale(0.7);
+        transform: scale(0.8);
     }
     to {
         opacity: 1;
@@ -40,7 +40,7 @@ export const centerOut = keyframes`
     }
     to {
         opacity: 0;
-        transform: scale(0.7);
+        transform: scale(0.8);
     }
 `;
 

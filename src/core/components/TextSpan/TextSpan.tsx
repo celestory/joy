@@ -13,6 +13,7 @@ export interface TextProps {
     weight?: WithTheme<CSSFontWeight>;
     textAlign?: 'start' | 'center' | 'end';
     lineHeight?: number;
+    letterSpacing?: `${number}px`;
 }
 
 interface BaseProps extends TextProps {

@@ -14,4 +14,5 @@ export const textSpanCss = (props: TextSpanProps, breakpoint: `${Breakpoints}-` 
 
     text-align: ${props.textAlign};
     line-height: ${props.lineHeight};
+    letter-spacing: ${props.letterSpacing};
 `;

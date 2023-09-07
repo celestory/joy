@@ -12,7 +12,7 @@ export type CSSPadding = '0' | `${number}rem` | `${number}em`;
 export type CSSOverflow = 'auto' | 'hidden' | 'visible';
 export type CSSPosition = 'absolute' | 'relative';
 
-export type CSSFontSize = `${number}rem`;
+export type CSSFontSize = `${number}rem` | `clamp(${number}rem, ${number}vw, ${number}rem)`;
 export type CSSFontWeight = keyof Omit<typeof fontWeightToCss, 'default'>;
 
 export type CSSScale = `${number}`;
