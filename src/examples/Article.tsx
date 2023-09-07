@@ -1,35 +1,15 @@
-import styled from '@emotion/styled';
-import {TextBox} from '../joy';
-import {themeConst} from '../core/utils/types/theme';
-
-const RichTextBox = styled(TextBox)`
-    font: ${themeConst('theme:fonts.content')};
-    color: ${themeConst('theme:colors.dimmed')};
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: ${themeConst('theme:fonts.heading')};
-        color: ${themeConst('theme:colors.fg')};
-    }
-    strong {
-        color: ${themeConst('theme:colors.fg')};
-    }
-    img {
-        max-width: 100%;
-    }
-`;
+import {Prose, TextBox} from '../joy';
 
 export const Article = () => {
     return (
-        <RichTextBox lineHeight={1.7} size="1.1rem" padding="1.5rem" margin="1rem auto" maxWidth="45rem">
-            <h1>The Importance of UI/UX</h1>
-            <TextBox lineHeight={1.7} color="magenta">
+        <Prose padding="1.5rem" margin="1rem auto" maxWidth="50rem">
+            <TextBox el="h1" font="theme:fonts.heading" size="clamp(2.5rem, 6vw, 4rem)" letterSpacing="-2px">
+                The Importance of UI/UX
+            </TextBox>
+            <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi tenetur amet molestiae quidem velit reprehenderit ut placeat doloremque, nulla id
                 omnis! Voluptate eveniet consectetur ex consequuntur ipsum, vero animi eos.
-            </TextBox>
+            </p>
 
             <h2>Understanding UI and UX</h2>
             <p>
@@ -107,6 +87,6 @@ export const Article = () => {
                 can create a delightful user experience that drives engagement, loyalty, and growth. Remember, a positive user experience not only benefits the
                 users but also contributes to the overall success of the product and the brand.
             </p>
-        </RichTextBox>
+        </Prose>
     );
 };

@@ -15,6 +15,7 @@ export {Grid} from './core/components/Grid/Grid';
 export {AutoGrid} from './core/components/AutoGrid/AutoGrid';
 
 export {Card} from './core/components/Card/Card';
+export {Prose} from './core/components/Prose/Prose';
 export {TextBox} from './core/components/TextBox/TextBox';
 export {TextSpan} from './core/components/TextSpan/TextSpan';
 export {TextLink} from './core/components/TextLink/TextLink';
