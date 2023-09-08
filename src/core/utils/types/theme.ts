@@ -1,3 +1,5 @@
+import type {DeepMerge} from './merge';
+
 export type CSSNumber<Unit extends string> = '0' | `${number}${Unit}`;
 export type CSSGap = CSSNumber<'rem'>;
 export type CSSFont = `normal ${number} 1em ${string}` | `var(--${string})`;
@@ -43,8 +45,7 @@ type Transform = {
     translate?: CSSTranslate;
 };
 
-// TODO: Default the maximum stuff
-export interface Theme {
+interface BaseTheme {
     // typography
     fonts: {
         ui?: CSSFont;
@@ -114,6 +115,10 @@ export interface Theme {
         _disabled: {color?: CSSColor} & Surface;
     } & Surface;
 }
+
+export interface CustomTheme {}
+
+export type Theme = DeepMerge<BaseTheme, CustomTheme>;
 
 const themePrefix = 'theme:';
 export const themeProp = <T extends WithTheme<any>>(prop: T, defaultValue?: string) => {
