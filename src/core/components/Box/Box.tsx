@@ -21,6 +21,7 @@ interface BaseProps {
     //
     height?: WithBreakpoint<CSSHeight>;
     minHeight?: WithBreakpoint<CSSHeight>;
+    maxHeight?: WithBreakpoint<CSSHeight>;
     //
     margin?: WithBreakpoint<CSSMargin | `${CSSMargin} ${CSSMargin}` | `${CSSMargin} ${CSSMargin} ${CSSMargin} ${CSSMargin}`>;
     padding?: WithBreakpoint<CSSPadding | `${CSSPadding} ${CSSPadding}` | `${CSSPadding} ${CSSPadding} ${CSSPadding} ${CSSPadding}`>;
