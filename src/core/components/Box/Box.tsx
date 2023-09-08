@@ -6,7 +6,7 @@ import {createStyledWithBreakpoints} from '../../utils/breakpoints';
 import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
 import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../utils/types/theme';
 
-interface BaseProps extends DOMAttributes<BaseProps> {
+interface BaseProps extends DOMAttributes<HTMLElement> {
     role?: string;
     style?: CSSProperties;
     className?: string;
