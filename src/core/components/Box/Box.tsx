@@ -1,12 +1,12 @@
 import {forwardRef} from 'react';
-import type {CSSProperties, PropsWithChildren} from 'react';
+import type {CSSProperties, DOMAttributes, PropsWithChildren} from 'react';
 
 import {boxCss} from './boxCss';
 import {createStyledWithBreakpoints} from '../../utils/breakpoints';
 import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
 import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../utils/types/theme';
 
-interface BaseProps {
+interface BaseProps extends DOMAttributes<BaseProps> {
     role?: string;
     style?: CSSProperties;
     className?: string;
