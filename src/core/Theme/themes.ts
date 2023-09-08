@@ -1,4 +1,4 @@
-import type {CSSColor, Theme} from '../utils/types/theme';
+import type {BaseTheme, CSSColor, Theme} from '../utils/types/theme';
 
 const darkColors: Record<keyof Theme['colors'], CSSColor> = {
     fg: '#eeeeee',
@@ -10,7 +10,7 @@ const darkColors: Record<keyof Theme['colors'], CSSColor> = {
     error: '#EB586A',
 };
 
-export const darkTheme: Theme = {
+export const darkTheme: BaseTheme = {
     fonts: {
         ui: 'normal 400 1em Inter, sans-serif',
         mono: 'normal 400 1em Menlo, Monaco, monospace',
@@ -116,7 +116,7 @@ const lightColors: Record<keyof Theme['colors'], CSSColor> = {
     error: '#EB586A',
 };
 
-export const lightTheme: Theme = {
+export const lightTheme: BaseTheme = {
     fonts: {
         ui: 'normal 400 1em Inter, sans-serif',
         mono: 'normal 400 1em Menlo, Monaco, monospace',

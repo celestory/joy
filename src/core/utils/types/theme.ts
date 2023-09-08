@@ -45,7 +45,7 @@ type Transform = {
     translate?: CSSTranslate;
 };
 
-interface BaseTheme {
+export interface BaseTheme {
     // typography
     fonts: {
         ui?: CSSFont;

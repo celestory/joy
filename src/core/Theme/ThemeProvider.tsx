@@ -3,10 +3,10 @@ import {Global} from '@emotion/react';
 import type {PropsWithChildren} from 'react';
 
 import {darkTheme} from './themes';
-import type {Theme} from '../utils/types/theme';
+import type {Theme, BaseTheme, CustomTheme} from '../utils/types/theme';
 
 interface ThemeProviderProps {
-    theme: Partial<Theme>;
+    theme: Partial<BaseTheme> & CustomTheme;
 }
 
 const applyCascadeToTheme = (theme: Partial<Theme>): Theme => {
