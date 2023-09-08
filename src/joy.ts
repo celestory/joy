@@ -8,6 +8,7 @@ export {useInputState} from './core/hooks/useInputState';
 export {useRangeState} from './core/hooks/useRangeState';
 export {useLocationState} from './core/hooks/useLocationState';
 export {useCheckboxState} from './core/hooks/useCheckboxState';
+export {useScrollProgress} from './core/hooks/useScrollProgress';
 
 export {Box} from './core/components/Box/Box';
 export {Flex} from './core/components/Flex/Flex';
@@ -20,6 +21,7 @@ export {TextBox} from './core/components/TextBox/TextBox';
 export {TextSpan} from './core/components/TextSpan/TextSpan';
 export {TextLink} from './core/components/TextLink/TextLink';
 export {ImageBox} from './core/components/ImageBox/ImageBox';
+export {ProgressBar} from './core/components/ProgressBar/ProgressBar';
 
 export {Input} from './core/components/Forms/Input/Input';
 export {Select} from './core/components/Forms/Select/Select';
