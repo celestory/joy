@@ -1,6 +1,6 @@
 import type {InputHTMLAttributes} from 'react';
 
-import {inputCss} from './inputCss';
+import {InputWrapper, inputCss} from './inputCss';
 import {createStyledWithBreakpoints} from '../../../utils/breakpoints';
 import type {BoxProps} from '../../Box/Box';
 import type {OmitStrict} from '../../../utils/types/utils';
@@ -15,6 +15,19 @@ export type InputProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps>
 
 const StyledInput = createStyledWithBreakpoints(inputCss, 'input');
 
-export const Input = ({style, className, ...props}: InputProps) => {
-    return <StyledInput {...props} style={style!} className={className} />;
+export const Input = ({style, className, type, ...props}: InputProps) => {
+    const inputEl = <StyledInput {...props} style={style!} className={className} type={type} />;
+    if (type === 'search') {
+        return (
+            <InputWrapper {...props}>
+                <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="5.5" cy="5.5" r="4.5" stroke="black" stroke-width="2" />
+                    <rect width="6.98326" height="2.09498" rx="1.04749" transform="matrix(0.708801 0.705408 -0.708801 0.705408 9.01477 7.59613)" fill="black" />
+                </svg>
+
+                {inputEl}
+            </InputWrapper>
+        );
+    }
+    return inputEl;
 };
