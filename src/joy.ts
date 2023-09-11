@@ -41,5 +41,5 @@ export {Dialog} from './core/components/Dialog/Dialog';
 export {ThemeProvider} from './core/Theme/ThemeProvider';
 export {darkTheme, lightTheme} from './core/Theme/themes';
 
-export type {Theme, CustomTheme} from './core/utils/types/theme';
+export type {Theme, CustomTheme, WithTheme} from './core/utils/types/theme';
 export type {CSSFont, CSSBorder, CSSColor, CSSShadow} from './core/utils/types/theme';
