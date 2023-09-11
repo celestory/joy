@@ -21,6 +21,8 @@ const Icon = styled.svg<{selected: boolean}>`
 `;
 
 export const MegaForms = () => {
+    const [search, setSearch] = useInputState('');
+
     const [frameworks, setFrameworks] = useState([
         {value: 'react', label: 'React'},
         {value: 'vue', label: 'Vueeeeeeeeeee'},
@@ -162,6 +164,7 @@ export const MegaForms = () => {
                 Mega forms
             </TextBox>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem'}}>
+                <Input type="search" value={search} onChange={setSearch} />
                 <Toggle color="theme:colors.success" checked={toggled} onChange={onToggle} />
                 <Toggle checked={toggled} onChange={onToggle} />
                 <Checkbox size="2rem" label="Something big" checked={checked} onChange={onCheckboxToggle} />
