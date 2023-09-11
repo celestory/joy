@@ -3,14 +3,17 @@ import isPropValid from '@emotion/is-prop-valid';
 import type {StyledOptions} from '@emotion/styled';
 import type {ChangeEvent, FC, ReactNode} from 'react';
 
-import {themeConst} from '../../../utils/types/theme';
+import {themeConst, themeProp} from '../../../utils/types/theme';
 import {surfaceCss} from '../../../utils/surfaceCss';
+import type {CSSColor, WithTheme} from '../../../utils/types/theme';
 
 interface CheckboxProps {
     checked: boolean;
     disabled?: boolean;
     indeterminate?: boolean;
     //
+    bg?: WithTheme<CSSColor>;
+    fg?: WithTheme<CSSColor>;
     size?: `${number}rem`;
     //
     label?: ReactNode;
@@ -26,6 +29,8 @@ const checkboxOptions: StyledOptions<CheckboxProps> = {
 
 const CheckBoxWrapper = styled('label', checkboxOptions)<{
     disabled?: boolean;
+    bg?: WithTheme<CSSColor>;
+    fg?: WithTheme<CSSColor>;
     size: `${number}rem`;
     labelGap: `${number}rem`;
 }>`
@@ -52,7 +57,7 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
             width: ${props => parseFloat(props.size) / 2.0}rem;
             fill: none;
             overflow: visible;
-            stroke: ${themeConst('theme:checkbox.color', themeConst('theme:colors.fg'))};
+            stroke: ${props => themeProp(props.fg, themeConst('theme:checkbox.fg'))};
             stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -65,7 +70,7 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
         }
     }
     input[type='checkbox']:checked + i {
-        ${surfaceCss({}, 'checkbox._checked')}
+        ${props => surfaceCss({bg: props.bg}, 'checkbox._checked')}
         svg {
             stroke-dashoffset: 0;
         }
@@ -73,14 +78,28 @@ const CheckBoxWrapper = styled('label', checkboxOptions)<{
     input[type='checkbox']:disabled + i {
         ${surfaceCss({}, 'checkbox._disabled')}
         svg {
-            stroke: ${themeConst('theme:checkbox._disabled.color', themeConst('theme:colors.fg'))};
+            stroke: ${themeConst('theme:checkbox._disabled.fg')};
         }
+    }
+    label {
+        font: ${themeConst('theme:fonts.ui')};
     }
 `;
 
-export const Checkbox: FC<CheckboxProps> = ({checked, onChange, indeterminate, disabled, size = '1.5rem', label, labelGap = '0.5rem', labelAlign = 'end'}) => {
+export const Checkbox: FC<CheckboxProps> = ({
+    checked,
+    onChange,
+    indeterminate,
+    disabled,
+    bg,
+    fg,
+    size = '1.5rem',
+    label,
+    labelGap = '0.5rem',
+    labelAlign = 'end',
+}) => {
     return (
-        <CheckBoxWrapper disabled={disabled} size={size} labelGap={labelGap}>
+        <CheckBoxWrapper disabled={disabled} bg={bg} fg={fg} size={size} labelGap={labelGap}>
             {labelAlign === 'start' && label}
             <input type="checkbox" disabled={disabled} checked={checked} onChange={onChange} />
             <i>

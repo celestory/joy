@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import {Card} from '../Card/Card';
-import {themeConst} from '../../utils/types/theme';
+import {themeConst, themeProp} from '../../utils/types/theme';
+import type {CSSColor, WithTheme} from '../../utils/types/theme';
 
-export const ProgressBar = styled(Card)<{value: number; color: string; animated?: boolean}>`
+export const ProgressBar = styled(Card)<{value: number; fg?: WithTheme<CSSColor>; animated?: boolean}>`
     position: relative;
     &::after {
         content: '';
@@ -11,9 +12,8 @@ export const ProgressBar = styled(Card)<{value: number; color: string; animated?
         left: 0;
         right: ${props => (1 - props.value) * 100}%;
         bottom: 0;
-        border-radius: ${themeConst('theme:card.radius')};
         transition: ${props => (props.animated ? `0.5s right` : undefined)};
-
-        background-color: ${props => props.color};
+        border-radius: ${props => themeProp(props.radius, themeConst('theme:card.radius'))};
+        background-color: ${props => themeProp(props.fg, themeConst('theme:colors.accent'))};
     }
 `;

@@ -10,6 +10,7 @@ import type {Theme, BaseTheme, CustomTheme} from '../utils/types/theme';
 interface ThemeProviderProps {
     theme: Partial<BaseTheme> & CustomTheme;
     styles?: SerializedStyles;
+    imports?: SerializedStyles; // because imports must always be declared first
     noReset?: boolean;
 }
 
@@ -48,7 +49,7 @@ const createThemeVariables = (theme: object, parent = 'joy'): string[] => {
     }, [] as string[]);
 };
 
-export const ThemeProvider = ({theme, styles, noReset, children}: PropsWithChildren<ThemeProviderProps>) => {
+export const ThemeProvider = ({theme, styles, imports, noReset, children}: PropsWithChildren<ThemeProviderProps>) => {
     const finalTheme = applyCascadeToTheme(theme);
     const cssVariables = createThemeVariables(finalTheme).join('\n');
 
@@ -56,6 +57,7 @@ export const ThemeProvider = ({theme, styles, noReset, children}: PropsWithChild
         <>
             <Global
                 styles={css`
+                    ${imports};
                     :root,
                     ::backdrop {
                         ${cssVariables}
@@ -122,7 +124,7 @@ export const ThemeProvider = ({theme, styles, noReset, children}: PropsWithChild
                             color: ${themeConst('theme:colors.fg')};
                         }
                     `}
-                    ${styles}
+                    ${styles};
                 `}
             />
             {children}

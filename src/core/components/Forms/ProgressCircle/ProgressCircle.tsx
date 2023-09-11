@@ -3,9 +3,13 @@ import {useMemo} from 'react';
 import {css, keyframes} from '@emotion/react';
 
 import {Box} from '../../Box/Box';
+import {themeProp, themeConst} from '../../../utils/types/theme';
 import type {BoxProps} from '../../Box/Box';
+import type {CSSColor, WithTheme} from '../../../utils/types/theme';
 
 interface CircleProgressProps {
+    bg?: WithTheme<CSSColor>;
+    fg?: WithTheme<CSSColor>;
     value?: number;
     thickness?: number;
 }
@@ -26,21 +30,21 @@ const Svg = styled.svg<{infinite: boolean}>`
     ${props => (props.infinite ? spinAnimation : undefined)};
 `;
 
-const Track = styled.circle<{thickness: number}>`
+const Track = styled.circle<{bg?: WithTheme<CSSColor>; thickness: number}>`
     fill: none;
-    stroke: var(--joy-subBackground);
+    stroke: ${props => themeProp(props.bg, themeConst('theme:colors.area'))};
     stroke-width: ${props => props.thickness};
 `;
 
-const Meter = styled(Track)<{circumference: number; dashoffset: number}>`
+const Meter = styled(Track)<{fg?: WithTheme<CSSColor>; circumference: number; dashoffset: number}>`
     fill: none;
-    stroke: var(--joy-colors-fg);
+    stroke: ${props => themeProp(props.fg, themeConst('theme:colors.accent'))};
     stroke-dasharray: ${props => `${props.circumference} ${props.circumference}`};
     stroke-dashoffset: ${props => props.dashoffset};
     transition: stroke-dashoffset 0.3s;
 `;
 
-export const CircleProgress = ({value, thickness = 0.2, ...props}: CircleProgressProps & BoxProps) => {
+export const ProgressCircle = ({value, bg, fg, thickness = 0.2, ...props}: CircleProgressProps & BoxProps) => {
     const baseSize = 512; // px
     const radius: number = baseSize / 2;
     const {circumference, dashoffset} = useMemo(() => {
@@ -62,8 +66,8 @@ export const CircleProgress = ({value, thickness = 0.2, ...props}: CircleProgres
             aria-valuemax={100}
         >
             <Svg infinite={value === undefined} viewBox={`0 0 ${baseSize} ${baseSize}`}>
-                <Track thickness={thickness * baseSize} r={baseSize / 2} cx="50%" cy="50%" />
-                <Meter thickness={thickness * baseSize} r={baseSize / 2} cx="50%" cy="50%" circumference={circumference} dashoffset={dashoffset} />
+                <Track bg={bg} thickness={thickness * baseSize} r={baseSize / 2} cx="50%" cy="50%" />
+                <Meter fg={fg} thickness={thickness * baseSize} r={baseSize / 2} cx="50%" cy="50%" circumference={circumference} dashoffset={dashoffset} />
             </Svg>
         </Box>
     );

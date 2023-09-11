@@ -40,7 +40,7 @@ export const darkTheme: BaseTheme = {
     },
 
     input: {
-        color: darkColors.fg,
+        fg: darkColors.fg,
         radius: '0.5rem',
         border: '2px solid transparent',
         bg: darkColors.area,
@@ -56,23 +56,21 @@ export const darkTheme: BaseTheme = {
         },
     },
     button: {
-        color: '#222222',
+        fg: '#222222',
         radius: '0.5rem',
         border: 'none',
         bg: darkColors.accent,
         transition: '.3s',
 
         _hover: {
-            bg: '#4ecaff',
+            translate: '0 -0.1em',
         },
 
         _focus: {
-            bg: '#00B2FF',
             translate: '0 0.2em',
         },
         _disabled: {
-            color: '#888888',
-            bg: '#222222',
+            opacity: '0.3',
         },
     },
     toggle: {
@@ -92,7 +90,7 @@ export const darkTheme: BaseTheme = {
         },
     },
     checkbox: {
-        color: '#ffffff',
+        fg: '#ffffff',
         radius: '0.5em',
         bg: darkColors.area,
         transition: '.3s',
@@ -100,7 +98,7 @@ export const darkTheme: BaseTheme = {
             bg: darkColors.accent,
         },
         _disabled: {
-            color: '#888888',
+            fg: '#888888',
             bg: '#333333',
         },
     },
@@ -146,7 +144,7 @@ export const lightTheme: BaseTheme = {
     },
 
     input: {
-        color: lightColors.fg,
+        fg: lightColors.fg,
         radius: '0.5rem',
         border: '2px solid transparent',
         bg: lightColors.area,
@@ -162,23 +160,16 @@ export const lightTheme: BaseTheme = {
         },
     },
     button: {
-        color: '#eeeeee',
+        fg: '#eeeeee',
         radius: '0.5rem',
         border: 'none',
         bg: lightColors.accent,
         transition: '.3s',
 
-        _hover: {
-            bg: '#4ecaff',
-        },
-
-        _focus: {
-            bg: '#00B2FF',
-            translate: '0 0.2em',
-        },
+        _hover: {translate: '0 -0.1em'},
+        _focus: {translate: '0 0.2em'},
         _disabled: {
-            color: '#aaaaaa',
-            bg: '#eeeeee',
+            opacity: '0.3',
         },
     },
     toggle: {
@@ -198,7 +189,7 @@ export const lightTheme: BaseTheme = {
         },
     },
     checkbox: {
-        color: '#ffffff',
+        fg: '#ffffff',
         radius: '0.5em',
         bg: lightColors.area,
         transition: '.3s',
@@ -206,7 +197,7 @@ export const lightTheme: BaseTheme = {
             bg: lightColors.accent,
         },
         _disabled: {
-            color: '#aaaaaa',
+            fg: '#aaaaaa',
             bg: '#eeeeee',
         },
     },

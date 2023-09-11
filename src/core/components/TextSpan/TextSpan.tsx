@@ -6,9 +6,9 @@ import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 import type {CSSFont, CSSColor, CSSFontSize, CSSFontWeight, WithTheme} from '../../utils/types/theme';
 
 export interface TextProps {
+    fg?: WithTheme<CSSColor>;
     font?: WithTheme<CSSFont>;
     size?: WithBreakpoint<CSSFontSize>;
-    color?: WithTheme<CSSColor>;
     italic?: boolean;
     weight?: WithTheme<CSSFontWeight>;
     textAlign?: 'start' | 'center' | 'end';

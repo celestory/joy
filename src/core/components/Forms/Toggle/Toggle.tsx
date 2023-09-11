@@ -6,10 +6,10 @@ import {themeConst} from '../../../utils/types/theme';
 import type {CSSColor, WithTheme} from '../../../utils/types/theme';
 
 interface ToggleProps extends InputHTMLAttributes<HTMLInputElement> {
-    color?: WithTheme<CSSColor>;
+    bg?: WithTheme<CSSColor>;
 }
 
-const StyledInput = styled.input<{color?: WithTheme<CSSColor>}>`
+const StyledInput = styled.input<{bg?: WithTheme<CSSColor>}>`
     --toggle-width: 1.4rem;
     --toggle-thumb-gap: 0.1rem;
     --toggle-thumb-size: 0.6rem;
@@ -30,7 +30,7 @@ const StyledInput = styled.input<{color?: WithTheme<CSSColor>}>`
 
     &:checked {
         padding-inline: var(--toggle-width) 0;
-        ${props => surfaceCss({bg: props.color}, 'toggle._checked')}
+        ${props => surfaceCss({bg: props.bg}, 'toggle._checked')}
     }
     &::before {
         content: '';
@@ -43,6 +43,6 @@ const StyledInput = styled.input<{color?: WithTheme<CSSColor>}>`
 
 // 💩: handle label and errors consistently across inputs
 
-export const Toggle = ({color, ...props}: ToggleProps) => {
-    return <StyledInput {...props} type="checkbox" role="switch" color={color} />;
+export const Toggle = ({bg, ...props}: ToggleProps) => {
+    return <StyledInput {...props} type="checkbox" role="switch" bg={bg} />;
 };

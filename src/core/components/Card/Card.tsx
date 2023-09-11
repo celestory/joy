@@ -15,6 +15,7 @@ export type CardProps = {
 } & FlexProps;
 
 const styledDiv = styled(Flex)<CardProps>`
+    /* FIXME: try to remove spread */
     ${props => surfaceCss({...props}, 'card')}
 ` as any;
 

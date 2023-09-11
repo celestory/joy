@@ -1,12 +1,14 @@
 import {css} from '@emotion/react';
 import styled from '@emotion/styled';
 
+import {Box} from '../../Box/Box';
 import {boxCss} from '../../Box/boxCss';
 import {themeConst} from '../../../utils/types/theme';
 import {surfaceCss} from '../../../utils/surfaceCss';
 import type {InputProps} from './Input';
 import type {Breakpoints} from '../../../utils/types/break';
-import {Box} from '../../Box/Box';
+
+// TODO: handle placeholder
 
 export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
     padding: 0.8em;
@@ -16,15 +18,13 @@ export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' =
         height: 100%;
     }
 
-    ${boxCss(props, breakpoint)}
-
     outline: none;
 
+    ${boxCss(props, breakpoint)}
     ${surfaceCss({}, 'input')}
 
-    color: ${themeConst('theme:input.color', themeConst('theme:colors.fg'))};
-
     font: ${themeConst('theme:fonts.ui')};
+    color: ${themeConst('theme:input.fg')};
     font-size: ${props[`${breakpoint}size`] || '0.8rem'};
 
     transition: ${themeConst('theme:input.transition')} all;

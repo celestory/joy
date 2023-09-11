@@ -16,7 +16,7 @@ export const selectCss = (props: SelectProps, breakpoint: `${Breakpoints}-` | ''
 
     ${surfaceCss({}, 'input')}
 
-    color: ${themeConst('theme:input.color', themeConst('theme:colors.fg'))};
+    color: ${themeConst('theme:input.fg')};
 
     font: ${themeConst('theme:fonts.ui')};
     font-size: ${props[`${breakpoint}size`]};

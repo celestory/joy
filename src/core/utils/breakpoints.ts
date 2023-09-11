@@ -10,9 +10,10 @@ import type {Breakpoints} from './types/break';
 export const createStyledWithBreakpoints = <T extends object>(
     cssFunc: (props: T, prefix?: '' | `${Breakpoints}-`) => SerializedStyles,
     el: keyof JSX.IntrinsicElements = 'div',
+    excludedProps?: string[],
 ) => {
     const options: StyledOptions<T> = {
-        shouldForwardProp: prop => isPropValid(prop),
+        shouldForwardProp: prop => isPropValid(prop) && !excludedProps?.includes(prop),
     };
     return styled(el, options)<T>`
         ${props => cssFunc(props)}

@@ -81,7 +81,7 @@ export interface BaseTheme {
 
     // input
     input: {
-        color: CSSColor;
+        fg: CSSColor;
         transition?: `${number}s`;
 
         _hover: Surface;
@@ -90,12 +90,13 @@ export interface BaseTheme {
 
     // button
     button: {
-        color?: CSSColor;
+        fg?: CSSColor;
+        opacity?: `${number}`;
         transition?: `${number}s`;
 
-        _hover: {color?: CSSColor} & Surface & Transform;
-        _focus: {color?: CSSColor} & Surface & Transform;
-        _disabled: {color?: CSSColor} & Surface & Transform;
+        _hover: {fg?: CSSColor; opacity?: `${number}`} & Surface & Transform;
+        _focus: {fg?: CSSColor; opacity?: `${number}`} & Surface & Transform;
+        _disabled: {fg?: CSSColor; opacity?: `${number}`} & Surface & Transform;
     } & Surface &
         Transform;
 
@@ -108,11 +109,11 @@ export interface BaseTheme {
 
     // checkbox
     checkbox: {
-        color: CSSColor;
+        fg: CSSColor;
         transition?: `${number}s`;
 
         _checked: Surface;
-        _disabled: {color?: CSSColor} & Surface;
+        _disabled: {fg?: CSSColor} & Surface;
     } & Surface;
 }
 
@@ -131,12 +132,10 @@ export const themeProp = <T extends WithTheme<any>>(prop: T, defaultValue?: stri
     }
     return prop;
 };
-export const themeConst = <T = any>(prop: ThemeKey<T>, defaultValue?: string) => {
-    if (prop) {
-        const propsWithoutPrefix = prop.replace(themePrefix, '--joy-').replaceAll('.', '-');
-        return `var(${propsWithoutPrefix})`;
-    }
-    return defaultValue;
+
+export const themeConst = <T = any>(prop: ThemeKey<T>) => {
+    const propsWithoutPrefix = prop.replace(themePrefix, '--joy-').replaceAll('.', '-');
+    return `var(${propsWithoutPrefix})`;
 };
 
 export const fontWeightToCss = {

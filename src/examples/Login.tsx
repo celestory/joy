@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import {Flex, Input, ImageBox, TextBox, Button, TextLink} from '../joy';
-import {themeConst} from '../core/utils/types/theme';
 
 const Label = styled.label`
     width: 20rem;
@@ -10,10 +9,6 @@ const Label = styled.label`
     input {
         margin-top: 0.5rem;
     }
-`;
-
-const GoogleButton = styled(Button)`
-    background-color: ${themeConst('theme:colors.fg')};
 `;
 
 export const Login = () => {
@@ -29,9 +24,9 @@ export const Login = () => {
                 <TextBox el="h1" margin="0" font="theme:fonts.heading" size="2rem">
                     Welcome back
                 </TextBox>
-                <TextBox color="theme:colors.dimmed">
+                <TextBox fg="theme:colors.dimmed">
                     New to Joy?{' '}
-                    <TextLink href="#" color="theme:colors.accent">
+                    <TextLink href="#" fg="theme:colors.accent">
                         Create an account
                     </TextLink>
                 </TextBox>
@@ -44,7 +39,7 @@ export const Login = () => {
                     <Input id="password" type="password" width="20rem" />
                 </Flex>
                 <Button width="20rem">Sign in</Button>
-                <GoogleButton width="20rem">
+                <Button width="20rem" bg="theme:colors.fg">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                         <path
                             d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -65,8 +60,8 @@ export const Login = () => {
                         <path d="M1 1h22v22H1z" fill="none" />
                     </svg>
                     <span>Sign in with Google</span>
-                </GoogleButton>
-                <TextLink href="#" color="theme:colors.accent">
+                </Button>
+                <TextLink href="#" fg="theme:colors.accent">
                     Forgot password?
                 </TextLink>
             </Flex>

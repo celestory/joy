@@ -1,5 +1,3 @@
-'use client';
-
 import {forwardRef} from 'react';
 import type {PropsWithChildren} from 'react';
 
@@ -18,9 +16,12 @@ interface BaseProps {
     distribute?: WithBreakpoint<FlexDistribute>;
 }
 
+// FIXME: should generate all props (including parent, breakpoints, etc.)
+const excludedProps = ['gap', 'wrap', 'direction', 'align', 'distribute'];
+
 export type FlexProps = BoxProps & MakeBreakpoints<BaseProps>;
 
-const styledDiv = createStyledWithBreakpoints(flexCss);
+const styledDiv = createStyledWithBreakpoints(flexCss, 'div', excludedProps);
 
 export const Flex = forwardRef<HTMLElement, PropsWithChildren<FlexProps>>(({el, style, className, children, ...props}, ref) => {
     const Element = el ? styledDiv.withComponent(el) : styledDiv;

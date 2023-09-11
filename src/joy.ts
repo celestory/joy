@@ -22,14 +22,15 @@ export {TextBox} from './core/components/TextBox/TextBox';
 export {TextSpan} from './core/components/TextSpan/TextSpan';
 export {TextLink} from './core/components/TextLink/TextLink';
 export {ImageBox} from './core/components/ImageBox/ImageBox';
+
 export {ProgressBar} from './core/components/ProgressBar/ProgressBar';
+export {ProgressCircle} from './core/components/Forms/ProgressCircle/ProgressCircle';
 
 export {Input} from './core/components/Forms/Input/Input';
 export {Select} from './core/components/Forms/Select/Select';
 export {Range} from './core/components/Forms/Range/Range';
 export {Toggle} from './core/components/Forms/Toggle/Toggle';
 export {Checkbox} from './core/components/Forms/Checkbox/Checkbox';
-export {CircleProgress} from './core/components/Forms/CircleProgress/CircleProgress';
 export {Button, LinkButton} from './core/components/Forms/Button/Button';
 
 export {SegmentedArea} from './core/components/SegmentedControl/SegmentedArea';

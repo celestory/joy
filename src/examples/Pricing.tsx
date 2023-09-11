@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {AutoGrid, Button, Card, Flex, TextBox, useCheckboxState} from '../joy';
+import {AutoGrid, Button, Card, Checkbox, Flex, TextBox, useCheckboxState} from '../joy';
 
 const Heading = styled(TextBox)`
     font-size: clamp(2.5rem, 7vw, 4.5rem);
@@ -8,10 +8,6 @@ const Heading = styled(TextBox)`
 const List = styled(Flex)`
     list-style: none;
     color: var(--joy-subForeground);
-`;
-
-const PricingButton = styled(Button)`
-    background-color: var(--joy-yellow);
 `;
 
 const TextSpan = styled.span`
@@ -33,15 +29,14 @@ export const Pricing = () => {
                 weight="light"
                 textAlign="center"
                 lineHeight={1.5}
-                color="theme:colors.dimmed"
+                fg="theme:colors.dimmed"
                 maxWidth="40rem"
                 margin="0 auto"
             >
                 Simple pricing example with responsive layout. The price automatically updates using useCheckboxState hook.
             </TextBox>
             <Flex margin="0 auto 2.5rem auto" gap="0.5rem">
-                <label>Pay yearly (save 20%)</label>
-                <input type="checkbox" checked={isYearly} onChange={toggleYearly} />
+                <Checkbox checked={isYearly} label="Pay yearly (save 20%)" onChange={toggleYearly} />
             </Flex>
             <AutoGrid minColumn="14rem" gap="1rem">
                 <Card direction="y" padding="1.5rem" gap="1rem">
@@ -52,10 +47,10 @@ export const Pricing = () => {
                         <li>👯 5 users included</li>
                         <li>🗃 2GB of storage</li>
                     </List>
-                    <TextBox color="theme:colors.dimmed">
+                    <TextBox fg="theme:colors.dimmed">
                         <TextSpan>$0</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <PricingButton>Sign up for Free</PricingButton>
+                    <Button bg="theme:colors.success">Sign up for Free</Button>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -67,10 +62,10 @@ export const Pricing = () => {
                         <li>✉️ Email support</li>
                         <li>🤫 Offline mode</li>
                     </List>
-                    <TextBox color="theme:colors.dimmed">
+                    <TextBox fg="theme:colors.dimmed">
                         <TextSpan>${isYearly ? 50 : 5}</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <PricingButton>Subscribe now</PricingButton>
+                    <Button bg="theme:colors.success">Subscribe now</Button>
                 </Card>
                 <Card direction="y" padding="1.5rem" gap="1rem">
                     <TextBox el="h2" margin="0">
@@ -82,12 +77,12 @@ export const Pricing = () => {
                         <li>✉️ Email support</li>
                         <li>🤫 Offline mode</li>
                     </List>
-                    <TextBox color="theme:colors.dimmed">
+                    <TextBox fg="theme:colors.dimmed">
                         <TextSpan>${isYearly ? 100 : 10}</TextSpan>/{isYearly ? 'year' : 'month'}
                     </TextBox>
-                    <PricingButton>Subscribe now</PricingButton>
+                    <Button bg="theme:colors.success">Subscribe now</Button>
                 </Card>
-                <Card direction="y" padding="1.5rem" gap="1rem" bg="magenta">
+                <Card direction="y" padding="1.5rem" gap="1rem" bg="theme:colors.dimmed">
                     <TextBox el="h2" margin="0">
                         Enterprise
                     </TextBox>
@@ -98,7 +93,7 @@ export const Pricing = () => {
                         <li>🤫 Offline mode</li>
                         <li>🎨 Custom export</li>
                     </List>
-                    <PricingButton>Contact Us</PricingButton>
+                    <Button bg="theme:colors.success">Contact Us</Button>
                 </Card>
             </AutoGrid>
         </Flex>

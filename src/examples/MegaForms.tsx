@@ -165,22 +165,37 @@ export const MegaForms = () => {
             </TextBox>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem'}}>
                 <Input type="search" value={search} onChange={setSearch} />
-                <Toggle color="theme:colors.success" checked={toggled} onChange={onToggle} />
+                <Toggle bg="theme:colors.success" checked={toggled} onChange={onToggle} />
                 <Toggle checked={toggled} onChange={onToggle} />
                 <Checkbox size="2rem" label="Something big" checked={checked} onChange={onCheckboxToggle} />
                 <Checkbox label="Something to check" checked={checked} onChange={onCheckboxToggle} />
+                <Checkbox label="Something colorful" fg="magenta" bg="theme:colors.success" checked={checked} onChange={onCheckboxToggle} />
                 <Checkbox disabled label="Indeterminate version" checked={checked} indeterminate={true} onChange={onCheckboxToggle} />
                 <SegmentedControl value={framework} onChange={setFramework} segments={frameworks} />
-                <Button
-                    size=".8rem"
-                    disabled={frameworks.length > 3}
-                    onClick={e => {
-                        e.preventDefault();
-                        setFrameworks(f => [{value: 'angular', label: 'Angular'}, ...f]);
-                    }}
-                >
-                    Add framework
-                </Button>
+                <Flex gap="0.5rem">
+                    <Button
+                        size=".8rem"
+                        disabled={frameworks.length > 3}
+                        onClick={e => {
+                            e.preventDefault();
+                            setFrameworks(f => [{value: 'angular', label: 'Angular'}, ...f]);
+                        }}
+                    >
+                        Add framework
+                    </Button>
+                    <Button
+                        size=".8rem"
+                        bg="theme:colors.error"
+                        disabled={frameworks.length <= 3}
+                        onClick={e => {
+                            e.preventDefault();
+                            setFrameworks(f => f.filter(f => f.value !== 'angular'));
+                        }}
+                    >
+                        Delete framework
+                    </Button>
+                </Flex>
+
                 <SegmentedControl name="caca" value={textAlign} onChange={setTextAlign} segments={textAligns} />
                 <SegmentedArea name="cacahuete" value={distribute} onChange={setDistribute} segments={distributes} />
                 <label htmlFor="pseudo">Pseudo</label>

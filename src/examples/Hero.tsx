@@ -18,7 +18,7 @@ export const Hero = () => {
     const dialog = useOpenState(false);
     return (
         <Flex el="main" direction="y" minHeight="fill">
-            <TextBox color="theme:colors.accent"></TextBox>
+            <TextBox fg="theme:colors.accent"></TextBox>
             <Header el="header" gap="0.5rem" padding="1rem 2rem 1rem 1rem" align="center">
                 <ImageBox width="2rem" src="/logo.svg" />
                 <TextBox size="1.2rem" weight="bold" margin="0 auto 0 0">
@@ -49,7 +49,7 @@ export const Hero = () => {
                     weight="light"
                     textAlign="center"
                     lineHeight={1.5}
-                    color="theme:colors.dimmed"
+                    fg="theme:colors.dimmed"
                     maxWidth="35rem"
                     margin="0 auto"
                 >
@@ -90,8 +90,11 @@ export const Hero = () => {
                     </Flex>
                 </Flex>
             </Flex>
-            <Dialog isOpen={dialog.isOpen} onRequestClose={dialog.close}>
-                <h1>Coucou 👋</h1>
+            <Dialog direction="y" isOpen={dialog.isOpen} onRequestClose={dialog.close} align="center" gap="1rem">
+                <TextBox el="h2" font="theme:fonts.heading" size="1.2rem">
+                    Coucou 👋
+                </TextBox>
+                <TextBox>This is just a demo, there is nothing to join by the way 🤷</TextBox>
                 <Button onClick={dialog.close}>Close</Button>
             </Dialog>
         </Flex>

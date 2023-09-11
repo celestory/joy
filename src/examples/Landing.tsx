@@ -32,19 +32,21 @@ export const Landing = () => {
                 <Flex direction="y" lg-width="50%" shrink={false} align="start" padding="2rem" gap="1.5rem">
                     <TextBox el="h1" weight="bold" margin="0" size="2.5rem" xl-size="3rem">
                         An impactful message about{' '}
-                        <TextSpan el="strong" weight="bold" color="theme:colors.accent">
+                        <TextSpan el="strong" weight="bold" fg="theme:colors.accent">
                             your product
                         </TextSpan>
                         .
                     </TextBox>
-                    <TextBox el="h2" size="1.2rem" weight="light" color="theme:colors.dimmed">
+                    <TextBox el="h2" size="1.2rem" weight="light" fg="theme:colors.dimmed">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus ipsum.
                     </TextBox>
                     <Flex gap="1rem">
                         <LinkButton xl-size="1.1rem" href="/pricing">
                             Book a demo
                         </LinkButton>
-                        <SubButton xl-size="1.1rem">Hire an expert</SubButton>
+                        <SubButton bg="theme:colors.fg" xl-size="1.1rem">
+                            Hire an expert
+                        </SubButton>
                     </Flex>
                 </Flex>
                 <Box grow lg-padding="0 2rem 0 0">
