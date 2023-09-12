@@ -12,11 +12,6 @@ import type {Breakpoints} from '../../../utils/types/break';
 
 export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' = '') => css`
     padding: 0.8em;
-    &[type='search'] {
-        padding-left: 2.6em;
-        width: 100%;
-        height: 100%;
-    }
 
     outline: none;
 
@@ -34,6 +29,31 @@ export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' =
     }
     &:focus {
         ${surfaceCss({}, 'input._focus')}
+    }
+
+    &[type='search'] {
+        padding-left: 2.6em;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* clears the ‘X’ from Internet Explorer */
+    &[type='search']::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    &[type='search']::-ms-reveal {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    /* clears the ‘X’ from Chrome */
+    &[type='search']::-webkit-search-decoration,
+    &[type='search']::-webkit-search-cancel-button,
+    &[type='search']::-webkit-search-results-button,
+    &[type='search']::-webkit-search-results-decoration {
+        display: none;
     }
 `;
 
