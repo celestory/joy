@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import {Box} from '../Box/Box';
+import {scrollbar} from '../../utils/scrollbarCss';
 import {themeConst} from '../../utils/types/theme';
 
 export const Prose = styled(Box)`
@@ -62,9 +63,14 @@ export const Prose = styled(Box)`
             padding: 0;
             white-space: pre;
         }
+        ${scrollbar}
     }
 
     a {
         text-decoration: underline;
+    }
+
+    img {
+        margin: auto;
     }
 `;
