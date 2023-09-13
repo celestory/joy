@@ -106,6 +106,10 @@ export const ThemeProvider = ({theme, styles, imports, noReset, children}: Props
                             font: inherit;
                         }
 
+                        textarea {
+                            resize: vertical;
+                        }
+
                         p,
                         h1,
                         h2,

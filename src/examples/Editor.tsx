@@ -75,7 +75,7 @@ export const Editor = () => {
                 <Button size="0.8rem">Publish</Button>
             </Toolbar>
             <Flex el="main" grow={true} overflow="auto">
-                <OtherInspector direction="y" width="25%" minWidth="20rem" padding="1rem" gap="1.5rem">
+                <OtherInspector direction="y" width="25%" minWidth="20rem" padding="1rem" gap="1.5rem" overflow="auto">
                     <Flex el="header">
                         <TextBox id="test" font="theme:fonts.heading" size="1.2rem">
                             create a message
