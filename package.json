@@ -19,6 +19,7 @@
         "dev": "vite --host",
         "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "build": "tsc && vite --config vite.build.ts build",
+        "build:dev": "vite --config vite.build.ts build --watch",
         "prepare": "tsc && vite --config vite.build.ts build"
     },
     "dependencies": {
