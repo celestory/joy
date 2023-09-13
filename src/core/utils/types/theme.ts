@@ -11,7 +11,7 @@ export type CSSBorder = 'none' | `${number}px ${'solid' | 'dashed' | 'dotted'} $
 export type CSSShadow = `${number}em ${number}em ${number}em ${number}em ${CSSColor}`;
 export type CSSMargin = '0' | `${number}rem` | `${number}%` | 'auto';
 export type CSSPadding = '0' | `${number}rem` | `${number}em`;
-export type CSSOverflow = 'auto' | 'hidden' | 'visible';
+export type CSSOverflow = 'auto' | 'scroll' | 'hidden' | 'visible';
 export type CSSPosition = 'absolute' | 'relative';
 
 export type CSSFontSize = `${number}rem` | `clamp(${number}rem, ${number}vw, ${number}rem)`;
