@@ -37,6 +37,7 @@ export {SegmentedArea} from './core/components/SegmentedControl/SegmentedArea';
 export {SegmentedControl} from './core/components/SegmentedControl/SegmentedControl';
 
 export {Dialog} from './core/components/Dialog/Dialog';
+export {Popover} from './core/components/Popover/Popover';
 
 export {ThemeProvider} from './core/Theme/ThemeProvider';
 export {darkTheme, lightTheme} from './core/Theme/themes';

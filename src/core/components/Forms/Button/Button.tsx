@@ -1,4 +1,4 @@
-import type {ButtonHTMLAttributes, LinkHTMLAttributes} from 'react';
+import {forwardRef, type ButtonHTMLAttributes, type LinkHTMLAttributes} from 'react';
 
 import {buttonCss} from './buttonCss';
 import {createStyledWithBreakpoints} from '../../../utils/breakpoints';
@@ -18,9 +18,9 @@ export type ButtonProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps
 
 const StyledButton = createStyledWithBreakpoints(buttonCss, 'button');
 
-export const Button = ({style, className, ...props}: ButtonProps) => {
-    return <StyledButton {...props} style={style!} className={className} />;
-};
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({style, className, ...props}, ref) => {
+    return <StyledButton {...props} style={style!} className={className} ref={ref} />;
+});
 
 export type LinkButtonProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps> & LinkHTMLAttributes<HTMLAnchorElement>;
 

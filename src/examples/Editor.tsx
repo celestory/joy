@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import {useCallback, useMemo} from 'react';
-import {Button, Flex, Input, Select, TextArea, TextBox, themeConst} from '../joy';
+import {useCallback, useMemo, useState} from 'react';
+import {Button, Card, Flex, Input, Popover, Select, TextArea, TextBox, themeConst} from '../joy';
 
 interface Component {
     title: string;
@@ -18,6 +18,47 @@ const OtherInspector = styled(Flex)`
 const Inspector = styled(Flex)`
     border-left: 2px solid ${themeConst('theme:colors.area')};
 `;
+
+const CardWithBorders = styled(Card)`
+    border: 2px solid ${themeConst('theme:colors.area')};
+`;
+
+const ConfigIntegration = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <Popover isOpen={isOpen} onChange={setIsOpen} target={<Button fg="theme:colors.fg">Configure API</Button>}>
+            <CardWithBorders direction="y" padding="1rem" bg="theme:colors.bg" gap="1rem" width="18rem">
+                <Flex el="section" direction="y" gap="1rem">
+                    <TextBox el="label" font="theme:fonts.heading" size="0.9rem">
+                        Name
+                    </TextBox>
+                    <Input />
+                    <TextBox el="small" size="0.8rem" fg="theme:colors.dimmed" padding="0 0.5rem">
+                        This is an arbitrary name to help you differenciate your different connections.
+                    </TextBox>
+                </Flex>
+                <Flex el="section" direction="y" gap="0.5rem">
+                    <TextBox el="label" font="theme:fonts.heading" size="0.9rem">
+                        API Key
+                    </TextBox>
+                    <Input />
+                    <TextBox el="small" size="0.8rem" fg="theme:colors.dimmed" padding="0 0.5rem">
+                        Check out <a href="#randomLink">our guide</a> to see how to get your API key.
+                    </TextBox>
+                </Flex>
+                <Flex el="section" direction="y" gap="1rem">
+                    <TextBox el="label" font="theme:fonts.heading" size="0.9rem">
+                        Organisation ID
+                    </TextBox>
+                    <Input />
+                    <TextBox el="small" size="0.8rem" fg="theme:colors.dimmed" padding="0 0.5rem">
+                        Check out <a href="#randomLink">our guide</a> to see how to get your Organisation ID.
+                    </TextBox>
+                </Flex>
+            </CardWithBorders>
+        </Popover>
+    );
+};
 
 export const Editor = () => {
     const components = useMemo(() => new Array<Component>(5).fill({title: 'Component', properties: new Array(3).fill({name: 'name', value: 'value'})}), []);
@@ -41,12 +82,13 @@ export const Editor = () => {
                         </TextBox>
                     </Flex>
                     <Flex el="section" direction="y" gap="1rem">
-                        <TextBox el="label" font="theme:fonts.heading">
+                        <TextBox el="label" font="theme:fonts.heading" fg="theme:colors.error">
                             Connection
                         </TextBox>
-                        <Button fg="theme:colors.fg" bg="theme:colors.area">
-                            Configure API
-                        </Button>
+                        <ConfigIntegration />
+                        <TextBox el="small" size="0.8rem" fg="theme:colors.error" padding="0 0.5rem">
+                            Your connection isn't properly setup 😱
+                        </TextBox>
                         <TextBox el="small" size="0.8rem" fg="theme:colors.dimmed" padding="0 0.5rem">
                             You need to configure OpenAI API in order to use it, check out our guide.
                         </TextBox>

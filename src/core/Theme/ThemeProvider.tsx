@@ -117,6 +117,7 @@ export const ThemeProvider = ({theme, styles, imports, noReset, children}: Props
                         }
 
                         a {
+                            color: ${themeConst('theme:colors.accent')};
                             text-decoration: none;
                         }
 
