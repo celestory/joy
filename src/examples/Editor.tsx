@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import {useCallback, useMemo} from 'react';
-import {Button, Flex, Input, TextBox} from '../joy';
+import {Button, Flex, Input, Select, TextArea, TextBox, themeConst} from '../joy';
 
 interface Component {
     title: string;
@@ -8,15 +8,15 @@ interface Component {
 }
 
 const Toolbar = styled(Flex)`
-    border-bottom: 2px solid var(--joy-subBackground);
+    border-bottom: 2px solid ${themeConst('theme:colors.area')};
 `;
 
-const Tree = styled(TextBox)`
-    border-right: 2px solid var(--joy-subBackground);
+const OtherInspector = styled(Flex)`
+    border-right: 2px solid ${themeConst('theme:colors.area')};
 `;
 
 const Inspector = styled(Flex)`
-    border-left: 2px solid var(--joy-subBackground);
+    border-left: 2px solid ${themeConst('theme:colors.area')};
 `;
 
 export const Editor = () => {
@@ -34,22 +34,49 @@ export const Editor = () => {
                 <Button size="0.8rem">Publish</Button>
             </Toolbar>
             <Flex el="main" grow={true} overflow="auto">
-                <Tree lineHeight={1.7} fg="theme:colors.dimmed" width="30%" minWidth="20rem" padding="1rem" shrink={false} overflow="auto">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis labore hic aliquid modi! Officiis sapiente dolore quisquam reiciendis
-                    veritatis architecto, earum corrupti reprehenderit nemo soluta? Fugit voluptas vero officia perspiciatis. Lorem, ipsum dolor sit amet
-                    consectetur adipisicing elit. Rerum, optio? Cumque iusto nam odio ipsam sint veniam dolore repudiandae voluptas culpa quam quasi fuga
-                    impedit cupiditate facilis, autem sapiente magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iure eius voluptatem
-                    animi asperiores labore, rerum vero libero ab quaerat sit, dolorum doloribus dolorem odit obcaecati reprehenderit quos temporibus voluptas.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, neque. Deleniti asperiores ex possimus cumque neque temporibus eius
-                    consequatur exercitationem, beatae nesciunt quisquam aut ad laborum voluptas quod obcaecati facere. Lorem ipsum dolor, sit amet consectetur
-                    adipisicing elit. Corporis labore hic aliquid modi! Officiis sapiente dolore quisquam reiciendis veritatis architecto, earum corrupti
-                    reprehenderit nemo soluta? Fugit voluptas vero officia perspiciatis. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, optio?
-                    Cumque iusto nam odio ipsam sint veniam dolore repudiandae voluptas culpa quam quasi fuga impedit cupiditate facilis, autem sapiente magni.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iure eius voluptatem animi asperiores labore, rerum vero libero ab
-                    quaerat sit, dolorum doloribus dolorem odit obcaecati reprehenderit quos temporibus voluptas. Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Excepturi, neque. Deleniti asperiores ex possimus cumque neque temporibus eius consequatur exercitationem, beatae nesciunt
-                    quisquam aut ad laborum voluptas quod obcaecati facere.
-                </Tree>
+                <OtherInspector direction="y" width="25%" minWidth="20rem" padding="1rem" gap="1.5rem">
+                    <Flex el="header">
+                        <TextBox id="test" font="theme:fonts.heading" size="1.2rem">
+                            create a message
+                        </TextBox>
+                    </Flex>
+                    <Flex el="section" direction="y" gap="1rem">
+                        <TextBox el="label" font="theme:fonts.heading">
+                            Connection
+                        </TextBox>
+                        <Button fg="theme:colors.fg" bg="theme:colors.area">
+                            Configure API
+                        </Button>
+                        <TextBox el="small" size="0.8rem" fg="theme:colors.dimmed" padding="0 0.5rem">
+                            You need to configure OpenAI API in order to use it, check out our guide.
+                        </TextBox>
+                    </Flex>
+                    <Flex el="section" direction="y" gap="1rem">
+                        <TextBox el="label" font="theme:fonts.heading">
+                            Model
+                        </TextBox>
+                        <Select>
+                            <option>GPT-3</option>
+                            <option>GPT-3.5</option>
+                            <option>GPT-4</option>
+                        </Select>
+                    </Flex>
+                    <Flex el="section" direction="y" gap="1rem">
+                        <TextBox el="label" font="theme:fonts.heading">
+                            Prompt
+                        </TextBox>
+                        <TextArea />
+                        <TextBox el="small" size="0.8rem" fg="theme:colors.dimmed" padding="0 0.5rem">
+                            Prompts are human readable texts that allow you to talk to an AI model to tell it what to generate.
+                        </TextBox>
+                    </Flex>
+                    <Flex el="section" direction="y" gap="1rem">
+                        <TextBox el="label" font="theme:fonts.heading">
+                            Max Token
+                        </TextBox>
+                        <Input type="number" />
+                    </Flex>
+                </OtherInspector>
                 <Flex grow={true} align="center" distribute="center">
                     <TextBox fg="theme:colors.dimmed" textAlign="center" padding="1rem">
                         Editor's preview goes here 🙃

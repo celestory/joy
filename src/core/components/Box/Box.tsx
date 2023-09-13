@@ -7,6 +7,7 @@ import type {WithBreakpoint, MakeBreakpoints} from '../../utils/types/break';
 import type {CSSWidth, CSSHeight, CSSMargin, CSSPadding, CSSOverflow} from '../../utils/types/theme';
 
 interface BaseProps extends DOMAttributes<HTMLElement> {
+    id?: string;
     role?: string;
     style?: CSSProperties;
     className?: string;

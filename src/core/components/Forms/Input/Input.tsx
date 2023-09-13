@@ -31,3 +31,9 @@ export const Input = ({style, className, type, ...props}: InputProps) => {
     }
     return inputEl;
 };
+
+const StyledTextArea = createStyledWithBreakpoints(inputCss, 'textarea');
+
+export const TextArea = ({style, className, type, ...props}: InputProps) => {
+    return <StyledTextArea {...props} style={style!} className={className} type={type} />;
+};

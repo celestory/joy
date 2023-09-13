@@ -19,7 +19,7 @@ export const selectCss = (props: SelectProps, breakpoint: `${Breakpoints}-` | ''
     color: ${themeConst('theme:input.fg')};
 
     font: ${themeConst('theme:fonts.ui')};
-    font-size: ${props[`${breakpoint}size`]};
+    font-size: ${props[`${breakpoint}size`] || '0.85rem'};
 
     transition: ${themeConst('theme:input.transition')} all;
 

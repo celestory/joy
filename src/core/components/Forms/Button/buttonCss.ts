@@ -20,7 +20,7 @@ export const buttonCss = (props: ButtonProps, breakpoint: `${Breakpoints}-` | ''
     text-decoration: none;
 
     font: ${themeConst('theme:fonts.button')};
-    font-size: ${props[`${breakpoint}size`]};
+    font-size: ${props[`${breakpoint}size`] || '0.85rem'};
 
     color: ${themeProp(props.fg, themeConst('theme:button.fg'))};
     opacity: ${themeProp(props.opacity, themeConst('theme:button.opacity'))};
