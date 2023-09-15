@@ -13,6 +13,7 @@ import {themeConst} from '../../../joy';
 type DialogProps = {
     isOpen: boolean;
     animation?: Animation;
+    noBackdrop?: boolean;
     animationDuration?: `${number}s`;
     onRequestClose?: () => void;
 } & CardProps;
@@ -37,13 +38,25 @@ const StyledDialog = styled.dialog<Omit<DialogProps, 'isOpen' | 'onClose'> & {cl
             `};
     }
 
-    &::backdrop {
-        backdrop-filter: blur(${themeConst('theme:backdrop.blur')});
-        background-color: ${themeConst('theme:backdrop.color')};
-    }
+    ${props =>
+        props.noBackdrop === undefined &&
+        css`
+            &::backdrop {
+                backdrop-filter: blur(${themeConst('theme:backdrop.blur')});
+                background-color: ${themeConst('theme:backdrop.color')};
+            }
+        `}
 `;
 
-export const Dialog = ({isOpen, onRequestClose, animation = 'center', animationDuration = '0.3s', children, ...props}: PropsWithChildren<DialogProps>) => {
+export const Dialog = ({
+    isOpen,
+    onRequestClose,
+    animation = 'center',
+    animationDuration = '0.3s',
+    noBackdrop,
+    children,
+    ...props
+}: PropsWithChildren<DialogProps>) => {
     const ref = useRef<HTMLDialogElement>(null);
 
     const handleClick = useCallback(
@@ -81,6 +94,7 @@ export const Dialog = ({isOpen, onRequestClose, animation = 'center', animationD
             el="dialog"
             closing={!isOpen}
             animation={animation}
+            noBackdrop={noBackdrop}
             animationDuration={animationDuration}
             onClick={handleClick}
             onCancel={handleCancel}
