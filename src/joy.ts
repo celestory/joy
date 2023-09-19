@@ -2,7 +2,7 @@ export {css} from '@emotion/react';
 import styled from '@emotion/styled';
 export {styled};
 
-export {themeConst, themeProp} from './core/utils/types/theme';
+export {themeProp, themeConst} from './core/utils/types/theme';
 
 export {useOpenState} from './core/hooks/useOpenState';
 export {useInputState} from './core/hooks/useInputState';
@@ -40,6 +40,7 @@ export {SegmentedControl} from './core/components/SegmentedControl/SegmentedCont
 export {Dialog} from './core/components/Dialog/Dialog';
 export {Popover} from './core/components/Popover/Popover';
 
+export {useTheme} from './core/Theme/theme';
 export {ThemeProvider} from './core/Theme/ThemeProvider';
 export {darkTheme, lightTheme} from './core/Theme/themes';
 

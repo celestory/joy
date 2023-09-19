@@ -5,6 +5,7 @@ import type {PropsWithChildren} from 'react';
 
 import {darkTheme} from './themes';
 import {themeConst} from '../utils/types/theme';
+import {themeContext} from './theme';
 import type {Theme, BaseTheme, CustomTheme} from '../utils/types/theme';
 
 interface ThemeProviderProps {
@@ -54,7 +55,7 @@ export const ThemeProvider = ({theme, styles, imports, noReset, children}: Props
     const cssVariables = createThemeVariables(finalTheme).join('\n');
 
     return (
-        <>
+        <themeContext.Provider value={finalTheme}>
             <Global
                 styles={css`
                     ${imports};
@@ -133,6 +134,6 @@ export const ThemeProvider = ({theme, styles, imports, noReset, children}: Props
                 `}
             />
             {children}
-        </>
+        </themeContext.Provider>
     );
 };
