@@ -1,4 +1,4 @@
-import type {PropsWithChildren} from 'react';
+import {memo, type PropsWithChildren} from 'react';
 
 import {gridCss} from './gridCss';
 import {createStyledWithBreakpoints} from '../../utils/breakpoints';
@@ -14,13 +14,12 @@ interface BaseProps {
 
 export type GridProps = BoxProps & MakeBreakpoints<BaseProps>;
 
-const styledDiv = createStyledWithBreakpoints(gridCss);
+const Element = createStyledWithBreakpoints(gridCss);
 
-export const Grid = ({el, style, className, children, ...props}: PropsWithChildren<GridProps>) => {
-    const Element = el ? styledDiv.withComponent(el) : styledDiv;
+export const Grid = memo(({el, style, className, children, ...props}: PropsWithChildren<GridProps>) => {
     return (
-        <Element {...props} style={style!} className={className}>
+        <Element {...props} as={el} style={style!} className={className}>
             {children}
         </Element>
     );
-};
+});

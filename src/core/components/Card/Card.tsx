@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {forwardRef} from 'react';
+import {forwardRef, memo} from 'react';
 import type {PropsWithChildren} from 'react';
 
 import {Flex} from '../Flex/Flex';
@@ -14,16 +14,17 @@ export type CardProps = {
     shadow?: WithTheme<CSSShadow>;
 } & FlexProps;
 
-const styledDiv = styled(Flex)<CardProps>`
+const Element = styled(Flex)<CardProps>`
     /* FIXME: try to remove spread */
     ${props => surfaceCss({...props}, 'card')}
 ` as any;
 
-export const Card = forwardRef<HTMLElement, PropsWithChildren<CardProps>>(({el, style, className, children, ...props}, ref) => {
-    const Element = el ? styledDiv.withComponent(el) : styledDiv;
-    return (
-        <Element {...props} ref={ref} style={style!} className={className}>
-            {children}
-        </Element>
-    );
-});
+export const Card = memo(
+    forwardRef<HTMLElement, PropsWithChildren<CardProps>>(({el, style, className, children, ...props}, ref) => {
+        return (
+            <Element {...props} as={el} ref={ref} style={style!} className={className}>
+                {children}
+            </Element>
+        );
+    }),
+);

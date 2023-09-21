@@ -1,4 +1,4 @@
-import {forwardRef} from 'react';
+import {forwardRef, memo} from 'react';
 import type {CSSProperties, DOMAttributes, PropsWithChildren} from 'react';
 
 import {boxCss} from './boxCss';
@@ -46,13 +46,14 @@ export type BoxFlexItemProps = MakeBreakpoints<FlexItemProps>;
 export type BoxGridItemProps = MakeBreakpoints<GridItemProps>;
 export type BoxProps = MakeBreakpoints<BaseProps> & (BoxFlexItemProps | BoxGridItemProps);
 
-const styledDiv = createStyledWithBreakpoints(boxCss);
+const Element = createStyledWithBreakpoints(boxCss);
 
-export const Box = forwardRef<HTMLElement, PropsWithChildren<BoxProps>>(({el, style, className, children, ...props}, ref) => {
-    const Element = el ? styledDiv.withComponent(el) : styledDiv;
-    return (
-        <Element {...props} ref={ref} style={style!} className={className}>
-            {children}
-        </Element>
-    );
-});
+export const Box = memo(
+    forwardRef<HTMLElement, PropsWithChildren<BoxProps>>(({el, style, className, children, ...props}, ref) => {
+        return (
+            <Element {...props} as={el} ref={ref} style={style!} className={className}>
+                {children}
+            </Element>
+        );
+    }),
+);

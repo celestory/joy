@@ -1,4 +1,4 @@
-import {forwardRef} from 'react';
+import {forwardRef, memo} from 'react';
 import type {PropsWithChildren} from 'react';
 
 import {flexCss} from './flexCss';
@@ -21,13 +21,14 @@ const excludedProps = ['gap', 'wrap', 'direction', 'align', 'distribute'];
 
 export type FlexProps = BoxProps & MakeBreakpoints<BaseProps>;
 
-const styledDiv = createStyledWithBreakpoints(flexCss, 'div', excludedProps);
+const Element = createStyledWithBreakpoints(flexCss, 'div', excludedProps);
 
-export const Flex = forwardRef<HTMLElement, PropsWithChildren<FlexProps>>(({el, style, className, children, ...props}, ref) => {
-    const Element = el ? styledDiv.withComponent(el) : styledDiv;
-    return (
-        <Element {...props} ref={ref} style={style!} className={className}>
-            {children}
-        </Element>
-    );
-});
+export const Flex = memo(
+    forwardRef<HTMLElement, PropsWithChildren<FlexProps>>(({el, style, className, children, ...props}, ref) => {
+        return (
+            <Element {...props} as={el} ref={ref} style={style!} className={className}>
+                {children}
+            </Element>
+        );
+    }),
+);

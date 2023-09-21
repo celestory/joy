@@ -1,4 +1,4 @@
-import type {InputHTMLAttributes} from 'react';
+import {useMemo, type InputHTMLAttributes} from 'react';
 
 import {InputWrapper, inputCss} from './inputCss';
 import {createStyledWithBreakpoints} from '../../../utils/breakpoints';
@@ -16,7 +16,10 @@ export type InputProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps>
 const StyledInput = createStyledWithBreakpoints(inputCss, 'input');
 
 export const Input = ({style, className, type, ...props}: InputProps) => {
-    const inputEl = <StyledInput {...props} style={style!} className={type === 'search' ? undefined : className} type={type} />;
+    const inputEl = useMemo(
+        () => <StyledInput {...props} style={style!} className={type === 'search' ? undefined : className} type={type} />,
+        [className, props, style, type],
+    );
     if (type === 'search') {
         return (
             <InputWrapper className={className} {...props}>

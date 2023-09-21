@@ -6,9 +6,9 @@ import type {MouseEvent, PropsWithChildren, SyntheticEvent} from 'react';
 import {flexCss} from '../Flex/flexCss';
 import {animations} from '../../utils/animations';
 import {surfaceCss} from '../../utils/surfaceCss';
+import {themeConst} from '../../../joy';
 import type {CardProps} from '../Card/Card';
 import type {Animation} from '../../utils/animations';
-import {themeConst} from '../../../joy';
 
 type DialogProps = {
     isOpen: boolean;

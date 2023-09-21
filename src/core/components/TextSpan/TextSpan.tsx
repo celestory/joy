@@ -24,12 +24,11 @@ interface BaseProps extends TextProps {
 
 export type TextSpanProps = MakeBreakpoints<BaseProps>;
 
-const styledDiv = createStyledWithBreakpoints(textSpanCss);
+const Element = createStyledWithBreakpoints(textSpanCss);
 
 export const TextSpan = ({el = 'span', style, className, children, ...props}: PropsWithChildren<TextSpanProps>) => {
-    const Element = el ? styledDiv.withComponent(el) : styledDiv;
     return (
-        <Element {...props} style={style!} className={className}>
+        <Element {...props} as={el} style={style!} className={className}>
             {children}
         </Element>
     );

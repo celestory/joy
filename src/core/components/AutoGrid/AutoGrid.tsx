@@ -1,13 +1,9 @@
-import {css} from '@emotion/react';
-import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
-import type {StyledOptions} from '@emotion/styled';
-import type {PropsWithChildren} from 'react';
+import {memo, type PropsWithChildren} from 'react';
 
 import {autoGridCss} from './autoGridCss';
-import {breakpoints} from '../../utils/types/break';
+import {createStyledWithBreakpoints} from '../../utils/breakpoints';
 import type {BoxProps} from '../Box/Box';
-import type {Breakpoints, MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
+import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 
 interface BaseProps {
     gap?: WithBreakpoint<`${number}rem`>;
@@ -17,26 +13,12 @@ interface BaseProps {
 
 export type AutoGridProps = BoxProps & MakeBreakpoints<BaseProps>;
 
-const options: StyledOptions<BoxProps> = {
-    shouldForwardProp: prop => isPropValid(prop) && !['el', 'gap', 'mode', 'minColumn'].includes(prop),
-};
-const styledDiv = styled('div', options)<AutoGridProps>`
-    ${props => autoGridCss(props)}
-    ${props =>
-        Object.entries(breakpoints).map(([prefix, width]) => {
-            return css`
-                @media (min-width: ${width}) {
-                    ${autoGridCss(props, `${prefix as Breakpoints}-`)}
-                }
-            `;
-        })}
-` as any;
+const Element = createStyledWithBreakpoints(autoGridCss);
 
-export const AutoGrid = ({el, style, className, children, ...props}: PropsWithChildren<AutoGridProps>) => {
-    const Element = el ? styledDiv.withComponent(el) : styledDiv;
+export const AutoGrid = memo(({el, style, className, children, ...props}: PropsWithChildren<AutoGridProps>) => {
     return (
-        <Element {...props} style={style!} className={className}>
+        <Element {...props} el={el} style={style!} className={className}>
             {children}
         </Element>
     );
-};
+});

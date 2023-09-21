@@ -11,8 +11,8 @@ import {
     useInteractions,
     FloatingFocusManager,
 } from '@floating-ui/react';
+import {cloneElement, useMemo} from 'react';
 import type {Placement} from '@floating-ui/react';
-import {cloneElement} from 'react';
 import type {PropsWithChildren, ReactNode} from 'react';
 
 type Props = {
@@ -35,8 +35,14 @@ export const Popover = ({isOpen, onChange, target, placement, children}: PropsWi
     const dismiss = useDismiss(context);
     const role = useRole(context);
     const {getReferenceProps, getFloatingProps} = useInteractions([click, dismiss, role]);
-    const targetWithProps = cloneElement(target as any, {ref: refs.setReference, ...getReferenceProps()});
-    const childrenWithProps = cloneElement(children as any, {ref: refs.setFloating, style: floatingStyles, ...getFloatingProps()});
+    const targetWithProps = useMemo(
+        () => cloneElement(target as any, {ref: refs.setReference, ...getReferenceProps()}),
+        [getReferenceProps, refs.setReference, target],
+    );
+    const childrenWithProps = useMemo(
+        () => cloneElement(children as any, {ref: refs.setFloating, style: floatingStyles, ...getFloatingProps()}),
+        [children, floatingStyles, getFloatingProps, refs.setFloating],
+    );
     return (
         <>
             {targetWithProps}
