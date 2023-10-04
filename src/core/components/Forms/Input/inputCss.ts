@@ -65,6 +65,7 @@ export const InputWrapper = styled(Box)`
         position: absolute;
         left: 0.8em;
         height: calc(100% - 1.6em);
+        pointer-events: none;
         [fill='black'] {
             fill: ${themeConst('theme:colors.dimmed')};
         }
