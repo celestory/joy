@@ -11,7 +11,7 @@ import {
     useInteractions,
     FloatingFocusManager,
 } from '@floating-ui/react';
-import {cloneElement, useMemo} from 'react';
+import {cloneElement, memo, useMemo} from 'react';
 import type {Placement} from '@floating-ui/react';
 import type {PropsWithChildren, ReactNode} from 'react';
 
@@ -23,7 +23,7 @@ type Props = {
     placement?: Placement;
 };
 
-export const Popover = ({isOpen, onChange, target, placement, children}: PropsWithChildren<Props>) => {
+export const Popover = memo(function Popover({isOpen, onChange, target, placement, children}: PropsWithChildren<Props>) {
     const {refs, floatingStyles, context} = useFloating({
         placement,
         open: isOpen,
@@ -53,4 +53,4 @@ export const Popover = ({isOpen, onChange, target, placement, children}: PropsWi
             )}
         </>
     );
-};
+});
