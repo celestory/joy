@@ -22,7 +22,7 @@ export const Input = ({style, className, type, ...props}: InputProps) => {
     );
     if (type === 'search') {
         return (
-            <InputWrapper className={className} {...props}>
+            <InputWrapper className={className}>
                 <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="5.5" cy="5.5" r="4.5" stroke="black" strokeWidth="2" />
                     <rect width="6.98326" height="2.09498" rx="1.04749" transform="matrix(0.708801 0.705408 -0.708801 0.705408 9.01477 7.59613)" fill="black" />
