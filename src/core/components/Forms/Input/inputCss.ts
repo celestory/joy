@@ -60,6 +60,14 @@ export const inputCss = (props: InputProps, breakpoint: `${Breakpoints}-` | '' =
 export const InputWrapper = styled(Box)`
     position: relative;
     display: flex;
+    ${props => inputCss(props)}
+    padding: 0;
+    border: none;
+    &:hover,
+    &:active {
+        padding: 0;
+        border: none;
+    }
     align-items: center;
     svg {
         position: absolute;
