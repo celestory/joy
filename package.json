@@ -23,13 +23,13 @@
         "prepare": "tsc && vite --config vite.build.ts build"
     },
     "dependencies": {
-        "@emotion/react": "^11.x",
-        "@emotion/styled": "^11.x",
         "@floating-ui/react": "^0.26.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
+        "@emotion/react": "^11.11.1",
+        "@emotion/styled": "^11.11.0",
         "@types/node": "^20.10.0",
         "@types/react": "^18.2.39",
         "@types/react-dom": "^18.2.17",
@@ -44,6 +44,8 @@
         "vite-plugin-dts": "^3.5.4"
     },
     "peerDependencies": {
+        "@emotion/react": "^11.x",
+        "@emotion/styled": "^11.x",
         "react": ">=18.x",
         "react-dom": ">=18.x"
     }

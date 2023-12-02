@@ -1,7 +1,3 @@
-export {css} from '@emotion/react';
-import styled from '@emotion/styled';
-export {styled};
-
 export {themeProp, themeConst} from './core/utils/types/theme';
 
 export {useOpenState} from './core/hooks/useOpenState';
