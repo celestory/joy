@@ -15,5 +15,5 @@ export const useInputState = <T extends string>(initialValue: T) => {
     const handleChange = useCallback<InputEventHandler>((event: InputEvent<T>) => {
         setValue(typeof event === 'string' ? event : (event.currentTarget.value as T));
     }, []);
-    return [value, handleChange] as const;
+    return [value, handleChange, setValue] as const;
 };
