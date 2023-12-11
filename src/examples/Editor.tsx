@@ -114,13 +114,30 @@ const ConfigIntegration = ({connections}: {connections: string[]}) => {
 export const Editor = () => {
     const components = useMemo(() => new Array<Component>(5).fill({title: 'Component', properties: new Array(3).fill({name: 'name', value: 'value'})}), []);
     const changeProperty = useCallback(() => {}, []);
+    const {isOpen, set} = useOpenState();
     return (
         <Flex height="fill" direction="y">
             <Toolbar el="header" padding="0.5rem 1rem" gap="1rem" align="center">
-                <TextBox size="1.2rem" weight="bold" margin="0 auto 0 0">
+                <TextBox size="1.2rem" weight="bold">
                     Classic Editor UI
                 </TextBox>
-                <TextBox>A</TextBox>
+                <Popover
+                    isOpen={isOpen}
+                    onChange={set}
+                    target={
+                        <Button fg="theme:colors.fg" bg="theme:colors.area">
+                            +
+                        </Button>
+                    }
+                    placement="bottom-end"
+                >
+                    <CardWithBorders direction="y" margin="1rem 0 0 0" padding="1rem" bg="theme:colors.bg" gap="1rem" width="18rem">
+                        {['Block 1', 'Block 2', 'Block 2'].map(n => (
+                            <Button key={n}>{n}</Button>
+                        ))}
+                    </CardWithBorders>
+                </Popover>
+                <TextBox margin="0 0 0 auto">A</TextBox>
                 <TextBox>B</TextBox>
                 <TextBox>C</TextBox>
                 <Button size="0.8rem">Publish</Button>
