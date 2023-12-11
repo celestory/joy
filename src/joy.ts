@@ -1,5 +1,6 @@
 export {themeProp, themeConst} from './core/utils/types/theme';
 
+export {useMeasure} from './core/hooks/useMeasure';
 export {useOpenState} from './core/hooks/useOpenState';
 export {useInputState} from './core/hooks/useInputState';
 export {useRangeState} from './core/hooks/useRangeState';
