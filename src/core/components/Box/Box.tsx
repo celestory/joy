@@ -10,6 +10,7 @@ interface BaseProps extends DOMAttributes<HTMLElement> {
     id?: string;
     role?: string;
     style?: CSSProperties;
+    title?: string;
     className?: string;
     //
     el?: keyof JSX.IntrinsicElements;
