@@ -1,4 +1,4 @@
-import {memo, type PropsWithChildren} from 'react';
+import {forwardRef, memo, type PropsWithChildren} from 'react';
 
 import {textBoxCss} from './textBoxCss';
 import {createStyledWithBreakpoints} from '../../utils/breakpoints';
@@ -10,10 +10,12 @@ export type TextBoxProps = BoxProps & MakeBreakpoints<TextProps>;
 
 const Element = createStyledWithBreakpoints(textBoxCss);
 
-export const TextBox = memo(({el, style, className, children, ...props}: PropsWithChildren<TextBoxProps>) => {
-    return (
-        <Element {...props} as={el} style={style!} className={className}>
-            {children}
-        </Element>
-    );
-});
+export const TextBox = memo(
+    forwardRef<HTMLElement, PropsWithChildren<TextBoxProps>>(({el, style, className, children, ...props}, ref) => {
+        return (
+            <Element {...props} as={el} ref={ref} style={style!} className={className}>
+                {children}
+            </Element>
+        );
+    }),
+);
