@@ -1,11 +1,12 @@
-import {useMemo, type InputHTMLAttributes} from 'react';
+import {useMemo, forwardRef} from 'react';
+import type {InputHTMLAttributes} from 'react';
 
-import {InputWrapper, inputCss} from './inputCss';
+import {inputCss, InputWrapper} from './inputCss';
 import {createStyledWithBreakpoints} from '../../../utils/breakpoints';
 import type {BoxProps} from '../../Box/Box';
 import type {OmitStrict} from '../../../utils/types/utils';
 import type {CSSFontSize} from '../../../utils/types/theme';
-import type {MakeBreakpoints, WithBreakpoint} from '../../../utils/types/break';
+import type {WithBreakpoint, MakeBreakpoints} from '../../../utils/types/break';
 
 interface BaseProps extends OmitStrict<InputHTMLAttributes<HTMLInputElement>, 'size'> {
     size?: WithBreakpoint<CSSFontSize>;
@@ -14,12 +15,12 @@ interface BaseProps extends OmitStrict<InputHTMLAttributes<HTMLInputElement>, 's
 export type InputProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps>;
 
 const StyledInput = createStyledWithBreakpoints(inputCss, 'input');
+const filteredProps = ['onBlur', 'onFocus', 'onChange'];
 
-const filteredProps = ['onChange', 'onBlur', 'onFocus'];
-export const Input = ({style, className, type, ...props}: InputProps) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({type, style, className, ...props}, ref) => {
     const inputEl = useMemo(
-        () => <StyledInput {...props} style={style!} className={type === 'search' ? undefined : className} type={type} />,
-        [className, props, style, type],
+        () => <StyledInput ref={ref} {...props} type={type} style={style!} className={type === 'search' ? undefined : className} />,
+        [ref, type, props, style, className],
     );
     const forwardedProps = useMemo(
         () =>
@@ -28,6 +29,7 @@ export const Input = ({style, className, type, ...props}: InputProps) => {
             }, {}),
         [props],
     );
+
     if (type === 'search') {
         return (
             <InputWrapper className={className} {...forwardedProps} onChange={undefined}>
@@ -41,10 +43,10 @@ export const Input = ({style, className, type, ...props}: InputProps) => {
         );
     }
     return inputEl;
-};
+});
 
 const StyledTextArea = createStyledWithBreakpoints(inputCss, 'textarea');
 
-export const TextArea = ({style, className, type, ...props}: InputProps) => {
-    return <StyledTextArea {...props} style={style!} className={className} type={type} />;
-};
+export const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(({style, className, type, ...props}, ref) => {
+    return <StyledTextArea ref={ref} {...props} type={type} style={style!} className={className} />;
+});
