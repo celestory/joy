@@ -11,6 +11,7 @@ export interface TextProps {
     size?: WithBreakpoint<CSSFontSize>;
     italic?: boolean;
     weight?: WithTheme<CSSFontWeight>;
+    breakWord?: boolean;
     textAlign?: 'start' | 'center' | 'end';
     lineHeight?: number;
     letterSpacing?: `${number}px`;
