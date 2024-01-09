@@ -11,5 +11,5 @@ export const useOpenState = (initialValue = false) => {
     const toggle = useCallback(() => {
         set(value => !value);
     }, []);
-    return {isOpen, set, open, close, toggle} as const;
+    return {set, open, close, toggle, isOpen} as const;
 };

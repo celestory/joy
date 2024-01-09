@@ -32,7 +32,9 @@ export const Popover = memo(function Popover({isOpen, onChange, target, placemen
         whileElementsMounted: autoUpdate,
     });
     const click = useClick(context);
-    const dismiss = useDismiss(context);
+    const dismiss = useDismiss(context, {
+        outsidePressEvent: 'click',
+    });
     const role = useRole(context);
     const {getReferenceProps, getFloatingProps} = useInteractions([click, dismiss, role]);
     const targetWithProps = useMemo(
