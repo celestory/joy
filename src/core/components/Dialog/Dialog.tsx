@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 import styled from '@emotion/styled';
 import {useRef, useEffect, useCallback} from 'react';
-import type {MouseEvent, PropsWithChildren, SyntheticEvent} from 'react';
+import type {KeyboardEvent, MouseEvent, PropsWithChildren, SyntheticEvent} from 'react';
 
 import {flexCss} from '../Flex/flexCss';
 import {animations} from '../../utils/animations';
@@ -62,7 +62,10 @@ export const Dialog = ({
     const handleClick = useCallback(
         (event: MouseEvent<HTMLDialogElement>) => {
             if (event.target === ref.current) {
-                onRequestClose?.();
+                const rect = ref.current.getBoundingClientRect();
+                if (!(event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom)) {
+                    onRequestClose?.();
+                }
             }
         },
         [onRequestClose],
@@ -72,6 +75,16 @@ export const Dialog = ({
         (event: SyntheticEvent<HTMLDialogElement>) => {
             event.preventDefault();
             onRequestClose?.();
+        },
+        [onRequestClose],
+    );
+
+    const handleKeyDown = useCallback(
+        (event: KeyboardEvent<HTMLDialogElement>) => {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                onRequestClose?.();
+            }
         },
         [onRequestClose],
     );
@@ -97,6 +110,7 @@ export const Dialog = ({
             noBackdrop={noBackdrop}
             animationDuration={animationDuration}
             onClick={handleClick}
+            onKeyDown={handleKeyDown}
             onCancel={handleCancel}
             onAnimationEnd={handleAnimationEnd}
             {...props}
