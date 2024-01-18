@@ -84,6 +84,7 @@ export const Dialog = ({
             if (event.key === 'Escape') {
                 event.preventDefault();
                 onRequestClose?.();
+                event.stopPropagation();
             }
         },
         [onRequestClose],
