@@ -8,6 +8,7 @@ import type {FlexProps} from '../Flex/Flex';
 import type {CSSBorder, CSSColor, CSSRadius, CSSShadow, WithTheme} from '../../utils/types/theme';
 
 export type CardProps = {
+    zIndex?: number;
     bg?: WithTheme<CSSColor>;
     border?: WithTheme<CSSBorder>;
     radius?: WithTheme<CSSRadius>;
@@ -15,6 +16,7 @@ export type CardProps = {
 } & FlexProps;
 
 const Element = styled(Flex)<CardProps>`
+    z-index: ${props => props.zIndex};
     /* FIXME: try to remove spread */
     ${props => surfaceCss({...props}, 'card')}
 ` as any;
