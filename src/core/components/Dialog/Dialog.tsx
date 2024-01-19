@@ -73,8 +73,10 @@ export const Dialog = ({
 
     const handleCancel = useCallback(
         (event: SyntheticEvent<HTMLDialogElement>) => {
-            event.preventDefault();
-            onRequestClose?.();
+            if (event.target === ref.current) {
+                event.preventDefault();
+                onRequestClose?.();
+            }
         },
         [onRequestClose],
     );
