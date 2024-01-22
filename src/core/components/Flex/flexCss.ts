@@ -12,7 +12,7 @@ const directionToCss = {
 };
 export type FlexDirection = keyof Omit<typeof directionToCss, 'default'>;
 
-const alignToCss = {
+export const alignToCss = {
     end: 'flex-end',
     start: 'flex-start',
     center: 'center',
