@@ -9,5 +9,6 @@ export const imageBoxCss = (props: ImageBoxProps, breakpoint: `${Breakpoints}-` 
     ${boxCss(props, breakpoint)}
 
     object-fit: ${props.fit};
+    aspect-ratio: ${props.aspectRatio};
     border-radius: ${themeProp(props[`${breakpoint}radius`])};
 `;

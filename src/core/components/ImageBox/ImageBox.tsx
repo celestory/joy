@@ -10,6 +10,7 @@ import type {MakeBreakpoints, WithBreakpoint} from '../../utils/types/break';
 interface BaseProps extends ImgHTMLAttributes<HTMLImageElement> {
     fit?: 'content' | 'cover';
     radius?: WithBreakpoint<WithTheme<CSSRadius>>;
+    aspectRatio?: number;
 }
 
 export type ImageBoxProps = OmitStrict<BoxProps, 'el'> & MakeBreakpoints<BaseProps>;
