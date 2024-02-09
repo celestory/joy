@@ -24,20 +24,20 @@
         "prepare": "tsc && vite --config vite.build.ts build"
     },
     "dependencies": {
-        "@floating-ui/react": "^0.26.4",
-        "@react-hookz/web": "^24.0.2",
+        "@floating-ui/react": "^0.26.9",
+        "@react-hookz/web": "^24.0.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
         "@emotion/react": "^11.11.3",
         "@emotion/styled": "^11.11.0",
-        "@types/node": "^20.10.6",
-        "@types/react": "^18.2.46",
-        "@types/react-dom": "^18.2.18",
-        "@typescript-eslint/eslint-plugin": "^6.17.0",
-        "@typescript-eslint/parser": "^6.17.0",
-        "@vitejs/plugin-react-swc": "^3.5.0",
+        "@types/node": "^20.11.17",
+        "@types/react": "^18.2.55",
+        "@types/react-dom": "^18.2.19",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "@vitejs/plugin-react-swc": "^3.6.0",
         "eslint": "^8.56.0",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.5",
