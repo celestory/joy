@@ -29,6 +29,7 @@ export {Range} from './core/components/Forms/Range/Range';
 export {Toggle} from './core/components/Forms/Toggle/Toggle';
 export {Checkbox} from './core/components/Forms/Checkbox/Checkbox';
 export {Input, TextArea} from './core/components/Forms/Input/Input';
+export {ResizableTextarea} from './core/components/Forms/Input/ResizableTextarea';
 export {Button, LinkButton} from './core/components/Forms/Button/Button';
 
 export {SegmentedArea} from './core/components/SegmentedControl/SegmentedArea';
