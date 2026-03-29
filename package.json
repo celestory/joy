@@ -46,6 +46,7 @@
         "react-textarea-autosize": "^8.5.3"
     },
     "peerDependencies": {
+        "@emotion/cache": "*",
         "@emotion/react": "^11.x",
         "@emotion/styled": "^11.x",
         "react": ">=18.x",
